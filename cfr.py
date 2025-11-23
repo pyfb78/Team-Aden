@@ -1,9 +1,15 @@
 import pickle
 from dataclasses import dataclass
-from typing import Dict, List, Tuple, Callable, Iterable
+from typing import Dict, List, Tuple, Callable, Iterable, Set
+import os
+import zipfile
+import numpy as np
+from parser import Game
+from team_belief_dag import TeamBeliefDAG, BeliefNode, ObsNode
 
-from team_belief_dag import TeamBeliefDAG, BeliefNode, ObsNode  # type: ignore
-
+ALPHA: float = 1.5
+BETA: float = 0.0
+GAMMA: float = 2.0
 
 @dataclass
 class DAGForCFR:
@@ -182,7 +188,7 @@ class DagCFRPlayer:
     # -------------------------------
     # Forward pass: compute strategy
     # -------------------------------
-    def next_strategy(self) -> List[float]:
+    def next_strategy(self, t: int) -> List[float]:
         """
         Run regret-matching at each active node, propagate reach x[s]
         from the root along the DAG, and update strategy_sum.
@@ -192,6 +198,38 @@ class DagCFRPlayer:
         """
         N = self.num_nodes
         dag = self.dag
+
+        # -------- DCFR discounting --------
+        # Regret discount factors
+        if t > 0:
+            pos_factor = (t ** ALPHA) / (t ** ALPHA + 1.0)
+            neg_factor = (t ** BETA) / (t ** BETA + 1.0)
+        else:
+            pos_factor = 1.0
+            neg_factor = 1.0
+
+        # Average-strategy discount factor
+        if t > 1:
+            strat_factor = ((t - 1.0) / t) ** GAMMA
+        else:
+            strat_factor = 1.0
+
+        # Apply DCFR discount to regrets and strategy sums
+        for idx, s in enumerate(self.active_nodes):
+            k = dag.num_actions[s]
+            # Discount regrets
+            for a in range(k):
+                r = self.regret[idx][a]
+                if r > 0.0:
+                    self.regret[idx][a] = r * pos_factor
+                elif r < 0.0:
+                    self.regret[idx][a] = r * neg_factor
+                # r == 0 stays 0
+
+            # Discount average strategy sums
+            if strat_factor != 1.0:
+                for a in range(k):
+                    self.strategy_sum[idx][a] *= strat_factor
 
         # Reset reach
         reach = [0.0] * N
@@ -282,7 +320,7 @@ class DagCFRPlayer:
                 for a in range(k):
                     child_obs = dag.action_children[s][a]
                     u_sa = u[child_obs]
-                    self.regret[idx][a] += u_sa - v_s
+                    self.regret[idx][a] = max(0.0, self.regret[idx][a] + u_sa - v_s)
 
                 # Value for upstream
                 u[s] += v_s
@@ -318,6 +356,177 @@ class DagCFRPlayer:
                 ]
 
         return avg
+
+def _collect_infoset_marginals(player) -> Tuple[
+    Dict[str, Dict[str, float]],  # infoset_name -> {'C': p, 'F': p, 'R': p} (unnormalized)
+    Dict[str, int],               # infoset_name -> player_id
+]:
+    """
+    Use the DagCFRPlayer's strategy_sum and the underlying TeamBeliefDAG
+    to compute, for each team infoset, the *flow-weighted* action counts.
+
+    We aggregate over:
+      - all belief nodes where that infoset appears,
+      - all 'prescription' actions at that belief,
+    using player.strategy_sum as weights.
+    """
+    dag_view = player.dag               # DAGForCFR
+    tbdag = dag_view.dag                # TeamBeliefDAG
+    game = tbdag.game                   # parser.Game
+
+    # Map infoset name -> owning player id and valid actions (C/F/R subset)
+    infoset_owner: Dict[str, int] = {}
+    for name, infoset in game.infosets.items():
+        if not infoset.nodes:
+            continue
+        some_hist = infoset.nodes[0]
+        node = game.nodes[some_hist]
+        if node.node_type != "player":
+            continue
+        infoset_owner[name] = node.player
+
+    # Initialize accumulators
+    infoset_weight: Dict[str, float] = {name: 0.0 for name in infoset_owner.keys()}
+    infoset_action_weight: Dict[str, Dict[str, float]] = {
+        name: {"C": 0.0, "F": 0.0, "R": 0.0} for name in infoset_owner.keys()
+    }
+
+    beliefs = tbdag.beliefs  # dict: belief_id -> BeliefNode
+
+    # For each active belief node s, we know:
+    #   - its children: key -> obs_id, where key is a PrescriptionKey
+    #   - player.strategy_sum[index][a] = total flow on action a at s
+    for idx, s in enumerate(player.active_nodes):
+        belief = beliefs[s]
+        children = getattr(belief, "children", None)
+        if not children:
+            continue
+
+        # Same ordering as in DAGForCFR.from_team_dag: sorted by key
+        keys_sorted = sorted(children.keys())
+        k = len(keys_sorted)
+        if k == 0:
+            continue
+
+        # strategy_sum row for this belief node
+        strat_row = player.strategy_sum[idx][:k]
+        visits_s = float(sum(strat_row))
+        if visits_s <= 0.0:
+            # Never visited in training
+            continue
+
+        for a_idx, pres_key in enumerate(keys_sorted):
+            weight = strat_row[a_idx]
+            if weight <= 0.0:
+                continue
+
+            # pres_key: tuple of (infoset_name, action_char)
+            for info_name, act in pres_key:
+                if info_name not in infoset_owner:
+                    continue
+                if act not in ("C", "F", "R"):
+                    continue
+
+                infoset_weight[info_name] += weight
+                infoset_action_weight[info_name][act] += weight
+
+    # Convert to normalized probabilities per infoset (still per-team;
+    # we will later restrict by player id and by allowed actions).
+    infoset_probs: Dict[str, Dict[str, float]] = {}
+    for name, w in infoset_weight.items():
+        acc = infoset_action_weight[name]
+        if w > 0.0:
+            infoset_probs[name] = {
+                "C": acc["C"] / w,
+                "F": acc["F"] / w,
+                "R": acc["R"] / w,
+            }
+        else:
+            # Will handle "never visited" later with uniform default
+            infoset_probs[name] = {"C": 0.0, "F": 0.0, "R": 0.0}
+
+    return infoset_probs, infoset_owner
+
+def export_team_to_zip(
+    player,
+    team: str,                 # "13" or "24"
+    zip_name = None,
+) -> None:
+    """
+    Export a DagCFRPlayer's learned policy for a team to team{TEAM}.zip
+    in the required format:
+
+      - meta-strategy.csv with a single line "0,1.0"
+      - strategy0-player{i}.npy for each i in TEAM
+        shape: (n_infosets_i, 3)
+        columns: [C, F, R]   (same convention as the uniform example code)
+    """
+    assert team in ("13", "24"), "TEAM must be '13' or '24'"
+    infoset_dir = "leduc-infosets"    # where player_i_infosets.txt live
+    if zip_name is None:
+        zip_name = f"team{team}.zip"
+
+    # Aggregated probabilities per infoset (for the whole team)
+    infoset_probs, infoset_owner = _collect_infoset_marginals(player)
+
+    with zipfile.ZipFile(zip_name, "w") as zf:
+        # Single-signal meta-strategy (no pre-game correlation beyond one profile)
+        with zf.open("meta-strategy.csv", "w") as f:
+            f.write("0,1.0\n".encode("utf-8"))
+
+        # One strategy tensor per team player
+        for pl_char in team:       # e.g. team="13" -> players 1 and 3
+            pid = int(pl_char)
+
+            infos_path = os.path.join(infoset_dir, f"player_{pid}_infosets.txt")
+            with open(infos_path, "r") as infos_file:
+                lines = infos_file.readlines()
+
+            n_infosets = len(lines)
+            # Columns: 0 -> C, 1 -> F, 2 -> R
+            tensor = np.zeros((n_infosets, 3), dtype=np.float64)
+
+            for row_idx, line in enumerate(lines):
+                parts = line.strip().split()
+                if len(parts) != 3:
+                    raise ValueError(
+                        f"Line {row_idx+1} in {infos_path} does not have 3 parts"
+                    )
+
+                idx_str, info_name, actions = parts
+                allowed = set(actions)  # e.g. {'C','F','R'}, {'C','F'}, {'C','R'}
+
+                # Probabilities from CFR (may be all zeros if never visited)
+                probs = infoset_probs.get(info_name, {"C": 0.0, "F": 0.0, "R": 0.0})
+                pC = probs.get("C", 0.0) if "C" in allowed else 0.0
+                pF = probs.get("F", 0.0) if "F" in allowed else 0.0
+                pR = probs.get("R", 0.0) if "R" in allowed else 0.0
+
+                s = pC + pF + pR
+
+                if s <= 1e-12:
+                    # Never visited / no info: fall back to uniform over allowed moves,
+                    # exactly like the sample "uniform policy" code.
+                    mass = 1.0 / len(allowed)
+                    pC = mass if "C" in allowed else 0.0
+                    pF = mass if "F" in allowed else 0.0
+                    pR = mass if "R" in allowed else 0.0
+                else:
+                    # Renormalize over allowed actions only
+                    pC /= s
+                    pF /= s
+                    pR /= s
+
+                # Fill row: [C, F, R]
+                tensor[row_idx, 0] = pC
+                tensor[row_idx, 1] = pF
+                tensor[row_idx, 2] = pR
+
+            # Save numpy array directly into the zip
+            out_name = f"strategy0-player{pid}.npy"
+            with zf.open(out_name, "w") as f:
+                # np.save works with file-like objects
+                np.save(f, tensor)
 
 def compute_chance_prob_for_history(game, hist: str) -> float:
     """
@@ -386,9 +595,31 @@ def payoff_to_team13(game, hist: str) -> float:
     u3 = payoffs.get(3, 0.0)
     return u1 + u3
 
+def payoff_to_team24(game, hist: str) -> float:
+    """
+    Payoff to team {2,4} at terminal history 'hist'.
+
+    Assumes:
+      - game.nodes[hist].node_type == "leaf"
+      - node.payoffs: Dict[int, float] with 1-based player indices.
+    """
+    if hist not in game.nodes:
+        raise KeyError(f"History {hist} not found in game.nodes")
+    node: Node = game.nodes[hist]
+    if node.node_type != "leaf":
+        raise ValueError(f"History {hist} is not a leaf node (type {node.node_type})")
+
+    payoffs = node.payoffs or {}
+    # Adjust these if your player numbering is different:
+    u2 = payoffs.get(2, 0.0)
+    u4 = payoffs.get(4, 0.0)
+    return u2 + u4
+
+
+
 class TwoTeamCFREngine:
     """
-    CFR engine for a two-team zero-sum game:
+    DCFR+(1.5, 0, 2) engine for a two-team zero-sum game:
 
         Team 1 = {1,3} -> dag_team1
         Team 2 = {2,4} -> dag_team2
@@ -426,8 +657,8 @@ class TwoTeamCFREngine:
         """
         for t in range(1, num_iters + 1):
             # 1) Each team computes its current strategy & reach
-            reach1 = self.player1.next_strategy()
-            reach2 = self.player2.next_strategy()
+            reach1 = self.player1.next_strategy(t)
+            reach2 = self.player2.next_strategy(t)
 
             # 2) Build counterfactual utilities at leaves for each team
             leaf_util_1: Dict[int, float] = {}
@@ -441,14 +672,15 @@ class TwoTeamCFREngine:
                 pi2 = reach2[s2]  # Team 2 realization reach
                 pi_c = self.chance_prob[h]
 
-                payoff = payoff_to_team13(self.game, h)  # payoff to Team 1
+                payoff1 = payoff_to_team13(self.game, h)  # payoff to Team 1
+                payoff2 = payoff_to_team24(self.game, h)  # payoff to Team 2
 
                 # Team 1 counterfactual utility: u1(z) * (chance × opponent reach)
-                cf1 = payoff * pi2 * pi_c
+                cf1 = payoff1 * pi2 * pi_c
                 leaf_util_1[s1] = leaf_util_1.get(s1, 0.0) + cf1
 
                 # Team 2 counterfactual utility: -u1(z) * (chance × Team1 reach)
-                cf2 = -payoff * pi1 * pi_c
+                cf2 = payoff2 * pi1 * pi_c
                 leaf_util_2[s2] = leaf_util_2.get(s2, 0.0) + cf2
 
             # 3) Backward pass on both TB-DAGs
@@ -457,10 +689,11 @@ class TwoTeamCFREngine:
 
             if verbose_every and t % verbose_every == 0:
                 print(f"[CFREngine] Completed iteration {t}")
-                with open("team13cfr.pickle", "wb") as f:
-                    pickle.dump(self.player1, f)
-                with open("team24cfr.pickle", "wb") as f:
-                    pickle.dump(self.player2, f)
+                # avg1, avg2 = self.average_strategies()
+                # print(self.evaluate_payoff(avg1, avg2))
+                export_team_to_zip(self.player1, team="13")
+                export_team_to_zip(self.player2, team="24")
+            
 
     def average_strategies(self) -> Tuple[Dict[int, List[float]], Dict[int, List[float]]]:
         """
@@ -472,35 +705,105 @@ class TwoTeamCFREngine:
         avg2 = self.player2.average_strategy()
         return avg1, avg2
 
-def main():
-    # Load the two TB-DAGs (filenames can be changed if needed)
+    def _reach_from_policy(
+        self,
+        view: DAGForCFR,
+        policy: Dict[int, List[float]],
+    ) -> List[float]:
+        """
+        Compute realization reach x[s] for a single team on its TB-DAG
+        given a *fixed* local policy at each active belief node.
+
+        Args:
+            view: DAGForCFR for that team.
+            policy: dict s -> list of action probabilities at node s.
+
+        Returns:
+            reach: list of length view.num_nodes, where reach[s] is the
+                   realization weight of node s for this team.
+        """
+        N = view.num_nodes
+        reach = [0.0] * N
+        reach[view.root] = 1.0
+
+        for s in view.topo_order:
+            # Decision node of this team
+            if view.is_belief[s] and view.num_actions[s] > 0:
+                k = view.num_actions[s]
+
+                # Get local policy; fall back to uniform if missing/mis-shaped
+                probs = policy.get(s)
+                if probs is None or len(probs) != k:
+                    probs = [1.0 / k] * k
+
+                for a in range(k):
+                    child = view.action_children[s][a]
+                    flow = reach[s] * probs[a]
+                    reach[child] += flow
+            else:
+                # Obs node or terminal belief: just copy flow forward
+                for child in view.children[s]:
+                    reach[child] += reach[s]
+
+        return reach
+
+    def evaluate_payoff(
+        self,
+        strat1: Dict[int, List[float]],
+        strat2: Dict[int, List[float]],
+    ) -> float:
+        """
+        Compute expected payoff to Team {1,3} given fixed strategies
+        strat1 (Team 1) and strat2 (Team 2).
+
+        Args:
+            strat1: dict node_id -> action probabilities for Team 1 TB-DAG.
+            strat2: dict node_id -> action probabilities for Team 2 TB-DAG.
+
+        Returns:
+            Expected payoff to Team {1,3}.
+        """
+        # Team-specific reach on each TB-DAG
+        reach1 = self._reach_from_policy(self.view1, strat1)
+        reach2 = self._reach_from_policy(self.view2, strat2)
+
+        expected_payoff = 0.0
+        for h in self.term_histories:
+            s1 = self.view1.leaf_for_hist[h]
+            s2 = self.view2.leaf_for_hist[h]
+
+            pi1 = reach1[s1]          # Team 1 realization reach
+            pi2 = reach2[s2]          # Team 2 realization reach
+            pi_c = self.chance_prob[h]  # Chance reach along history
+
+            payoff = payoff_to_team13(self.game, h)  # payoff to Team {1,3}
+
+            expected_payoff += pi_c * pi1 * pi2 * payoff
+
+        return expected_payoff
+
+if __name__ == "__main__":
+    # Load the two TB-DAGs
     # dag13: TeamBeliefDAG = pickle.load(open("TeamBeliefDag.pickle", "rb"))
     # print("Dag 13 pickled")
     # dag24: TeamBeliefDAG = pickle.load(open("TeamBeliefDag24.pickle", "rb"))
     # print("Dag 24 pickled")
-
-    # engine = TwoTeamCFREngine(dag_team1=dag13, dag_team2=dag24)
+    # game = Game()
+    # game.read_efg("leduc_tree.txt")
+    
+    dag_team1 = TeamBeliefDAG(game, [1, 3])
+    dag_team2 = TeamBeliefDAG(game, [2, 4])
+    
+    engine = TwoTeamCFREngine(dag_team1=dag_team1, dag_team2=dag_team2)
     # with open("CFREngine.pickle", "wb") as f:
     #     pickle.dump(engine, f)
+    print("Start!")
+
     with open("CFREngine.pickle", "rb") as f:
         engine = pickle.load(f)
 
-    print("Engine Built")
+    print("Engine Built!")
 
     
     num_iters = 1000000  # tweak as needed
-    engine.iterate(num_iters=num_iters, verbose_every=500)
-
-    avg1, avg2 = engine.average_strategies()
-
-    # print("Average strategy for Team {1,3}:")
-    # for s, probs in sorted(avg1.items()):
-    #     print(f"  belief node {s}: {probs}")
-
-    # print("\nAverage strategy for Team {2,4}:")
-    # for s, probs in sorted(avg2.items()):
-    #     print(f"  belief node {s}: {probs}")
-
-
-if __name__ == "__main__":
-    main()
+    engine.iterate(num_iters=num_iters, verbose_every=5)
