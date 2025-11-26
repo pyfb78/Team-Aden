@@ -5,7 +5,8 @@ import os
 import zipfile
 import numpy as np
 from parser import Game
-from team_belief_dag import TeamBeliefDAG, BeliefNode, ObsNode
+# from team_belief_dag import TeamBeliefDAG, BeliefNode, ObsNode
+from pavan_dag import TeamBeliefDAG, BeliefNode, ObsNode
 
 ALPHA: float = 1.5
 BETA: float = 0.0
@@ -163,6 +164,22 @@ class DagCFRPlayer:
     - observe_utility(leaf_util): backward pass, update regrets
     - average_strategy(): get average local policy at each active node
     """
+    
+    def regret_stats(self) -> Tuple[float, int, int]:
+        max_abs = 0.0
+        n_nan = 0
+        n_inf = 0
+        for row in self.regret:
+            for r in row:
+                if np.isnan(r):
+                    n_nan += 1
+                elif np.isinf(r):
+                    n_inf += 1
+                else:
+                    ar = abs(r)
+                    if ar > max_abs:
+                        max_abs = ar
+        return max_abs, n_nan, n_inf
 
     def __init__(self, dag_view: DAGForCFR):
         self.dag = dag_view
@@ -528,6 +545,55 @@ def export_team_to_zip(
                 # np.save works with file-like objects
                 np.save(f, tensor)
 
+def policy_sanity(view: DAGForCFR, policy: Dict[int, List[float]]) -> Tuple[float, float, float, int, int]:
+    min_p = float("inf")
+    max_p = float("-inf")
+    max_sum_err = 0.0
+    bad_sum = 0
+    bad_range = 0
+
+    for s in view.active_nodes:
+        k = view.num_actions[s]
+        probs = policy.get(s)
+        if probs is None or len(probs) != k:
+            continue
+
+        ssum = 0.0
+        for p in probs:
+            if np.isnan(p) or np.isinf(p):
+                bad_range += 1
+                continue
+            if p < min_p:
+                min_p = p
+            if p > max_p:
+                max_p = p
+            if p < -1e-9 or p > 1.0 + 1e-9:
+                bad_range += 1
+            ssum += p
+
+        err = abs(ssum - 1.0)
+        if err > max_sum_err:
+            max_sum_err = err
+        if err > 1e-6:
+            bad_sum += 1
+
+    if min_p == float("inf"):
+        min_p = 0.0
+    if max_p == float("-inf"):
+        max_p = 0.0
+
+    return min_p, max_p, max_sum_err, bad_sum, bad_range
+
+
+def zero_sum_sanity(engine) -> float:
+    m = 0.0
+    for h in engine.term_histories:
+        p1 = payoff_to_team13(engine.game, h)
+        p2 = payoff_to_team24(engine.game, h)
+        v = abs(p1 + p2)
+        if v > m:
+            m = v
+    return m
 def compute_chance_prob_for_history(game, hist: str) -> float:
     """
     Given a Game and a terminal history path string like
@@ -651,16 +717,56 @@ class TwoTeamCFREngine:
             for h in self.term_histories
         }
 
-    def iterate(self, num_iters: int, verbose_every: int = 0) -> None:
-        """
-        Run num_iters iterations of CFR.
-        """
+    # def iterate(self, num_iters: int, verbose_every: int = 0) -> None:
+    #     """
+    #     Run num_iters iterations of CFR.
+    #     """
+    #     for t in range(1, num_iters + 1):
+    #         # 1) Each team computes its current strategy & reach
+    #         reach1 = self.player1.next_strategy(t)
+    #         reach2 = self.player2.next_strategy(t)
+
+    #         # 2) Build counterfactual utilities at leaves for each team
+    #         leaf_util_1: Dict[int, float] = {}
+    #         leaf_util_2: Dict[int, float] = {}
+
+    #         for h in self.term_histories:
+    #             s1 = self.view1.leaf_for_hist[h]
+    #             s2 = self.view2.leaf_for_hist[h]
+
+    #             pi1 = reach1[s1]  # Team 1 realization reach
+    #             pi2 = reach2[s2]  # Team 2 realization reach
+    #             pi_c = self.chance_prob[h]
+
+    #             payoff1 = payoff_to_team13(self.game, h)  # payoff to Team 1
+    #             payoff2 = payoff_to_team24(self.game, h)  # payoff to Team 2
+
+    #             # Team 1 counterfactual utility: u1(z) * (chance × opponent reach)
+    #             cf1 = payoff1 * pi2 * pi_c
+    #             leaf_util_1[s1] = leaf_util_1.get(s1, 0.0) + cf1
+
+    #             # Team 2 counterfactual utility: -u1(z) * (chance × Team1 reach)
+    #             cf2 = payoff2 * pi1 * pi_c
+    #             leaf_util_2[s2] = leaf_util_2.get(s2, 0.0) + cf2
+
+    #         # 3) Backward pass on both TB-DAGs
+    #         self.player1.observe_utility(leaf_util_1)
+    #         self.player2.observe_utility(leaf_util_2)
+
+    #         if verbose_every and t % verbose_every == 0:
+    #             print(f"[CFREngine] Completed iteration {t}")
+    #             # avg1, avg2 = self.average_strategies()
+    #             # print(self.evaluate_payoff(avg1, avg2))
+    #             export_team_to_zip(self.player1, team="13")
+    #             export_team_to_zip(self.player2, team="24")
+     
+    def iterate(self, num_iters: int, monitor_every: int = 100, export_every: int = 0) -> None:
+        zs_gap = zero_sum_sanity(self)
+
         for t in range(1, num_iters + 1):
-            # 1) Each team computes its current strategy & reach
             reach1 = self.player1.next_strategy(t)
             reach2 = self.player2.next_strategy(t)
 
-            # 2) Build counterfactual utilities at leaves for each team
             leaf_util_1: Dict[int, float] = {}
             leaf_util_2: Dict[int, float] = {}
 
@@ -668,32 +774,44 @@ class TwoTeamCFREngine:
                 s1 = self.view1.leaf_for_hist[h]
                 s2 = self.view2.leaf_for_hist[h]
 
-                pi1 = reach1[s1]  # Team 1 realization reach
-                pi2 = reach2[s2]  # Team 2 realization reach
+                pi1 = reach1[s1]
+                pi2 = reach2[s2]
                 pi_c = self.chance_prob[h]
 
-                payoff1 = payoff_to_team13(self.game, h)  # payoff to Team 1
-                payoff2 = payoff_to_team24(self.game, h)  # payoff to Team 2
+                payoff1 = payoff_to_team13(self.game, h)
+                payoff2 = payoff_to_team24(self.game, h)
 
-                # Team 1 counterfactual utility: u1(z) * (chance × opponent reach)
                 cf1 = payoff1 * pi2 * pi_c
                 leaf_util_1[s1] = leaf_util_1.get(s1, 0.0) + cf1
 
-                # Team 2 counterfactual utility: -u1(z) * (chance × Team1 reach)
                 cf2 = payoff2 * pi1 * pi_c
                 leaf_util_2[s2] = leaf_util_2.get(s2, 0.0) + cf2
 
-            # 3) Backward pass on both TB-DAGs
             self.player1.observe_utility(leaf_util_1)
             self.player2.observe_utility(leaf_util_2)
 
-            if verbose_every and t % verbose_every == 0:
-                print(f"[CFREngine] Completed iteration {t}")
-                # avg1, avg2 = self.average_strategies()
-                # print(self.evaluate_payoff(avg1, avg2))
+            if monitor_every and (t % monitor_every == 0):
+                avg1, avg2 = self.average_strategies()
+                root_v = self.evaluate_payoff(avg1, avg2)
+
+                rmax1, nan1, inf1 = self.player1.regret_stats()
+                rmax2, nan2, inf2 = self.player2.regret_stats()
+
+                minp1, maxp1, sumerr1, badsum1, badrng1 = policy_sanity(self.view1, avg1)
+                minp2, maxp2, sumerr2, badsum2, badrng2 = policy_sanity(self.view2, avg2)
+
+                print(
+                    f"iter={t}  V(avg)={root_v:.6f}  "
+                    f"Rmax1={rmax1:.3e} nan/inf1={nan1}/{inf1}  "
+                    f"Rmax2={rmax2:.3e} nan/inf2={nan2}/{inf2}  "
+                    f"p1[min,max]=({minp1:.3g},{maxp1:.3g}) sumerr1={sumerr1:.3e} bad1(sum,range)={badsum1},{badrng1}  "
+                    f"p2[min,max]=({minp2:.3g},{maxp2:.3g}) sumerr2={sumerr2:.3e} bad2(sum,range)={badsum2},{badrng2}  "
+                    f"zerosum_gap_max={zs_gap:.3e}"
+                )
+
+            if export_every and (t % export_every == 0):
                 export_team_to_zip(self.player1, team="13")
                 export_team_to_zip(self.player2, team="24")
-            
 
     def average_strategies(self) -> Tuple[Dict[int, List[float]], Dict[int, List[float]]]:
         """
@@ -782,28 +900,40 @@ class TwoTeamCFREngine:
 
         return expected_payoff
 
-if __name__ == "__main__":
-    # Load the two TB-DAGs
-    # dag13: TeamBeliefDAG = pickle.load(open("TeamBeliefDag.pickle", "rb"))
-    # print("Dag 13 pickled")
-    # dag24: TeamBeliefDAG = pickle.load(open("TeamBeliefDag24.pickle", "rb"))
-    # print("Dag 24 pickled")
-    # game = Game()
-    # game.read_efg("leduc_tree.txt")
+# if __name__ == "__main__":
+#     # Load the two TB-DAGs
+#     # dag13: TeamBeliefDAG = pickle.load(open("TeamBeliefDag.pickle", "rb"))
+#     # print("Dag 13 pickled")
+#     # dag24: TeamBeliefDAG = pickle.load(open("TeamBeliefDag24.pickle", "rb"))
+#     # print("Dag 24 pickled")
+#     # game = Game()
+#     # game.read_efg("leduc_tree.txt")
     
+#     dag_team1 = TeamBeliefDAG(game, [1, 3])
+#     dag_team2 = TeamBeliefDAG(game, [2, 4])
+    
+#     engine = TwoTeamCFREngine(dag_team1=dag_team1, dag_team2=dag_team2)
+#     # with open("CFREngine.pickle", "wb") as f:
+#     #     pickle.dump(engine, f)
+#     print("Start!")
+
+#     with open("CFREngine.pickle", "rb") as f:
+#         engine = pickle.load(f)
+
+#     print("Engine Built!")
+
+    
+#     num_iters = 1000000  # tweak as needed
+#     engine.iterate(num_iters=num_iters, verbose_every=5)
+
+if __name__ == "__main__":
+    game = Game()
+    game.read_efg("leduc_tree.txt")
+
     dag_team1 = TeamBeliefDAG(game, [1, 3])
     dag_team2 = TeamBeliefDAG(game, [2, 4])
-    
+
     engine = TwoTeamCFREngine(dag_team1=dag_team1, dag_team2=dag_team2)
-    # with open("CFREngine.pickle", "wb") as f:
-    #     pickle.dump(engine, f)
-    print("Start!")
 
-    with open("CFREngine.pickle", "rb") as f:
-        engine = pickle.load(f)
+    engine.iterate(num_iters=5000, monitor_every=100, export_every=0)
 
-    print("Engine Built!")
-
-    
-    num_iters = 1000000  # tweak as needed
-    engine.iterate(num_iters=num_iters, verbose_every=5)
