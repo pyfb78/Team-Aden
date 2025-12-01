@@ -1,0 +1,15 @@
+node / player 1 actions r p s
+node /P1:r/ player 2 actions r p s
+node /P1:p/ player 2 actions r p s
+node /P1:s/ player 2 actions r p s
+node /P1:r/P2:r/ terminal payoffs 1=0 2=0
+node /P1:r/P2:p/ terminal payoffs 1=-1 2=1
+node /P1:r/P2:s/ terminal payoffs 1=1 2=-1
+node /P1:p/P2:r/ terminal payoffs 1=1 2=-1
+node /P1:p/P2:p/ terminal payoffs 1=0 2=0
+node /P1:p/P2:s/ terminal payoffs 1=-2 2=2
+node /P1:s/P2:r/ terminal payoffs 1=-1 2=1
+node /P1:s/P2:p/ terminal payoffs 1=2 2=-2
+node /P1:s/P2:s/ terminal payoffs 1=0 2=0
+infoset / nodes /
+infoset /P1:?/ nodes /P1:r/ /P1:p/ /P1:s/

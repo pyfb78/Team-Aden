@@ -1,0 +1,67 @@
+node / chance actions JQ=0.16666667 JK=0.16666667 QJ=0.16666667 QK=0.16666667 KJ=0.16666667 KQ=0.16666667
+node /C:JQ/ player 1 actions c b
+node /C:JQ/P1:c/ player 2 actions c b
+node /C:JQ/P1:c/P2:c/ terminal payoffs 1=-1 2=1
+node /C:JQ/P1:c/P2:b/ player 1 actions c f
+node /C:JQ/P1:c/P2:b/P1:c/ terminal payoffs 1=-2 2=2
+node /C:JQ/P1:c/P2:b/P1:f/ terminal payoffs 1=-1 2=1
+node /C:JQ/P1:b/ player 2 actions c f
+node /C:JQ/P1:b/P2:c/ terminal payoffs 1=-2 2=2
+node /C:JQ/P1:b/P2:f/ terminal payoffs 1=1 2=-1
+node /C:JK/ player 1 actions c b
+node /C:JK/P1:c/ player 2 actions c b
+node /C:JK/P1:c/P2:c/ terminal payoffs 1=-1 2=1
+node /C:JK/P1:c/P2:b/ player 1 actions c f
+node /C:JK/P1:c/P2:b/P1:c/ terminal payoffs 1=-2 2=2
+node /C:JK/P1:c/P2:b/P1:f/ terminal payoffs 1=-1 2=1
+node /C:JK/P1:b/ player 2 actions c f
+node /C:JK/P1:b/P2:c/ terminal payoffs 1=-2 2=2
+node /C:JK/P1:b/P2:f/ terminal payoffs 1=1 2=-1
+node /C:QJ/ player 1 actions c b
+node /C:QJ/P1:c/ player 2 actions c b
+node /C:QJ/P1:c/P2:c/ terminal payoffs 1=1 2=-1
+node /C:QJ/P1:c/P2:b/ player 1 actions c f
+node /C:QJ/P1:c/P2:b/P1:c/ terminal payoffs 1=2 2=-2
+node /C:QJ/P1:c/P2:b/P1:f/ terminal payoffs 1=-1 2=1
+node /C:QJ/P1:b/ player 2 actions c f
+node /C:QJ/P1:b/P2:c/ terminal payoffs 1=2 2=-2
+node /C:QJ/P1:b/P2:f/ terminal payoffs 1=1 2=-1
+node /C:QK/ player 1 actions c b
+node /C:QK/P1:c/ player 2 actions c b
+node /C:QK/P1:c/P2:c/ terminal payoffs 1=-1 2=1
+node /C:QK/P1:c/P2:b/ player 1 actions c f
+node /C:QK/P1:c/P2:b/P1:c/ terminal payoffs 1=-2 2=2
+node /C:QK/P1:c/P2:b/P1:f/ terminal payoffs 1=-1 2=1
+node /C:QK/P1:b/ player 2 actions c f
+node /C:QK/P1:b/P2:c/ terminal payoffs 1=-2 2=2
+node /C:QK/P1:b/P2:f/ terminal payoffs 1=1 2=-1
+node /C:KJ/ player 1 actions c b
+node /C:KJ/P1:c/ player 2 actions c b
+node /C:KJ/P1:c/P2:c/ terminal payoffs 1=1 2=-1
+node /C:KJ/P1:c/P2:b/ player 1 actions c f
+node /C:KJ/P1:c/P2:b/P1:c/ terminal payoffs 1=2 2=-2
+node /C:KJ/P1:c/P2:b/P1:f/ terminal payoffs 1=-1 2=1
+node /C:KJ/P1:b/ player 2 actions c f
+node /C:KJ/P1:b/P2:c/ terminal payoffs 1=2 2=-2
+node /C:KJ/P1:b/P2:f/ terminal payoffs 1=1 2=-1
+node /C:KQ/ player 1 actions c b
+node /C:KQ/P1:c/ player 2 actions c b
+node /C:KQ/P1:c/P2:c/ terminal payoffs 1=1 2=-1
+node /C:KQ/P1:c/P2:b/ player 1 actions c f
+node /C:KQ/P1:c/P2:b/P1:c/ terminal payoffs 1=2 2=-2
+node /C:KQ/P1:c/P2:b/P1:f/ terminal payoffs 1=-1 2=1
+node /C:KQ/P1:b/ player 2 actions c f
+node /C:KQ/P1:b/P2:c/ terminal payoffs 1=2 2=-2
+node /C:KQ/P1:b/P2:f/ terminal payoffs 1=1 2=-1
+infoset /C:J?/ nodes /C:JQ/ /C:JK/
+infoset /C:J?/P1:c/P2:b/ nodes /C:JQ/P1:c/P2:b/ /C:JK/P1:c/P2:b/
+infoset /C:K?/ nodes /C:KJ/ /C:KQ/
+infoset /C:K?/P1:c/P2:b/ nodes /C:KJ/P1:c/P2:b/ /C:KQ/P1:c/P2:b/
+infoset /C:Q?/ nodes /C:QJ/ /C:QK/
+infoset /C:Q?/P1:c/P2:b/ nodes /C:QJ/P1:c/P2:b/ /C:QK/P1:c/P2:b/
+infoset /C:?J/P1:b/ nodes /C:QJ/P1:b/ /C:KJ/P1:b/
+infoset /C:?J/P1:c/ nodes /C:QJ/P1:c/ /C:KJ/P1:c/
+infoset /C:?K/P1:b/ nodes /C:JK/P1:b/ /C:QK/P1:b/
+infoset /C:?K/P1:c/ nodes /C:JK/P1:c/ /C:QK/P1:c/
+infoset /C:?Q/P1:b/ nodes /C:JQ/P1:b/ /C:KQ/P1:b/
+infoset /C:?Q/P1:c/ nodes /C:JQ/P1:c/ /C:KQ/P1:c/

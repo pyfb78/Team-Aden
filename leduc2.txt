@@ -1,0 +1,2224 @@
+node / chance actions JJ=0.06666667 JQ=0.13333334 JK=0.13333334 QJ=0.13333334 QQ=0.06666667 QK=0.13333334 KJ=0.13333334 KQ=0.13333334 KK=0.06666667
+node /C:JJ/ player 1 actions C R
+node /C:JJ/P1:C player 2 actions C R
+node /C:JJ/P1:C/P2:C chance actions Q=0.5 K=0.5
+node /C:JJ/P1:C/P2:C/C:Q/ player 1 actions C R
+node /C:JJ/P1:C/P2:C/C:Q/P1:C player 2 actions C R
+node /C:JJ/P1:C/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:JJ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:JJ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JJ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JJ/P1:C/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:JJ/P1:C/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:JJ/P1:C/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:JJ/P1:C/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JJ/P1:C/P2:C/C:K/ player 1 actions C R
+node /C:JJ/P1:C/P2:C/C:K/P1:C player 2 actions C R
+node /C:JJ/P1:C/P2:C/C:K/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:JJ/P1:C/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:JJ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JJ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JJ/P1:C/P2:C/C:K/P1:R player 2 actions C F R
+node /C:JJ/P1:C/P2:C/C:K/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:C/C:K/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:JJ/P1:C/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:JJ/P1:C/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JJ/P1:C/P2:R player 1 actions C F R
+node /C:JJ/P1:C/P2:R/P1:C chance actions Q=0.5 K=0.5
+node /C:JJ/P1:C/P2:R/P1:C/C:Q/ player 1 actions C R
+node /C:JJ/P1:C/P2:R/P1:C/C:Q/P1:C player 2 actions C R
+node /C:JJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:JJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:JJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:JJ/P1:C/P2:R/P1:C/C:Q/P1:R player 2 actions C F R
+node /C:JJ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:JJ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:JJ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:JJ/P1:C/P2:R/P1:C/C:K/ player 1 actions C R
+node /C:JJ/P1:C/P2:R/P1:C/C:K/P1:C player 2 actions C R
+node /C:JJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:JJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:JJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:JJ/P1:C/P2:R/P1:C/C:K/P1:R player 2 actions C F R
+node /C:JJ/P1:C/P2:R/P1:C/C:K/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:R/P1:C/C:K/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:JJ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:JJ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:JJ/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:JJ/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JJ/P1:C/P2:R/P1:R/P2:C chance actions Q=0.5 K=0.5
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:Q/ player 1 actions C R
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C player 2 actions C R
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:K/ player 1 actions C R
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C player 2 actions C R
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R player 2 actions C F R
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:JJ/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:JJ/P1:R player 2 actions C F R
+node /C:JJ/P1:R/P2:C chance actions Q=0.5 K=0.5
+node /C:JJ/P1:R/P2:C/C:Q/ player 1 actions C R
+node /C:JJ/P1:R/P2:C/C:Q/P1:C player 2 actions C R
+node /C:JJ/P1:R/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:R/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:JJ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:JJ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JJ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:JJ/P1:R/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:JJ/P1:R/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:R/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:JJ/P1:R/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:JJ/P1:R/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:R/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:JJ/P1:R/P2:C/C:K/ player 1 actions C R
+node /C:JJ/P1:R/P2:C/C:K/P1:C player 2 actions C R
+node /C:JJ/P1:R/P2:C/C:K/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:R/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:JJ/P1:R/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:R/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:JJ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JJ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:JJ/P1:R/P2:C/C:K/P1:R player 2 actions C F R
+node /C:JJ/P1:R/P2:C/C:K/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:R/P2:C/C:K/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:JJ/P1:R/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:JJ/P1:R/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:R/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:JJ/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:JJ/P1:R/P2:R player 1 actions C F
+node /C:JJ/P1:R/P2:R/P1:C chance actions Q=0.5 K=0.5
+node /C:JJ/P1:R/P2:R/P1:C/C:Q/ player 1 actions C R
+node /C:JJ/P1:R/P2:R/P1:C/C:Q/P1:C player 2 actions C R
+node /C:JJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:JJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:JJ/P1:R/P2:R/P1:C/C:Q/P1:R player 2 actions C F R
+node /C:JJ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JJ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:JJ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:JJ/P1:R/P2:R/P1:C/C:K/ player 1 actions C R
+node /C:JJ/P1:R/P2:R/P1:C/C:K/P1:C player 2 actions C R
+node /C:JJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:JJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:JJ/P1:R/P2:R/P1:C/C:K/P1:R player 2 actions C F R
+node /C:JJ/P1:R/P2:R/P1:C/C:K/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:R/P2:R/P1:C/C:K/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JJ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:JJ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:JJ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:JJ/P1:R/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:JQ/ player 1 actions C R
+node /C:JQ/P1:C player 2 actions C R
+node /C:JQ/P1:C/P2:C chance actions J=0.25 Q=0.25 K=0.5
+node /C:JQ/P1:C/P2:C/C:J/ player 1 actions C R
+node /C:JQ/P1:C/P2:C/C:J/P1:C player 2 actions C R
+node /C:JQ/P1:C/P2:C/C:J/P1:C/P2:C leaf payoffs 1=1 2=-1
+node /C:JQ/P1:C/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:JQ/P1:C/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=5 2=-5
+node /C:JQ/P1:C/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:JQ/P1:C/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JQ/P1:C/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:JQ/P1:C/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JQ/P1:C/P2:C/C:J/P1:R player 2 actions C F R
+node /C:JQ/P1:C/P2:C/C:J/P1:R/P2:C leaf payoffs 1=5 2=-5
+node /C:JQ/P1:C/P2:C/C:J/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:JQ/P1:C/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:JQ/P1:C/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:JQ/P1:C/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JQ/P1:C/P2:C/C:Q/ player 1 actions C R
+node /C:JQ/P1:C/P2:C/C:Q/P1:C player 2 actions C R
+node /C:JQ/P1:C/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=-1 2=1
+node /C:JQ/P1:C/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:JQ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=-5 2=5
+node /C:JQ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:JQ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JQ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:JQ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JQ/P1:C/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:JQ/P1:C/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=-5 2=5
+node /C:JQ/P1:C/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:JQ/P1:C/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:JQ/P1:C/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:JQ/P1:C/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JQ/P1:C/P2:C/C:K/ player 1 actions C R
+node /C:JQ/P1:C/P2:C/C:K/P1:C player 2 actions C R
+node /C:JQ/P1:C/P2:C/C:K/P1:C/P2:C leaf payoffs 1=-1 2=1
+node /C:JQ/P1:C/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:JQ/P1:C/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=-5 2=5
+node /C:JQ/P1:C/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:JQ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JQ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:JQ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JQ/P1:C/P2:C/C:K/P1:R player 2 actions C F R
+node /C:JQ/P1:C/P2:C/C:K/P1:R/P2:C leaf payoffs 1=-5 2=5
+node /C:JQ/P1:C/P2:C/C:K/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:JQ/P1:C/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:JQ/P1:C/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:JQ/P1:C/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JQ/P1:C/P2:R player 1 actions C F R
+node /C:JQ/P1:C/P2:R/P1:C chance actions J=0.25 Q=0.25 K=0.5
+node /C:JQ/P1:C/P2:R/P1:C/C:J/ player 1 actions C R
+node /C:JQ/P1:C/P2:R/P1:C/C:J/P1:C player 2 actions C R
+node /C:JQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:C leaf payoffs 1=3 2=-3
+node /C:JQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:JQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=7 2=-7
+node /C:JQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:JQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=11 2=-11
+node /C:JQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:JQ/P1:C/P2:R/P1:C/C:J/P1:R player 2 actions C F R
+node /C:JQ/P1:C/P2:R/P1:C/C:J/P1:R/P2:C leaf payoffs 1=7 2=-7
+node /C:JQ/P1:C/P2:R/P1:C/C:J/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:JQ/P1:C/P2:R/P1:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:JQ/P1:C/P2:R/P1:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=11 2=-11
+node /C:JQ/P1:C/P2:R/P1:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:JQ/P1:C/P2:R/P1:C/C:Q/ player 1 actions C R
+node /C:JQ/P1:C/P2:R/P1:C/C:Q/P1:C player 2 actions C R
+node /C:JQ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:C leaf payoffs 1=-3 2=3
+node /C:JQ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:JQ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=-7 2=7
+node /C:JQ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:JQ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JQ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-11 2=11
+node /C:JQ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:JQ/P1:C/P2:R/P1:C/C:Q/P1:R player 2 actions C F R
+node /C:JQ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:C leaf payoffs 1=-7 2=7
+node /C:JQ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:JQ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:JQ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=-11 2=11
+node /C:JQ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:JQ/P1:C/P2:R/P1:C/C:K/ player 1 actions C R
+node /C:JQ/P1:C/P2:R/P1:C/C:K/P1:C player 2 actions C R
+node /C:JQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:C leaf payoffs 1=-3 2=3
+node /C:JQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:JQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=-7 2=7
+node /C:JQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:JQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-11 2=11
+node /C:JQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:JQ/P1:C/P2:R/P1:C/C:K/P1:R player 2 actions C F R
+node /C:JQ/P1:C/P2:R/P1:C/C:K/P1:R/P2:C leaf payoffs 1=-7 2=7
+node /C:JQ/P1:C/P2:R/P1:C/C:K/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:JQ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:JQ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=-11 2=11
+node /C:JQ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:JQ/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:JQ/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JQ/P1:C/P2:R/P1:R/P2:C chance actions J=0.25 Q=0.25 K=0.5
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:J/ player 1 actions C R
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C player 2 actions C R
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:C leaf payoffs 1=5 2=-5
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=13 2=-13
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R player 2 actions C F R
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=13 2=-13
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:Q/ player 1 actions C R
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C player 2 actions C R
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=-5 2=5
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-13 2=13
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=-13 2=13
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:K/ player 1 actions C R
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C player 2 actions C R
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:C leaf payoffs 1=-5 2=5
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-13 2=13
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R player 2 actions C F R
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=-13 2=13
+node /C:JQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:JQ/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:JQ/P1:R player 2 actions C F R
+node /C:JQ/P1:R/P2:C chance actions J=0.25 Q=0.25 K=0.5
+node /C:JQ/P1:R/P2:C/C:J/ player 1 actions C R
+node /C:JQ/P1:R/P2:C/C:J/P1:C player 2 actions C R
+node /C:JQ/P1:R/P2:C/C:J/P1:C/P2:C leaf payoffs 1=3 2=-3
+node /C:JQ/P1:R/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:JQ/P1:R/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=7 2=-7
+node /C:JQ/P1:R/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:JQ/P1:R/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JQ/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=11 2=-11
+node /C:JQ/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:JQ/P1:R/P2:C/C:J/P1:R player 2 actions C F R
+node /C:JQ/P1:R/P2:C/C:J/P1:R/P2:C leaf payoffs 1=7 2=-7
+node /C:JQ/P1:R/P2:C/C:J/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:JQ/P1:R/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:JQ/P1:R/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=11 2=-11
+node /C:JQ/P1:R/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:JQ/P1:R/P2:C/C:Q/ player 1 actions C R
+node /C:JQ/P1:R/P2:C/C:Q/P1:C player 2 actions C R
+node /C:JQ/P1:R/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=-3 2=3
+node /C:JQ/P1:R/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:JQ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=-7 2=7
+node /C:JQ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:JQ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JQ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-11 2=11
+node /C:JQ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:JQ/P1:R/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:JQ/P1:R/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=-7 2=7
+node /C:JQ/P1:R/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:JQ/P1:R/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:JQ/P1:R/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=-11 2=11
+node /C:JQ/P1:R/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:JQ/P1:R/P2:C/C:K/ player 1 actions C R
+node /C:JQ/P1:R/P2:C/C:K/P1:C player 2 actions C R
+node /C:JQ/P1:R/P2:C/C:K/P1:C/P2:C leaf payoffs 1=-3 2=3
+node /C:JQ/P1:R/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:JQ/P1:R/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=-7 2=7
+node /C:JQ/P1:R/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:JQ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JQ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-11 2=11
+node /C:JQ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:JQ/P1:R/P2:C/C:K/P1:R player 2 actions C F R
+node /C:JQ/P1:R/P2:C/C:K/P1:R/P2:C leaf payoffs 1=-7 2=7
+node /C:JQ/P1:R/P2:C/C:K/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:JQ/P1:R/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:JQ/P1:R/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=-11 2=11
+node /C:JQ/P1:R/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:JQ/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:JQ/P1:R/P2:R player 1 actions C F
+node /C:JQ/P1:R/P2:R/P1:C chance actions J=0.25 Q=0.25 K=0.5
+node /C:JQ/P1:R/P2:R/P1:C/C:J/ player 1 actions C R
+node /C:JQ/P1:R/P2:R/P1:C/C:J/P1:C player 2 actions C R
+node /C:JQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:C leaf payoffs 1=5 2=-5
+node /C:JQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:JQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:JQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=13 2=-13
+node /C:JQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:JQ/P1:R/P2:R/P1:C/C:J/P1:R player 2 actions C F R
+node /C:JQ/P1:R/P2:R/P1:C/C:J/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:JQ/P1:R/P2:R/P1:C/C:J/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JQ/P1:R/P2:R/P1:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:JQ/P1:R/P2:R/P1:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=13 2=-13
+node /C:JQ/P1:R/P2:R/P1:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:JQ/P1:R/P2:R/P1:C/C:Q/ player 1 actions C R
+node /C:JQ/P1:R/P2:R/P1:C/C:Q/P1:C player 2 actions C R
+node /C:JQ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:C leaf payoffs 1=-5 2=5
+node /C:JQ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:JQ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:JQ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JQ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JQ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-13 2=13
+node /C:JQ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:JQ/P1:R/P2:R/P1:C/C:Q/P1:R player 2 actions C F R
+node /C:JQ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:JQ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JQ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:JQ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=-13 2=13
+node /C:JQ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:JQ/P1:R/P2:R/P1:C/C:K/ player 1 actions C R
+node /C:JQ/P1:R/P2:R/P1:C/C:K/P1:C player 2 actions C R
+node /C:JQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:C leaf payoffs 1=-5 2=5
+node /C:JQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:JQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:JQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-13 2=13
+node /C:JQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:JQ/P1:R/P2:R/P1:C/C:K/P1:R player 2 actions C F R
+node /C:JQ/P1:R/P2:R/P1:C/C:K/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:JQ/P1:R/P2:R/P1:C/C:K/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JQ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:JQ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=-13 2=13
+node /C:JQ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:JQ/P1:R/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:JK/ player 1 actions C R
+node /C:JK/P1:C player 2 actions C R
+node /C:JK/P1:C/P2:C chance actions J=0.25 Q=0.5 K=0.25
+node /C:JK/P1:C/P2:C/C:J/ player 1 actions C R
+node /C:JK/P1:C/P2:C/C:J/P1:C player 2 actions C R
+node /C:JK/P1:C/P2:C/C:J/P1:C/P2:C leaf payoffs 1=1 2=-1
+node /C:JK/P1:C/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:JK/P1:C/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=5 2=-5
+node /C:JK/P1:C/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:JK/P1:C/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JK/P1:C/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:JK/P1:C/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JK/P1:C/P2:C/C:J/P1:R player 2 actions C F R
+node /C:JK/P1:C/P2:C/C:J/P1:R/P2:C leaf payoffs 1=5 2=-5
+node /C:JK/P1:C/P2:C/C:J/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:JK/P1:C/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:JK/P1:C/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:JK/P1:C/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JK/P1:C/P2:C/C:Q/ player 1 actions C R
+node /C:JK/P1:C/P2:C/C:Q/P1:C player 2 actions C R
+node /C:JK/P1:C/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=-1 2=1
+node /C:JK/P1:C/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:JK/P1:C/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=-5 2=5
+node /C:JK/P1:C/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:JK/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JK/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:JK/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JK/P1:C/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:JK/P1:C/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=-5 2=5
+node /C:JK/P1:C/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:JK/P1:C/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:JK/P1:C/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:JK/P1:C/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JK/P1:C/P2:C/C:K/ player 1 actions C R
+node /C:JK/P1:C/P2:C/C:K/P1:C player 2 actions C R
+node /C:JK/P1:C/P2:C/C:K/P1:C/P2:C leaf payoffs 1=-1 2=1
+node /C:JK/P1:C/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:JK/P1:C/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=-5 2=5
+node /C:JK/P1:C/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:JK/P1:C/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JK/P1:C/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:JK/P1:C/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JK/P1:C/P2:C/C:K/P1:R player 2 actions C F R
+node /C:JK/P1:C/P2:C/C:K/P1:R/P2:C leaf payoffs 1=-5 2=5
+node /C:JK/P1:C/P2:C/C:K/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:JK/P1:C/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:JK/P1:C/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:JK/P1:C/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JK/P1:C/P2:R player 1 actions C F R
+node /C:JK/P1:C/P2:R/P1:C chance actions J=0.25 Q=0.5 K=0.25
+node /C:JK/P1:C/P2:R/P1:C/C:J/ player 1 actions C R
+node /C:JK/P1:C/P2:R/P1:C/C:J/P1:C player 2 actions C R
+node /C:JK/P1:C/P2:R/P1:C/C:J/P1:C/P2:C leaf payoffs 1=3 2=-3
+node /C:JK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:JK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=7 2=-7
+node /C:JK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:JK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=11 2=-11
+node /C:JK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:JK/P1:C/P2:R/P1:C/C:J/P1:R player 2 actions C F R
+node /C:JK/P1:C/P2:R/P1:C/C:J/P1:R/P2:C leaf payoffs 1=7 2=-7
+node /C:JK/P1:C/P2:R/P1:C/C:J/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:JK/P1:C/P2:R/P1:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:JK/P1:C/P2:R/P1:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=11 2=-11
+node /C:JK/P1:C/P2:R/P1:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:JK/P1:C/P2:R/P1:C/C:Q/ player 1 actions C R
+node /C:JK/P1:C/P2:R/P1:C/C:Q/P1:C player 2 actions C R
+node /C:JK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:C leaf payoffs 1=-3 2=3
+node /C:JK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:JK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=-7 2=7
+node /C:JK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:JK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-11 2=11
+node /C:JK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:JK/P1:C/P2:R/P1:C/C:Q/P1:R player 2 actions C F R
+node /C:JK/P1:C/P2:R/P1:C/C:Q/P1:R/P2:C leaf payoffs 1=-7 2=7
+node /C:JK/P1:C/P2:R/P1:C/C:Q/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:JK/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:JK/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=-11 2=11
+node /C:JK/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:JK/P1:C/P2:R/P1:C/C:K/ player 1 actions C R
+node /C:JK/P1:C/P2:R/P1:C/C:K/P1:C player 2 actions C R
+node /C:JK/P1:C/P2:R/P1:C/C:K/P1:C/P2:C leaf payoffs 1=-3 2=3
+node /C:JK/P1:C/P2:R/P1:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:JK/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=-7 2=7
+node /C:JK/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:JK/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JK/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-11 2=11
+node /C:JK/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:JK/P1:C/P2:R/P1:C/C:K/P1:R player 2 actions C F R
+node /C:JK/P1:C/P2:R/P1:C/C:K/P1:R/P2:C leaf payoffs 1=-7 2=7
+node /C:JK/P1:C/P2:R/P1:C/C:K/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:JK/P1:C/P2:R/P1:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:JK/P1:C/P2:R/P1:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=-11 2=11
+node /C:JK/P1:C/P2:R/P1:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:JK/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:JK/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JK/P1:C/P2:R/P1:R/P2:C chance actions J=0.25 Q=0.5 K=0.25
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:J/ player 1 actions C R
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C player 2 actions C R
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:C leaf payoffs 1=5 2=-5
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=13 2=-13
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R player 2 actions C F R
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=13 2=-13
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:Q/ player 1 actions C R
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C player 2 actions C R
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=-5 2=5
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-13 2=13
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=-13 2=13
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:K/ player 1 actions C R
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C player 2 actions C R
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:C leaf payoffs 1=-5 2=5
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-13 2=13
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:K/P1:R player 2 actions C F R
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=-13 2=13
+node /C:JK/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:JK/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:JK/P1:R player 2 actions C F R
+node /C:JK/P1:R/P2:C chance actions J=0.25 Q=0.5 K=0.25
+node /C:JK/P1:R/P2:C/C:J/ player 1 actions C R
+node /C:JK/P1:R/P2:C/C:J/P1:C player 2 actions C R
+node /C:JK/P1:R/P2:C/C:J/P1:C/P2:C leaf payoffs 1=3 2=-3
+node /C:JK/P1:R/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:JK/P1:R/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=7 2=-7
+node /C:JK/P1:R/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:JK/P1:R/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JK/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=11 2=-11
+node /C:JK/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:JK/P1:R/P2:C/C:J/P1:R player 2 actions C F R
+node /C:JK/P1:R/P2:C/C:J/P1:R/P2:C leaf payoffs 1=7 2=-7
+node /C:JK/P1:R/P2:C/C:J/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:JK/P1:R/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:JK/P1:R/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=11 2=-11
+node /C:JK/P1:R/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:JK/P1:R/P2:C/C:Q/ player 1 actions C R
+node /C:JK/P1:R/P2:C/C:Q/P1:C player 2 actions C R
+node /C:JK/P1:R/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=-3 2=3
+node /C:JK/P1:R/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:JK/P1:R/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=-7 2=7
+node /C:JK/P1:R/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:JK/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JK/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-11 2=11
+node /C:JK/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:JK/P1:R/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:JK/P1:R/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=-7 2=7
+node /C:JK/P1:R/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:JK/P1:R/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:JK/P1:R/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=-11 2=11
+node /C:JK/P1:R/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:JK/P1:R/P2:C/C:K/ player 1 actions C R
+node /C:JK/P1:R/P2:C/C:K/P1:C player 2 actions C R
+node /C:JK/P1:R/P2:C/C:K/P1:C/P2:C leaf payoffs 1=-3 2=3
+node /C:JK/P1:R/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:JK/P1:R/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=-7 2=7
+node /C:JK/P1:R/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:JK/P1:R/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JK/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-11 2=11
+node /C:JK/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:JK/P1:R/P2:C/C:K/P1:R player 2 actions C F R
+node /C:JK/P1:R/P2:C/C:K/P1:R/P2:C leaf payoffs 1=-7 2=7
+node /C:JK/P1:R/P2:C/C:K/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:JK/P1:R/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:JK/P1:R/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=-11 2=11
+node /C:JK/P1:R/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:JK/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:JK/P1:R/P2:R player 1 actions C F
+node /C:JK/P1:R/P2:R/P1:C chance actions J=0.25 Q=0.5 K=0.25
+node /C:JK/P1:R/P2:R/P1:C/C:J/ player 1 actions C R
+node /C:JK/P1:R/P2:R/P1:C/C:J/P1:C player 2 actions C R
+node /C:JK/P1:R/P2:R/P1:C/C:J/P1:C/P2:C leaf payoffs 1=5 2=-5
+node /C:JK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:JK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:JK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=13 2=-13
+node /C:JK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:JK/P1:R/P2:R/P1:C/C:J/P1:R player 2 actions C F R
+node /C:JK/P1:R/P2:R/P1:C/C:J/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:JK/P1:R/P2:R/P1:C/C:J/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JK/P1:R/P2:R/P1:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:JK/P1:R/P2:R/P1:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=13 2=-13
+node /C:JK/P1:R/P2:R/P1:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:JK/P1:R/P2:R/P1:C/C:Q/ player 1 actions C R
+node /C:JK/P1:R/P2:R/P1:C/C:Q/P1:C player 2 actions C R
+node /C:JK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:C leaf payoffs 1=-5 2=5
+node /C:JK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:JK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:JK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-13 2=13
+node /C:JK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:JK/P1:R/P2:R/P1:C/C:Q/P1:R player 2 actions C F R
+node /C:JK/P1:R/P2:R/P1:C/C:Q/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:JK/P1:R/P2:R/P1:C/C:Q/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JK/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:JK/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=-13 2=13
+node /C:JK/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:JK/P1:R/P2:R/P1:C/C:K/ player 1 actions C R
+node /C:JK/P1:R/P2:R/P1:C/C:K/P1:C player 2 actions C R
+node /C:JK/P1:R/P2:R/P1:C/C:K/P1:C/P2:C leaf payoffs 1=-5 2=5
+node /C:JK/P1:R/P2:R/P1:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:JK/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:JK/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:JK/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:JK/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-13 2=13
+node /C:JK/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:JK/P1:R/P2:R/P1:C/C:K/P1:R player 2 actions C F R
+node /C:JK/P1:R/P2:R/P1:C/C:K/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:JK/P1:R/P2:R/P1:C/C:K/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:JK/P1:R/P2:R/P1:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:JK/P1:R/P2:R/P1:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=-13 2=13
+node /C:JK/P1:R/P2:R/P1:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:JK/P1:R/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:QJ/ player 1 actions C R
+node /C:QJ/P1:C player 2 actions C R
+node /C:QJ/P1:C/P2:C chance actions J=0.25 Q=0.25 K=0.5
+node /C:QJ/P1:C/P2:C/C:J/ player 1 actions C R
+node /C:QJ/P1:C/P2:C/C:J/P1:C player 2 actions C R
+node /C:QJ/P1:C/P2:C/C:J/P1:C/P2:C leaf payoffs 1=-1 2=1
+node /C:QJ/P1:C/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:QJ/P1:C/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=-5 2=5
+node /C:QJ/P1:C/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:QJ/P1:C/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QJ/P1:C/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:QJ/P1:C/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QJ/P1:C/P2:C/C:J/P1:R player 2 actions C F R
+node /C:QJ/P1:C/P2:C/C:J/P1:R/P2:C leaf payoffs 1=-5 2=5
+node /C:QJ/P1:C/P2:C/C:J/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:QJ/P1:C/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:QJ/P1:C/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:QJ/P1:C/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QJ/P1:C/P2:C/C:Q/ player 1 actions C R
+node /C:QJ/P1:C/P2:C/C:Q/P1:C player 2 actions C R
+node /C:QJ/P1:C/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=1 2=-1
+node /C:QJ/P1:C/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:QJ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=5 2=-5
+node /C:QJ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:QJ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QJ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:QJ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QJ/P1:C/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:QJ/P1:C/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=5 2=-5
+node /C:QJ/P1:C/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:QJ/P1:C/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:QJ/P1:C/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:QJ/P1:C/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QJ/P1:C/P2:C/C:K/ player 1 actions C R
+node /C:QJ/P1:C/P2:C/C:K/P1:C player 2 actions C R
+node /C:QJ/P1:C/P2:C/C:K/P1:C/P2:C leaf payoffs 1=1 2=-1
+node /C:QJ/P1:C/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:QJ/P1:C/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=5 2=-5
+node /C:QJ/P1:C/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:QJ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QJ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:QJ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QJ/P1:C/P2:C/C:K/P1:R player 2 actions C F R
+node /C:QJ/P1:C/P2:C/C:K/P1:R/P2:C leaf payoffs 1=5 2=-5
+node /C:QJ/P1:C/P2:C/C:K/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:QJ/P1:C/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:QJ/P1:C/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:QJ/P1:C/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QJ/P1:C/P2:R player 1 actions C F R
+node /C:QJ/P1:C/P2:R/P1:C chance actions J=0.25 Q=0.25 K=0.5
+node /C:QJ/P1:C/P2:R/P1:C/C:J/ player 1 actions C R
+node /C:QJ/P1:C/P2:R/P1:C/C:J/P1:C player 2 actions C R
+node /C:QJ/P1:C/P2:R/P1:C/C:J/P1:C/P2:C leaf payoffs 1=-3 2=3
+node /C:QJ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:QJ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=-7 2=7
+node /C:QJ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:QJ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QJ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-11 2=11
+node /C:QJ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:QJ/P1:C/P2:R/P1:C/C:J/P1:R player 2 actions C F R
+node /C:QJ/P1:C/P2:R/P1:C/C:J/P1:R/P2:C leaf payoffs 1=-7 2=7
+node /C:QJ/P1:C/P2:R/P1:C/C:J/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:QJ/P1:C/P2:R/P1:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:QJ/P1:C/P2:R/P1:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=-11 2=11
+node /C:QJ/P1:C/P2:R/P1:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:QJ/P1:C/P2:R/P1:C/C:Q/ player 1 actions C R
+node /C:QJ/P1:C/P2:R/P1:C/C:Q/P1:C player 2 actions C R
+node /C:QJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:C leaf payoffs 1=3 2=-3
+node /C:QJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:QJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=7 2=-7
+node /C:QJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:QJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=11 2=-11
+node /C:QJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:QJ/P1:C/P2:R/P1:C/C:Q/P1:R player 2 actions C F R
+node /C:QJ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:C leaf payoffs 1=7 2=-7
+node /C:QJ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:QJ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:QJ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=11 2=-11
+node /C:QJ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:QJ/P1:C/P2:R/P1:C/C:K/ player 1 actions C R
+node /C:QJ/P1:C/P2:R/P1:C/C:K/P1:C player 2 actions C R
+node /C:QJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:C leaf payoffs 1=3 2=-3
+node /C:QJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:QJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=7 2=-7
+node /C:QJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:QJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=11 2=-11
+node /C:QJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:QJ/P1:C/P2:R/P1:C/C:K/P1:R player 2 actions C F R
+node /C:QJ/P1:C/P2:R/P1:C/C:K/P1:R/P2:C leaf payoffs 1=7 2=-7
+node /C:QJ/P1:C/P2:R/P1:C/C:K/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:QJ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:QJ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=11 2=-11
+node /C:QJ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:QJ/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:QJ/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QJ/P1:C/P2:R/P1:R/P2:C chance actions J=0.25 Q=0.25 K=0.5
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:J/ player 1 actions C R
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C player 2 actions C R
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:C leaf payoffs 1=-5 2=5
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-13 2=13
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R player 2 actions C F R
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=-13 2=13
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:Q/ player 1 actions C R
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C player 2 actions C R
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=5 2=-5
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=13 2=-13
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=13 2=-13
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:K/ player 1 actions C R
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C player 2 actions C R
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:C leaf payoffs 1=5 2=-5
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=13 2=-13
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R player 2 actions C F R
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=13 2=-13
+node /C:QJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:QJ/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:QJ/P1:R player 2 actions C F R
+node /C:QJ/P1:R/P2:C chance actions J=0.25 Q=0.25 K=0.5
+node /C:QJ/P1:R/P2:C/C:J/ player 1 actions C R
+node /C:QJ/P1:R/P2:C/C:J/P1:C player 2 actions C R
+node /C:QJ/P1:R/P2:C/C:J/P1:C/P2:C leaf payoffs 1=-3 2=3
+node /C:QJ/P1:R/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:QJ/P1:R/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=-7 2=7
+node /C:QJ/P1:R/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:QJ/P1:R/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QJ/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-11 2=11
+node /C:QJ/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:QJ/P1:R/P2:C/C:J/P1:R player 2 actions C F R
+node /C:QJ/P1:R/P2:C/C:J/P1:R/P2:C leaf payoffs 1=-7 2=7
+node /C:QJ/P1:R/P2:C/C:J/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:QJ/P1:R/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:QJ/P1:R/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=-11 2=11
+node /C:QJ/P1:R/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:QJ/P1:R/P2:C/C:Q/ player 1 actions C R
+node /C:QJ/P1:R/P2:C/C:Q/P1:C player 2 actions C R
+node /C:QJ/P1:R/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=3 2=-3
+node /C:QJ/P1:R/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:QJ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=7 2=-7
+node /C:QJ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:QJ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QJ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=11 2=-11
+node /C:QJ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:QJ/P1:R/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:QJ/P1:R/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=7 2=-7
+node /C:QJ/P1:R/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:QJ/P1:R/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:QJ/P1:R/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=11 2=-11
+node /C:QJ/P1:R/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:QJ/P1:R/P2:C/C:K/ player 1 actions C R
+node /C:QJ/P1:R/P2:C/C:K/P1:C player 2 actions C R
+node /C:QJ/P1:R/P2:C/C:K/P1:C/P2:C leaf payoffs 1=3 2=-3
+node /C:QJ/P1:R/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:QJ/P1:R/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=7 2=-7
+node /C:QJ/P1:R/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:QJ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QJ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=11 2=-11
+node /C:QJ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:QJ/P1:R/P2:C/C:K/P1:R player 2 actions C F R
+node /C:QJ/P1:R/P2:C/C:K/P1:R/P2:C leaf payoffs 1=7 2=-7
+node /C:QJ/P1:R/P2:C/C:K/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:QJ/P1:R/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:QJ/P1:R/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=11 2=-11
+node /C:QJ/P1:R/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:QJ/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:QJ/P1:R/P2:R player 1 actions C F
+node /C:QJ/P1:R/P2:R/P1:C chance actions J=0.25 Q=0.25 K=0.5
+node /C:QJ/P1:R/P2:R/P1:C/C:J/ player 1 actions C R
+node /C:QJ/P1:R/P2:R/P1:C/C:J/P1:C player 2 actions C R
+node /C:QJ/P1:R/P2:R/P1:C/C:J/P1:C/P2:C leaf payoffs 1=-5 2=5
+node /C:QJ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:QJ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:QJ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QJ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QJ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-13 2=13
+node /C:QJ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:QJ/P1:R/P2:R/P1:C/C:J/P1:R player 2 actions C F R
+node /C:QJ/P1:R/P2:R/P1:C/C:J/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:QJ/P1:R/P2:R/P1:C/C:J/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QJ/P1:R/P2:R/P1:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:QJ/P1:R/P2:R/P1:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=-13 2=13
+node /C:QJ/P1:R/P2:R/P1:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:QJ/P1:R/P2:R/P1:C/C:Q/ player 1 actions C R
+node /C:QJ/P1:R/P2:R/P1:C/C:Q/P1:C player 2 actions C R
+node /C:QJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:C leaf payoffs 1=5 2=-5
+node /C:QJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:QJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:QJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=13 2=-13
+node /C:QJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:QJ/P1:R/P2:R/P1:C/C:Q/P1:R player 2 actions C F R
+node /C:QJ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:QJ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QJ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:QJ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=13 2=-13
+node /C:QJ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:QJ/P1:R/P2:R/P1:C/C:K/ player 1 actions C R
+node /C:QJ/P1:R/P2:R/P1:C/C:K/P1:C player 2 actions C R
+node /C:QJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:C leaf payoffs 1=5 2=-5
+node /C:QJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:QJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:QJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=13 2=-13
+node /C:QJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:QJ/P1:R/P2:R/P1:C/C:K/P1:R player 2 actions C F R
+node /C:QJ/P1:R/P2:R/P1:C/C:K/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:QJ/P1:R/P2:R/P1:C/C:K/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QJ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:QJ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=13 2=-13
+node /C:QJ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:QJ/P1:R/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:QQ/ player 1 actions C R
+node /C:QQ/P1:C player 2 actions C R
+node /C:QQ/P1:C/P2:C chance actions J=0.5 K=0.5
+node /C:QQ/P1:C/P2:C/C:J/ player 1 actions C R
+node /C:QQ/P1:C/P2:C/C:J/P1:C player 2 actions C R
+node /C:QQ/P1:C/P2:C/C:J/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:QQ/P1:C/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:QQ/P1:C/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QQ/P1:C/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QQ/P1:C/P2:C/C:J/P1:R player 2 actions C F R
+node /C:QQ/P1:C/P2:C/C:J/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:C/C:J/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:QQ/P1:C/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:QQ/P1:C/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QQ/P1:C/P2:C/C:K/ player 1 actions C R
+node /C:QQ/P1:C/P2:C/C:K/P1:C player 2 actions C R
+node /C:QQ/P1:C/P2:C/C:K/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:QQ/P1:C/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:QQ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QQ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QQ/P1:C/P2:C/C:K/P1:R player 2 actions C F R
+node /C:QQ/P1:C/P2:C/C:K/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:C/C:K/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:QQ/P1:C/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:QQ/P1:C/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QQ/P1:C/P2:R player 1 actions C F R
+node /C:QQ/P1:C/P2:R/P1:C chance actions J=0.5 K=0.5
+node /C:QQ/P1:C/P2:R/P1:C/C:J/ player 1 actions C R
+node /C:QQ/P1:C/P2:R/P1:C/C:J/P1:C player 2 actions C R
+node /C:QQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:QQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:QQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:QQ/P1:C/P2:R/P1:C/C:J/P1:R player 2 actions C F R
+node /C:QQ/P1:C/P2:R/P1:C/C:J/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:R/P1:C/C:J/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:QQ/P1:C/P2:R/P1:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:QQ/P1:C/P2:R/P1:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:R/P1:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:QQ/P1:C/P2:R/P1:C/C:K/ player 1 actions C R
+node /C:QQ/P1:C/P2:R/P1:C/C:K/P1:C player 2 actions C R
+node /C:QQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:QQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:QQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:QQ/P1:C/P2:R/P1:C/C:K/P1:R player 2 actions C F R
+node /C:QQ/P1:C/P2:R/P1:C/C:K/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:R/P1:C/C:K/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:QQ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:QQ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:QQ/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:QQ/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QQ/P1:C/P2:R/P1:R/P2:C chance actions J=0.5 K=0.5
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:J/ player 1 actions C R
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C player 2 actions C R
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R player 2 actions C F R
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:K/ player 1 actions C R
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C player 2 actions C R
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R player 2 actions C F R
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:QQ/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:QQ/P1:R player 2 actions C F R
+node /C:QQ/P1:R/P2:C chance actions J=0.5 K=0.5
+node /C:QQ/P1:R/P2:C/C:J/ player 1 actions C R
+node /C:QQ/P1:R/P2:C/C:J/P1:C player 2 actions C R
+node /C:QQ/P1:R/P2:C/C:J/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:R/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:QQ/P1:R/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:R/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:QQ/P1:R/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QQ/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:QQ/P1:R/P2:C/C:J/P1:R player 2 actions C F R
+node /C:QQ/P1:R/P2:C/C:J/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:R/P2:C/C:J/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:QQ/P1:R/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:QQ/P1:R/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:R/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:QQ/P1:R/P2:C/C:K/ player 1 actions C R
+node /C:QQ/P1:R/P2:C/C:K/P1:C player 2 actions C R
+node /C:QQ/P1:R/P2:C/C:K/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:R/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:QQ/P1:R/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:R/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:QQ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QQ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:QQ/P1:R/P2:C/C:K/P1:R player 2 actions C F R
+node /C:QQ/P1:R/P2:C/C:K/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:R/P2:C/C:K/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:QQ/P1:R/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:QQ/P1:R/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:R/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:QQ/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:QQ/P1:R/P2:R player 1 actions C F
+node /C:QQ/P1:R/P2:R/P1:C chance actions J=0.5 K=0.5
+node /C:QQ/P1:R/P2:R/P1:C/C:J/ player 1 actions C R
+node /C:QQ/P1:R/P2:R/P1:C/C:J/P1:C player 2 actions C R
+node /C:QQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:QQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:QQ/P1:R/P2:R/P1:C/C:J/P1:R player 2 actions C F R
+node /C:QQ/P1:R/P2:R/P1:C/C:J/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:R/P2:R/P1:C/C:J/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QQ/P1:R/P2:R/P1:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:QQ/P1:R/P2:R/P1:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:R/P2:R/P1:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:QQ/P1:R/P2:R/P1:C/C:K/ player 1 actions C R
+node /C:QQ/P1:R/P2:R/P1:C/C:K/P1:C player 2 actions C R
+node /C:QQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:QQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:QQ/P1:R/P2:R/P1:C/C:K/P1:R player 2 actions C F R
+node /C:QQ/P1:R/P2:R/P1:C/C:K/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:R/P2:R/P1:C/C:K/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QQ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:QQ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:QQ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:QQ/P1:R/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:QK/ player 1 actions C R
+node /C:QK/P1:C player 2 actions C R
+node /C:QK/P1:C/P2:C chance actions J=0.5 Q=0.25 K=0.25
+node /C:QK/P1:C/P2:C/C:J/ player 1 actions C R
+node /C:QK/P1:C/P2:C/C:J/P1:C player 2 actions C R
+node /C:QK/P1:C/P2:C/C:J/P1:C/P2:C leaf payoffs 1=-1 2=1
+node /C:QK/P1:C/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:QK/P1:C/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=-5 2=5
+node /C:QK/P1:C/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:QK/P1:C/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QK/P1:C/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:QK/P1:C/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QK/P1:C/P2:C/C:J/P1:R player 2 actions C F R
+node /C:QK/P1:C/P2:C/C:J/P1:R/P2:C leaf payoffs 1=-5 2=5
+node /C:QK/P1:C/P2:C/C:J/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:QK/P1:C/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:QK/P1:C/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:QK/P1:C/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QK/P1:C/P2:C/C:Q/ player 1 actions C R
+node /C:QK/P1:C/P2:C/C:Q/P1:C player 2 actions C R
+node /C:QK/P1:C/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=1 2=-1
+node /C:QK/P1:C/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:QK/P1:C/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=5 2=-5
+node /C:QK/P1:C/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:QK/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QK/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:QK/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QK/P1:C/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:QK/P1:C/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=5 2=-5
+node /C:QK/P1:C/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:QK/P1:C/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:QK/P1:C/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:QK/P1:C/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QK/P1:C/P2:C/C:K/ player 1 actions C R
+node /C:QK/P1:C/P2:C/C:K/P1:C player 2 actions C R
+node /C:QK/P1:C/P2:C/C:K/P1:C/P2:C leaf payoffs 1=-1 2=1
+node /C:QK/P1:C/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:QK/P1:C/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=-5 2=5
+node /C:QK/P1:C/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:QK/P1:C/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QK/P1:C/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:QK/P1:C/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QK/P1:C/P2:C/C:K/P1:R player 2 actions C F R
+node /C:QK/P1:C/P2:C/C:K/P1:R/P2:C leaf payoffs 1=-5 2=5
+node /C:QK/P1:C/P2:C/C:K/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:QK/P1:C/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:QK/P1:C/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:QK/P1:C/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QK/P1:C/P2:R player 1 actions C F R
+node /C:QK/P1:C/P2:R/P1:C chance actions J=0.5 Q=0.25 K=0.25
+node /C:QK/P1:C/P2:R/P1:C/C:J/ player 1 actions C R
+node /C:QK/P1:C/P2:R/P1:C/C:J/P1:C player 2 actions C R
+node /C:QK/P1:C/P2:R/P1:C/C:J/P1:C/P2:C leaf payoffs 1=-3 2=3
+node /C:QK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:QK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=-7 2=7
+node /C:QK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:QK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-11 2=11
+node /C:QK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:QK/P1:C/P2:R/P1:C/C:J/P1:R player 2 actions C F R
+node /C:QK/P1:C/P2:R/P1:C/C:J/P1:R/P2:C leaf payoffs 1=-7 2=7
+node /C:QK/P1:C/P2:R/P1:C/C:J/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:QK/P1:C/P2:R/P1:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:QK/P1:C/P2:R/P1:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=-11 2=11
+node /C:QK/P1:C/P2:R/P1:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:QK/P1:C/P2:R/P1:C/C:Q/ player 1 actions C R
+node /C:QK/P1:C/P2:R/P1:C/C:Q/P1:C player 2 actions C R
+node /C:QK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:C leaf payoffs 1=3 2=-3
+node /C:QK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:QK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=7 2=-7
+node /C:QK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:QK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=11 2=-11
+node /C:QK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:QK/P1:C/P2:R/P1:C/C:Q/P1:R player 2 actions C F R
+node /C:QK/P1:C/P2:R/P1:C/C:Q/P1:R/P2:C leaf payoffs 1=7 2=-7
+node /C:QK/P1:C/P2:R/P1:C/C:Q/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:QK/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:QK/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=11 2=-11
+node /C:QK/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:QK/P1:C/P2:R/P1:C/C:K/ player 1 actions C R
+node /C:QK/P1:C/P2:R/P1:C/C:K/P1:C player 2 actions C R
+node /C:QK/P1:C/P2:R/P1:C/C:K/P1:C/P2:C leaf payoffs 1=-3 2=3
+node /C:QK/P1:C/P2:R/P1:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:QK/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=-7 2=7
+node /C:QK/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:QK/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QK/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-11 2=11
+node /C:QK/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:QK/P1:C/P2:R/P1:C/C:K/P1:R player 2 actions C F R
+node /C:QK/P1:C/P2:R/P1:C/C:K/P1:R/P2:C leaf payoffs 1=-7 2=7
+node /C:QK/P1:C/P2:R/P1:C/C:K/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:QK/P1:C/P2:R/P1:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:QK/P1:C/P2:R/P1:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=-11 2=11
+node /C:QK/P1:C/P2:R/P1:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:QK/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:QK/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QK/P1:C/P2:R/P1:R/P2:C chance actions J=0.5 Q=0.25 K=0.25
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:J/ player 1 actions C R
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C player 2 actions C R
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:C leaf payoffs 1=-5 2=5
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-13 2=13
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R player 2 actions C F R
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=-13 2=13
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:Q/ player 1 actions C R
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C player 2 actions C R
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=5 2=-5
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=13 2=-13
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=13 2=-13
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:K/ player 1 actions C R
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C player 2 actions C R
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:C leaf payoffs 1=-5 2=5
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-13 2=13
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:K/P1:R player 2 actions C F R
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=-13 2=13
+node /C:QK/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:QK/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:QK/P1:R player 2 actions C F R
+node /C:QK/P1:R/P2:C chance actions J=0.5 Q=0.25 K=0.25
+node /C:QK/P1:R/P2:C/C:J/ player 1 actions C R
+node /C:QK/P1:R/P2:C/C:J/P1:C player 2 actions C R
+node /C:QK/P1:R/P2:C/C:J/P1:C/P2:C leaf payoffs 1=-3 2=3
+node /C:QK/P1:R/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:QK/P1:R/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=-7 2=7
+node /C:QK/P1:R/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:QK/P1:R/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QK/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-11 2=11
+node /C:QK/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:QK/P1:R/P2:C/C:J/P1:R player 2 actions C F R
+node /C:QK/P1:R/P2:C/C:J/P1:R/P2:C leaf payoffs 1=-7 2=7
+node /C:QK/P1:R/P2:C/C:J/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:QK/P1:R/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:QK/P1:R/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=-11 2=11
+node /C:QK/P1:R/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:QK/P1:R/P2:C/C:Q/ player 1 actions C R
+node /C:QK/P1:R/P2:C/C:Q/P1:C player 2 actions C R
+node /C:QK/P1:R/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=3 2=-3
+node /C:QK/P1:R/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:QK/P1:R/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=7 2=-7
+node /C:QK/P1:R/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:QK/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QK/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=11 2=-11
+node /C:QK/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:QK/P1:R/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:QK/P1:R/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=7 2=-7
+node /C:QK/P1:R/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:QK/P1:R/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:QK/P1:R/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=11 2=-11
+node /C:QK/P1:R/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:QK/P1:R/P2:C/C:K/ player 1 actions C R
+node /C:QK/P1:R/P2:C/C:K/P1:C player 2 actions C R
+node /C:QK/P1:R/P2:C/C:K/P1:C/P2:C leaf payoffs 1=-3 2=3
+node /C:QK/P1:R/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:QK/P1:R/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=-7 2=7
+node /C:QK/P1:R/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:QK/P1:R/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QK/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-11 2=11
+node /C:QK/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:QK/P1:R/P2:C/C:K/P1:R player 2 actions C F R
+node /C:QK/P1:R/P2:C/C:K/P1:R/P2:C leaf payoffs 1=-7 2=7
+node /C:QK/P1:R/P2:C/C:K/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:QK/P1:R/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:QK/P1:R/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=-11 2=11
+node /C:QK/P1:R/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:QK/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:QK/P1:R/P2:R player 1 actions C F
+node /C:QK/P1:R/P2:R/P1:C chance actions J=0.5 Q=0.25 K=0.25
+node /C:QK/P1:R/P2:R/P1:C/C:J/ player 1 actions C R
+node /C:QK/P1:R/P2:R/P1:C/C:J/P1:C player 2 actions C R
+node /C:QK/P1:R/P2:R/P1:C/C:J/P1:C/P2:C leaf payoffs 1=-5 2=5
+node /C:QK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:QK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:QK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-13 2=13
+node /C:QK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:QK/P1:R/P2:R/P1:C/C:J/P1:R player 2 actions C F R
+node /C:QK/P1:R/P2:R/P1:C/C:J/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:QK/P1:R/P2:R/P1:C/C:J/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QK/P1:R/P2:R/P1:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:QK/P1:R/P2:R/P1:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=-13 2=13
+node /C:QK/P1:R/P2:R/P1:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:QK/P1:R/P2:R/P1:C/C:Q/ player 1 actions C R
+node /C:QK/P1:R/P2:R/P1:C/C:Q/P1:C player 2 actions C R
+node /C:QK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:C leaf payoffs 1=5 2=-5
+node /C:QK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:QK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:QK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=13 2=-13
+node /C:QK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:QK/P1:R/P2:R/P1:C/C:Q/P1:R player 2 actions C F R
+node /C:QK/P1:R/P2:R/P1:C/C:Q/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:QK/P1:R/P2:R/P1:C/C:Q/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QK/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:QK/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=13 2=-13
+node /C:QK/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:QK/P1:R/P2:R/P1:C/C:K/ player 1 actions C R
+node /C:QK/P1:R/P2:R/P1:C/C:K/P1:C player 2 actions C R
+node /C:QK/P1:R/P2:R/P1:C/C:K/P1:C/P2:C leaf payoffs 1=-5 2=5
+node /C:QK/P1:R/P2:R/P1:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:QK/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:QK/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:QK/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:QK/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-13 2=13
+node /C:QK/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:QK/P1:R/P2:R/P1:C/C:K/P1:R player 2 actions C F R
+node /C:QK/P1:R/P2:R/P1:C/C:K/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:QK/P1:R/P2:R/P1:C/C:K/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:QK/P1:R/P2:R/P1:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:QK/P1:R/P2:R/P1:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=-13 2=13
+node /C:QK/P1:R/P2:R/P1:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:QK/P1:R/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:KJ/ player 1 actions C R
+node /C:KJ/P1:C player 2 actions C R
+node /C:KJ/P1:C/P2:C chance actions J=0.25 Q=0.5 K=0.25
+node /C:KJ/P1:C/P2:C/C:J/ player 1 actions C R
+node /C:KJ/P1:C/P2:C/C:J/P1:C player 2 actions C R
+node /C:KJ/P1:C/P2:C/C:J/P1:C/P2:C leaf payoffs 1=-1 2=1
+node /C:KJ/P1:C/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:KJ/P1:C/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=-5 2=5
+node /C:KJ/P1:C/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:KJ/P1:C/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KJ/P1:C/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:KJ/P1:C/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KJ/P1:C/P2:C/C:J/P1:R player 2 actions C F R
+node /C:KJ/P1:C/P2:C/C:J/P1:R/P2:C leaf payoffs 1=-5 2=5
+node /C:KJ/P1:C/P2:C/C:J/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:KJ/P1:C/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:KJ/P1:C/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:KJ/P1:C/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KJ/P1:C/P2:C/C:Q/ player 1 actions C R
+node /C:KJ/P1:C/P2:C/C:Q/P1:C player 2 actions C R
+node /C:KJ/P1:C/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=1 2=-1
+node /C:KJ/P1:C/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:KJ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=5 2=-5
+node /C:KJ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:KJ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KJ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:KJ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KJ/P1:C/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:KJ/P1:C/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=5 2=-5
+node /C:KJ/P1:C/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:KJ/P1:C/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:KJ/P1:C/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:KJ/P1:C/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KJ/P1:C/P2:C/C:K/ player 1 actions C R
+node /C:KJ/P1:C/P2:C/C:K/P1:C player 2 actions C R
+node /C:KJ/P1:C/P2:C/C:K/P1:C/P2:C leaf payoffs 1=1 2=-1
+node /C:KJ/P1:C/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:KJ/P1:C/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=5 2=-5
+node /C:KJ/P1:C/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:KJ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KJ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:KJ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KJ/P1:C/P2:C/C:K/P1:R player 2 actions C F R
+node /C:KJ/P1:C/P2:C/C:K/P1:R/P2:C leaf payoffs 1=5 2=-5
+node /C:KJ/P1:C/P2:C/C:K/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:KJ/P1:C/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:KJ/P1:C/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:KJ/P1:C/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KJ/P1:C/P2:R player 1 actions C F R
+node /C:KJ/P1:C/P2:R/P1:C chance actions J=0.25 Q=0.5 K=0.25
+node /C:KJ/P1:C/P2:R/P1:C/C:J/ player 1 actions C R
+node /C:KJ/P1:C/P2:R/P1:C/C:J/P1:C player 2 actions C R
+node /C:KJ/P1:C/P2:R/P1:C/C:J/P1:C/P2:C leaf payoffs 1=-3 2=3
+node /C:KJ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:KJ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=-7 2=7
+node /C:KJ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:KJ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KJ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-11 2=11
+node /C:KJ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:KJ/P1:C/P2:R/P1:C/C:J/P1:R player 2 actions C F R
+node /C:KJ/P1:C/P2:R/P1:C/C:J/P1:R/P2:C leaf payoffs 1=-7 2=7
+node /C:KJ/P1:C/P2:R/P1:C/C:J/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:KJ/P1:C/P2:R/P1:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:KJ/P1:C/P2:R/P1:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=-11 2=11
+node /C:KJ/P1:C/P2:R/P1:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:KJ/P1:C/P2:R/P1:C/C:Q/ player 1 actions C R
+node /C:KJ/P1:C/P2:R/P1:C/C:Q/P1:C player 2 actions C R
+node /C:KJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:C leaf payoffs 1=3 2=-3
+node /C:KJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:KJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=7 2=-7
+node /C:KJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:KJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=11 2=-11
+node /C:KJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:KJ/P1:C/P2:R/P1:C/C:Q/P1:R player 2 actions C F R
+node /C:KJ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:C leaf payoffs 1=7 2=-7
+node /C:KJ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:KJ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:KJ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=11 2=-11
+node /C:KJ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:KJ/P1:C/P2:R/P1:C/C:K/ player 1 actions C R
+node /C:KJ/P1:C/P2:R/P1:C/C:K/P1:C player 2 actions C R
+node /C:KJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:C leaf payoffs 1=3 2=-3
+node /C:KJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:KJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=7 2=-7
+node /C:KJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:KJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=11 2=-11
+node /C:KJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:KJ/P1:C/P2:R/P1:C/C:K/P1:R player 2 actions C F R
+node /C:KJ/P1:C/P2:R/P1:C/C:K/P1:R/P2:C leaf payoffs 1=7 2=-7
+node /C:KJ/P1:C/P2:R/P1:C/C:K/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:KJ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:KJ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=11 2=-11
+node /C:KJ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:KJ/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:KJ/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KJ/P1:C/P2:R/P1:R/P2:C chance actions J=0.25 Q=0.5 K=0.25
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:J/ player 1 actions C R
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C player 2 actions C R
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:C leaf payoffs 1=-5 2=5
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-13 2=13
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R player 2 actions C F R
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=-13 2=13
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:Q/ player 1 actions C R
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C player 2 actions C R
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=5 2=-5
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=13 2=-13
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=13 2=-13
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:K/ player 1 actions C R
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C player 2 actions C R
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:C leaf payoffs 1=5 2=-5
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=13 2=-13
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R player 2 actions C F R
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=13 2=-13
+node /C:KJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:KJ/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:KJ/P1:R player 2 actions C F R
+node /C:KJ/P1:R/P2:C chance actions J=0.25 Q=0.5 K=0.25
+node /C:KJ/P1:R/P2:C/C:J/ player 1 actions C R
+node /C:KJ/P1:R/P2:C/C:J/P1:C player 2 actions C R
+node /C:KJ/P1:R/P2:C/C:J/P1:C/P2:C leaf payoffs 1=-3 2=3
+node /C:KJ/P1:R/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:KJ/P1:R/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=-7 2=7
+node /C:KJ/P1:R/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:KJ/P1:R/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KJ/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-11 2=11
+node /C:KJ/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:KJ/P1:R/P2:C/C:J/P1:R player 2 actions C F R
+node /C:KJ/P1:R/P2:C/C:J/P1:R/P2:C leaf payoffs 1=-7 2=7
+node /C:KJ/P1:R/P2:C/C:J/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:KJ/P1:R/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:KJ/P1:R/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=-11 2=11
+node /C:KJ/P1:R/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:KJ/P1:R/P2:C/C:Q/ player 1 actions C R
+node /C:KJ/P1:R/P2:C/C:Q/P1:C player 2 actions C R
+node /C:KJ/P1:R/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=3 2=-3
+node /C:KJ/P1:R/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:KJ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=7 2=-7
+node /C:KJ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:KJ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KJ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=11 2=-11
+node /C:KJ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:KJ/P1:R/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:KJ/P1:R/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=7 2=-7
+node /C:KJ/P1:R/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:KJ/P1:R/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:KJ/P1:R/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=11 2=-11
+node /C:KJ/P1:R/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:KJ/P1:R/P2:C/C:K/ player 1 actions C R
+node /C:KJ/P1:R/P2:C/C:K/P1:C player 2 actions C R
+node /C:KJ/P1:R/P2:C/C:K/P1:C/P2:C leaf payoffs 1=3 2=-3
+node /C:KJ/P1:R/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:KJ/P1:R/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=7 2=-7
+node /C:KJ/P1:R/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:KJ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KJ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=11 2=-11
+node /C:KJ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:KJ/P1:R/P2:C/C:K/P1:R player 2 actions C F R
+node /C:KJ/P1:R/P2:C/C:K/P1:R/P2:C leaf payoffs 1=7 2=-7
+node /C:KJ/P1:R/P2:C/C:K/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:KJ/P1:R/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:KJ/P1:R/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=11 2=-11
+node /C:KJ/P1:R/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:KJ/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:KJ/P1:R/P2:R player 1 actions C F
+node /C:KJ/P1:R/P2:R/P1:C chance actions J=0.25 Q=0.5 K=0.25
+node /C:KJ/P1:R/P2:R/P1:C/C:J/ player 1 actions C R
+node /C:KJ/P1:R/P2:R/P1:C/C:J/P1:C player 2 actions C R
+node /C:KJ/P1:R/P2:R/P1:C/C:J/P1:C/P2:C leaf payoffs 1=-5 2=5
+node /C:KJ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:KJ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:KJ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KJ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KJ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-13 2=13
+node /C:KJ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:KJ/P1:R/P2:R/P1:C/C:J/P1:R player 2 actions C F R
+node /C:KJ/P1:R/P2:R/P1:C/C:J/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:KJ/P1:R/P2:R/P1:C/C:J/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KJ/P1:R/P2:R/P1:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:KJ/P1:R/P2:R/P1:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=-13 2=13
+node /C:KJ/P1:R/P2:R/P1:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:KJ/P1:R/P2:R/P1:C/C:Q/ player 1 actions C R
+node /C:KJ/P1:R/P2:R/P1:C/C:Q/P1:C player 2 actions C R
+node /C:KJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:C leaf payoffs 1=5 2=-5
+node /C:KJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:KJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:KJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=13 2=-13
+node /C:KJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:KJ/P1:R/P2:R/P1:C/C:Q/P1:R player 2 actions C F R
+node /C:KJ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:KJ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KJ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:KJ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=13 2=-13
+node /C:KJ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:KJ/P1:R/P2:R/P1:C/C:K/ player 1 actions C R
+node /C:KJ/P1:R/P2:R/P1:C/C:K/P1:C player 2 actions C R
+node /C:KJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:C leaf payoffs 1=5 2=-5
+node /C:KJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:KJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:KJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=13 2=-13
+node /C:KJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:KJ/P1:R/P2:R/P1:C/C:K/P1:R player 2 actions C F R
+node /C:KJ/P1:R/P2:R/P1:C/C:K/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:KJ/P1:R/P2:R/P1:C/C:K/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KJ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:KJ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=13 2=-13
+node /C:KJ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:KJ/P1:R/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:KQ/ player 1 actions C R
+node /C:KQ/P1:C player 2 actions C R
+node /C:KQ/P1:C/P2:C chance actions J=0.5 Q=0.25 K=0.25
+node /C:KQ/P1:C/P2:C/C:J/ player 1 actions C R
+node /C:KQ/P1:C/P2:C/C:J/P1:C player 2 actions C R
+node /C:KQ/P1:C/P2:C/C:J/P1:C/P2:C leaf payoffs 1=1 2=-1
+node /C:KQ/P1:C/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:KQ/P1:C/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=5 2=-5
+node /C:KQ/P1:C/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:KQ/P1:C/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KQ/P1:C/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:KQ/P1:C/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KQ/P1:C/P2:C/C:J/P1:R player 2 actions C F R
+node /C:KQ/P1:C/P2:C/C:J/P1:R/P2:C leaf payoffs 1=5 2=-5
+node /C:KQ/P1:C/P2:C/C:J/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:KQ/P1:C/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:KQ/P1:C/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:KQ/P1:C/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KQ/P1:C/P2:C/C:Q/ player 1 actions C R
+node /C:KQ/P1:C/P2:C/C:Q/P1:C player 2 actions C R
+node /C:KQ/P1:C/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=-1 2=1
+node /C:KQ/P1:C/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:KQ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=-5 2=5
+node /C:KQ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:KQ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KQ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:KQ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KQ/P1:C/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:KQ/P1:C/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=-5 2=5
+node /C:KQ/P1:C/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:KQ/P1:C/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:KQ/P1:C/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:KQ/P1:C/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KQ/P1:C/P2:C/C:K/ player 1 actions C R
+node /C:KQ/P1:C/P2:C/C:K/P1:C player 2 actions C R
+node /C:KQ/P1:C/P2:C/C:K/P1:C/P2:C leaf payoffs 1=1 2=-1
+node /C:KQ/P1:C/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:KQ/P1:C/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=5 2=-5
+node /C:KQ/P1:C/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:KQ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KQ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:KQ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KQ/P1:C/P2:C/C:K/P1:R player 2 actions C F R
+node /C:KQ/P1:C/P2:C/C:K/P1:R/P2:C leaf payoffs 1=5 2=-5
+node /C:KQ/P1:C/P2:C/C:K/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:KQ/P1:C/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:KQ/P1:C/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:KQ/P1:C/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KQ/P1:C/P2:R player 1 actions C F R
+node /C:KQ/P1:C/P2:R/P1:C chance actions J=0.5 Q=0.25 K=0.25
+node /C:KQ/P1:C/P2:R/P1:C/C:J/ player 1 actions C R
+node /C:KQ/P1:C/P2:R/P1:C/C:J/P1:C player 2 actions C R
+node /C:KQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:C leaf payoffs 1=3 2=-3
+node /C:KQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:KQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=7 2=-7
+node /C:KQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:KQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=11 2=-11
+node /C:KQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:KQ/P1:C/P2:R/P1:C/C:J/P1:R player 2 actions C F R
+node /C:KQ/P1:C/P2:R/P1:C/C:J/P1:R/P2:C leaf payoffs 1=7 2=-7
+node /C:KQ/P1:C/P2:R/P1:C/C:J/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:KQ/P1:C/P2:R/P1:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:KQ/P1:C/P2:R/P1:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=11 2=-11
+node /C:KQ/P1:C/P2:R/P1:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:KQ/P1:C/P2:R/P1:C/C:Q/ player 1 actions C R
+node /C:KQ/P1:C/P2:R/P1:C/C:Q/P1:C player 2 actions C R
+node /C:KQ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:C leaf payoffs 1=-3 2=3
+node /C:KQ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:KQ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=-7 2=7
+node /C:KQ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:KQ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KQ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-11 2=11
+node /C:KQ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:KQ/P1:C/P2:R/P1:C/C:Q/P1:R player 2 actions C F R
+node /C:KQ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:C leaf payoffs 1=-7 2=7
+node /C:KQ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:KQ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:KQ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=-11 2=11
+node /C:KQ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:KQ/P1:C/P2:R/P1:C/C:K/ player 1 actions C R
+node /C:KQ/P1:C/P2:R/P1:C/C:K/P1:C player 2 actions C R
+node /C:KQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:C leaf payoffs 1=3 2=-3
+node /C:KQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:KQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=7 2=-7
+node /C:KQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:KQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=11 2=-11
+node /C:KQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:KQ/P1:C/P2:R/P1:C/C:K/P1:R player 2 actions C F R
+node /C:KQ/P1:C/P2:R/P1:C/C:K/P1:R/P2:C leaf payoffs 1=7 2=-7
+node /C:KQ/P1:C/P2:R/P1:C/C:K/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:KQ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:KQ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=11 2=-11
+node /C:KQ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:KQ/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:KQ/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KQ/P1:C/P2:R/P1:R/P2:C chance actions J=0.5 Q=0.25 K=0.25
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:J/ player 1 actions C R
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C player 2 actions C R
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:C leaf payoffs 1=5 2=-5
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=13 2=-13
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R player 2 actions C F R
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=13 2=-13
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:Q/ player 1 actions C R
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C player 2 actions C R
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=-5 2=5
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-13 2=13
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=-13 2=13
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:K/ player 1 actions C R
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C player 2 actions C R
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:C leaf payoffs 1=5 2=-5
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=13 2=-13
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R player 2 actions C F R
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=13 2=-13
+node /C:KQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:KQ/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:KQ/P1:R player 2 actions C F R
+node /C:KQ/P1:R/P2:C chance actions J=0.5 Q=0.25 K=0.25
+node /C:KQ/P1:R/P2:C/C:J/ player 1 actions C R
+node /C:KQ/P1:R/P2:C/C:J/P1:C player 2 actions C R
+node /C:KQ/P1:R/P2:C/C:J/P1:C/P2:C leaf payoffs 1=3 2=-3
+node /C:KQ/P1:R/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:KQ/P1:R/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=7 2=-7
+node /C:KQ/P1:R/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:KQ/P1:R/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KQ/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=11 2=-11
+node /C:KQ/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:KQ/P1:R/P2:C/C:J/P1:R player 2 actions C F R
+node /C:KQ/P1:R/P2:C/C:J/P1:R/P2:C leaf payoffs 1=7 2=-7
+node /C:KQ/P1:R/P2:C/C:J/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:KQ/P1:R/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:KQ/P1:R/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=11 2=-11
+node /C:KQ/P1:R/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:KQ/P1:R/P2:C/C:Q/ player 1 actions C R
+node /C:KQ/P1:R/P2:C/C:Q/P1:C player 2 actions C R
+node /C:KQ/P1:R/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=-3 2=3
+node /C:KQ/P1:R/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:KQ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=-7 2=7
+node /C:KQ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:KQ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KQ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-11 2=11
+node /C:KQ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:KQ/P1:R/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:KQ/P1:R/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=-7 2=7
+node /C:KQ/P1:R/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:KQ/P1:R/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:KQ/P1:R/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=-11 2=11
+node /C:KQ/P1:R/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:KQ/P1:R/P2:C/C:K/ player 1 actions C R
+node /C:KQ/P1:R/P2:C/C:K/P1:C player 2 actions C R
+node /C:KQ/P1:R/P2:C/C:K/P1:C/P2:C leaf payoffs 1=3 2=-3
+node /C:KQ/P1:R/P2:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:KQ/P1:R/P2:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=7 2=-7
+node /C:KQ/P1:R/P2:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:KQ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KQ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=11 2=-11
+node /C:KQ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:KQ/P1:R/P2:C/C:K/P1:R player 2 actions C F R
+node /C:KQ/P1:R/P2:C/C:K/P1:R/P2:C leaf payoffs 1=7 2=-7
+node /C:KQ/P1:R/P2:C/C:K/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:KQ/P1:R/P2:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:KQ/P1:R/P2:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=11 2=-11
+node /C:KQ/P1:R/P2:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:KQ/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:KQ/P1:R/P2:R player 1 actions C F
+node /C:KQ/P1:R/P2:R/P1:C chance actions J=0.5 Q=0.25 K=0.25
+node /C:KQ/P1:R/P2:R/P1:C/C:J/ player 1 actions C R
+node /C:KQ/P1:R/P2:R/P1:C/C:J/P1:C player 2 actions C R
+node /C:KQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:C leaf payoffs 1=5 2=-5
+node /C:KQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:KQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:KQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=13 2=-13
+node /C:KQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:KQ/P1:R/P2:R/P1:C/C:J/P1:R player 2 actions C F R
+node /C:KQ/P1:R/P2:R/P1:C/C:J/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:KQ/P1:R/P2:R/P1:C/C:J/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KQ/P1:R/P2:R/P1:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:KQ/P1:R/P2:R/P1:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=13 2=-13
+node /C:KQ/P1:R/P2:R/P1:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:KQ/P1:R/P2:R/P1:C/C:Q/ player 1 actions C R
+node /C:KQ/P1:R/P2:R/P1:C/C:Q/P1:C player 2 actions C R
+node /C:KQ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:C leaf payoffs 1=-5 2=5
+node /C:KQ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:KQ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=-9 2=9
+node /C:KQ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KQ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KQ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=-13 2=13
+node /C:KQ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:KQ/P1:R/P2:R/P1:C/C:Q/P1:R player 2 actions C F R
+node /C:KQ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:C leaf payoffs 1=-9 2=9
+node /C:KQ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KQ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:KQ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=-13 2=13
+node /C:KQ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:KQ/P1:R/P2:R/P1:C/C:K/ player 1 actions C R
+node /C:KQ/P1:R/P2:R/P1:C/C:K/P1:C player 2 actions C R
+node /C:KQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:C leaf payoffs 1=5 2=-5
+node /C:KQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R player 1 actions C F R
+node /C:KQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:C leaf payoffs 1=9 2=-9
+node /C:KQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=13 2=-13
+node /C:KQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:KQ/P1:R/P2:R/P1:C/C:K/P1:R player 2 actions C F R
+node /C:KQ/P1:R/P2:R/P1:C/C:K/P1:R/P2:C leaf payoffs 1=9 2=-9
+node /C:KQ/P1:R/P2:R/P1:C/C:K/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KQ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R player 1 actions C F
+node /C:KQ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R/P1:C leaf payoffs 1=13 2=-13
+node /C:KQ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:KQ/P1:R/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:KK/ player 1 actions C R
+node /C:KK/P1:C player 2 actions C R
+node /C:KK/P1:C/P2:C chance actions J=0.5 Q=0.5
+node /C:KK/P1:C/P2:C/C:J/ player 1 actions C R
+node /C:KK/P1:C/P2:C/C:J/P1:C player 2 actions C R
+node /C:KK/P1:C/P2:C/C:J/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:KK/P1:C/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:KK/P1:C/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KK/P1:C/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KK/P1:C/P2:C/C:J/P1:R player 2 actions C F R
+node /C:KK/P1:C/P2:C/C:J/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:C/C:J/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:KK/P1:C/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:KK/P1:C/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KK/P1:C/P2:C/C:Q/ player 1 actions C R
+node /C:KK/P1:C/P2:C/C:Q/P1:C player 2 actions C R
+node /C:KK/P1:C/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:KK/P1:C/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:KK/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KK/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KK/P1:C/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:KK/P1:C/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:KK/P1:C/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:KK/P1:C/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KK/P1:C/P2:R player 1 actions C F R
+node /C:KK/P1:C/P2:R/P1:C chance actions J=0.5 Q=0.5
+node /C:KK/P1:C/P2:R/P1:C/C:J/ player 1 actions C R
+node /C:KK/P1:C/P2:R/P1:C/C:J/P1:C player 2 actions C R
+node /C:KK/P1:C/P2:R/P1:C/C:J/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:KK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:KK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:KK/P1:C/P2:R/P1:C/C:J/P1:R player 2 actions C F R
+node /C:KK/P1:C/P2:R/P1:C/C:J/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:R/P1:C/C:J/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:KK/P1:C/P2:R/P1:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:KK/P1:C/P2:R/P1:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:R/P1:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:KK/P1:C/P2:R/P1:C/C:Q/ player 1 actions C R
+node /C:KK/P1:C/P2:R/P1:C/C:Q/P1:C player 2 actions C R
+node /C:KK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:KK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:KK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:KK/P1:C/P2:R/P1:C/C:Q/P1:R player 2 actions C F R
+node /C:KK/P1:C/P2:R/P1:C/C:Q/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:R/P1:C/C:Q/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:KK/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:KK/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:KK/P1:C/P2:R/P1:F leaf payoffs 1=-1 2=1
+node /C:KK/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KK/P1:C/P2:R/P1:R/P2:C chance actions J=0.5 Q=0.5
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:J/ player 1 actions C R
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C player 2 actions C R
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R player 2 actions C F R
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:Q/ player 1 actions C R
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C player 2 actions C R
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:KK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:KK/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:KK/P1:R player 2 actions C F R
+node /C:KK/P1:R/P2:C chance actions J=0.5 Q=0.5
+node /C:KK/P1:R/P2:C/C:J/ player 1 actions C R
+node /C:KK/P1:R/P2:C/C:J/P1:C player 2 actions C R
+node /C:KK/P1:R/P2:C/C:J/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:R/P2:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:KK/P1:R/P2:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:KK/P1:R/P2:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:KK/P1:R/P2:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KK/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:KK/P1:R/P2:C/C:J/P1:R player 2 actions C F R
+node /C:KK/P1:R/P2:C/C:J/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:R/P2:C/C:J/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:KK/P1:R/P2:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:KK/P1:R/P2:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:KK/P1:R/P2:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:KK/P1:R/P2:C/C:Q/ player 1 actions C R
+node /C:KK/P1:R/P2:C/C:Q/P1:C player 2 actions C R
+node /C:KK/P1:R/P2:C/C:Q/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:R/P2:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:KK/P1:R/P2:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:KK/P1:R/P2:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-3 2=3
+node /C:KK/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KK/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=7 2=-7
+node /C:KK/P1:R/P2:C/C:Q/P1:R player 2 actions C F R
+node /C:KK/P1:R/P2:C/C:Q/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:R/P2:C/C:Q/P1:R/P2:F leaf payoffs 1=3 2=-3
+node /C:KK/P1:R/P2:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:KK/P1:R/P2:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:KK/P1:R/P2:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-7 2=7
+node /C:KK/P1:R/P2:F leaf payoffs 1=1 2=-1
+node /C:KK/P1:R/P2:R player 1 actions C F
+node /C:KK/P1:R/P2:R/P1:C chance actions J=0.5 Q=0.5
+node /C:KK/P1:R/P2:R/P1:C/C:J/ player 1 actions C R
+node /C:KK/P1:R/P2:R/P1:C/C:J/P1:C player 2 actions C R
+node /C:KK/P1:R/P2:R/P1:C/C:J/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R player 1 actions C F R
+node /C:KK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:KK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:KK/P1:R/P2:R/P1:C/C:J/P1:R player 2 actions C F R
+node /C:KK/P1:R/P2:R/P1:C/C:J/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:R/P2:R/P1:C/C:J/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KK/P1:R/P2:R/P1:C/C:J/P1:R/P2:R player 1 actions C F
+node /C:KK/P1:R/P2:R/P1:C/C:J/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:KK/P1:R/P2:R/P1:C/C:J/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:KK/P1:R/P2:R/P1:C/C:Q/ player 1 actions C R
+node /C:KK/P1:R/P2:R/P1:C/C:Q/P1:C player 2 actions C R
+node /C:KK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R player 1 actions C F R
+node /C:KK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:KK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:F leaf payoffs 1=-5 2=5
+node /C:KK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R player 2 actions C F
+node /C:KK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/P2:F leaf payoffs 1=9 2=-9
+node /C:KK/P1:R/P2:R/P1:C/C:Q/P1:R player 2 actions C F R
+node /C:KK/P1:R/P2:R/P1:C/C:Q/P1:R/P2:C leaf payoffs 1=0 2=0
+node /C:KK/P1:R/P2:R/P1:C/C:Q/P1:R/P2:F leaf payoffs 1=5 2=-5
+node /C:KK/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R player 1 actions C F
+node /C:KK/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R/P1:C leaf payoffs 1=0 2=0
+node /C:KK/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R/P1:F leaf payoffs 1=-9 2=9
+node /C:KK/P1:R/P2:R/P1:F leaf payoffs 1=-3 2=3
+infoset /C:J?/ nodes /C:JJ/ /C:JQ/ /C:JK/
+infoset /C:J?/P1:C/P2:C/C:J/ nodes /C:JQ/P1:C/P2:C/C:J/ /C:JK/P1:C/P2:C/C:J/
+infoset /C:J?/P1:C/P2:C/C:J/P1:C/P2:R nodes /C:JQ/P1:C/P2:C/C:J/P1:C/P2:R /C:JK/P1:C/P2:C/C:J/P1:C/P2:R/
+infoset /C:J?/P1:C/P2:C/C:J/P1:R/P2:R nodes /C:JQ/P1:C/P2:C/C:J/P1:R/P2:R /C:JK/P1:C/P2:C/C:J/P1:R/P2:R/
+infoset /C:J?/P1:C/P2:C/C:K/ nodes /C:JJ/P1:C/P2:C/C:K/ /C:JQ/P1:C/P2:C/C:K/ /C:JK/P1:C/P2:C/C:K/
+infoset /C:J?/P1:C/P2:C/C:K/P1:C/P2:R nodes /C:JJ/P1:C/P2:C/C:K/P1:C/P2:R /C:JQ/P1:C/P2:C/C:K/P1:C/P2:R /C:JK/P1:C/P2:C/C:K/P1:C/P2:R/
+infoset /C:J?/P1:C/P2:C/C:K/P1:R/P2:R nodes /C:JJ/P1:C/P2:C/C:K/P1:R/P2:R /C:JQ/P1:C/P2:C/C:K/P1:R/P2:R /C:JK/P1:C/P2:C/C:K/P1:R/P2:R/
+infoset /C:J?/P1:C/P2:C/C:Q/ nodes /C:JJ/P1:C/P2:C/C:Q/ /C:JQ/P1:C/P2:C/C:Q/ /C:JK/P1:C/P2:C/C:Q/
+infoset /C:J?/P1:C/P2:C/C:Q/P1:C/P2:R nodes /C:JJ/P1:C/P2:C/C:Q/P1:C/P2:R /C:JQ/P1:C/P2:C/C:Q/P1:C/P2:R /C:JK/P1:C/P2:C/C:Q/P1:C/P2:R/
+infoset /C:J?/P1:C/P2:C/C:Q/P1:R/P2:R nodes /C:JJ/P1:C/P2:C/C:Q/P1:R/P2:R /C:JQ/P1:C/P2:C/C:Q/P1:R/P2:R /C:JK/P1:C/P2:C/C:Q/P1:R/P2:R/
+infoset /C:J?/P1:C/P2:R nodes /C:JJ/P1:C/P2:R /C:JQ/P1:C/P2:R /C:JK/P1:C/P2:R/
+infoset /C:J?/P1:C/P2:R/P1:C/C:J/ nodes /C:JQ/P1:C/P2:R/P1:C/C:J/ /C:JK/P1:C/P2:R/P1:C/C:J/
+infoset /C:J?/P1:C/P2:R/P1:C/C:J/P1:C/P2:R nodes /C:JQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R /C:JK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/
+infoset /C:J?/P1:C/P2:R/P1:C/C:J/P1:R/P2:R nodes /C:JQ/P1:C/P2:R/P1:C/C:J/P1:R/P2:R /C:JK/P1:C/P2:R/P1:C/C:J/P1:R/P2:R/
+infoset /C:J?/P1:C/P2:R/P1:C/C:K/ nodes /C:JJ/P1:C/P2:R/P1:C/C:K/ /C:JQ/P1:C/P2:R/P1:C/C:K/ /C:JK/P1:C/P2:R/P1:C/C:K/
+infoset /C:J?/P1:C/P2:R/P1:C/C:K/P1:C/P2:R nodes /C:JJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R /C:JQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R /C:JK/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/
+infoset /C:J?/P1:C/P2:R/P1:C/C:K/P1:R/P2:R nodes /C:JJ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R /C:JQ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R /C:JK/P1:C/P2:R/P1:C/C:K/P1:R/P2:R/
+infoset /C:J?/P1:C/P2:R/P1:C/C:Q/ nodes /C:JJ/P1:C/P2:R/P1:C/C:Q/ /C:JQ/P1:C/P2:R/P1:C/C:Q/ /C:JK/P1:C/P2:R/P1:C/C:Q/
+infoset /C:J?/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R nodes /C:JJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R /C:JQ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R /C:JK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/
+infoset /C:J?/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R nodes /C:JJ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R /C:JQ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R /C:JK/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R/
+infoset /C:J?/P1:C/P2:R/P1:R/P2:C/C:J/ nodes /C:JQ/P1:C/P2:R/P1:R/P2:C/C:J/ /C:JK/P1:C/P2:R/P1:R/P2:C/C:J/
+infoset /C:J?/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R nodes /C:JQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R /C:JK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/
+infoset /C:J?/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R nodes /C:JQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R /C:JK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R/
+infoset /C:J?/P1:C/P2:R/P1:R/P2:C/C:K/ nodes /C:JJ/P1:C/P2:R/P1:R/P2:C/C:K/ /C:JQ/P1:C/P2:R/P1:R/P2:C/C:K/ /C:JK/P1:C/P2:R/P1:R/P2:C/C:K/
+infoset /C:J?/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R nodes /C:JJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R /C:JQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R /C:JK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/
+infoset /C:J?/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R nodes /C:JJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R /C:JQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R /C:JK/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R/
+infoset /C:J?/P1:C/P2:R/P1:R/P2:C/C:Q/ nodes /C:JJ/P1:C/P2:R/P1:R/P2:C/C:Q/ /C:JQ/P1:C/P2:R/P1:R/P2:C/C:Q/ /C:JK/P1:C/P2:R/P1:R/P2:C/C:Q/
+infoset /C:J?/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R nodes /C:JJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R /C:JQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R /C:JK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/
+infoset /C:J?/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R nodes /C:JJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R /C:JQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R /C:JK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R/
+infoset /C:J?/P1:R/P2:C/C:J/ nodes /C:JQ/P1:R/P2:C/C:J/ /C:JK/P1:R/P2:C/C:J/
+infoset /C:J?/P1:R/P2:C/C:J/P1:C/P2:R nodes /C:JQ/P1:R/P2:C/C:J/P1:C/P2:R /C:JK/P1:R/P2:C/C:J/P1:C/P2:R/
+infoset /C:J?/P1:R/P2:C/C:J/P1:R/P2:R nodes /C:JQ/P1:R/P2:C/C:J/P1:R/P2:R /C:JK/P1:R/P2:C/C:J/P1:R/P2:R/
+infoset /C:J?/P1:R/P2:C/C:K/ nodes /C:JJ/P1:R/P2:C/C:K/ /C:JQ/P1:R/P2:C/C:K/ /C:JK/P1:R/P2:C/C:K/
+infoset /C:J?/P1:R/P2:C/C:K/P1:C/P2:R nodes /C:JJ/P1:R/P2:C/C:K/P1:C/P2:R /C:JQ/P1:R/P2:C/C:K/P1:C/P2:R /C:JK/P1:R/P2:C/C:K/P1:C/P2:R/
+infoset /C:J?/P1:R/P2:C/C:K/P1:R/P2:R nodes /C:JJ/P1:R/P2:C/C:K/P1:R/P2:R /C:JQ/P1:R/P2:C/C:K/P1:R/P2:R /C:JK/P1:R/P2:C/C:K/P1:R/P2:R/
+infoset /C:J?/P1:R/P2:C/C:Q/ nodes /C:JJ/P1:R/P2:C/C:Q/ /C:JQ/P1:R/P2:C/C:Q/ /C:JK/P1:R/P2:C/C:Q/
+infoset /C:J?/P1:R/P2:C/C:Q/P1:C/P2:R nodes /C:JJ/P1:R/P2:C/C:Q/P1:C/P2:R /C:JQ/P1:R/P2:C/C:Q/P1:C/P2:R /C:JK/P1:R/P2:C/C:Q/P1:C/P2:R/
+infoset /C:J?/P1:R/P2:C/C:Q/P1:R/P2:R nodes /C:JJ/P1:R/P2:C/C:Q/P1:R/P2:R /C:JQ/P1:R/P2:C/C:Q/P1:R/P2:R /C:JK/P1:R/P2:C/C:Q/P1:R/P2:R/
+infoset /C:J?/P1:R/P2:R nodes /C:JJ/P1:R/P2:R /C:JQ/P1:R/P2:R /C:JK/P1:R/P2:R/
+infoset /C:J?/P1:R/P2:R/P1:C/C:J/ nodes /C:JQ/P1:R/P2:R/P1:C/C:J/ /C:JK/P1:R/P2:R/P1:C/C:J/
+infoset /C:J?/P1:R/P2:R/P1:C/C:J/P1:C/P2:R nodes /C:JQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R /C:JK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/
+infoset /C:J?/P1:R/P2:R/P1:C/C:J/P1:R/P2:R nodes /C:JQ/P1:R/P2:R/P1:C/C:J/P1:R/P2:R /C:JK/P1:R/P2:R/P1:C/C:J/P1:R/P2:R/
+infoset /C:J?/P1:R/P2:R/P1:C/C:K/ nodes /C:JJ/P1:R/P2:R/P1:C/C:K/ /C:JQ/P1:R/P2:R/P1:C/C:K/ /C:JK/P1:R/P2:R/P1:C/C:K/
+infoset /C:J?/P1:R/P2:R/P1:C/C:K/P1:C/P2:R nodes /C:JJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R /C:JQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R /C:JK/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/
+infoset /C:J?/P1:R/P2:R/P1:C/C:K/P1:R/P2:R nodes /C:JJ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R /C:JQ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R /C:JK/P1:R/P2:R/P1:C/C:K/P1:R/P2:R/
+infoset /C:J?/P1:R/P2:R/P1:C/C:Q/ nodes /C:JJ/P1:R/P2:R/P1:C/C:Q/ /C:JQ/P1:R/P2:R/P1:C/C:Q/ /C:JK/P1:R/P2:R/P1:C/C:Q/
+infoset /C:J?/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R nodes /C:JJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R /C:JQ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R /C:JK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/
+infoset /C:J?/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R nodes /C:JJ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R /C:JQ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R /C:JK/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R/
+infoset /C:K?/ nodes /C:KJ/ /C:KQ/ /C:KK/
+infoset /C:K?/P1:C/P2:C/C:J/ nodes /C:KJ/P1:C/P2:C/C:J/ /C:KQ/P1:C/P2:C/C:J/ /C:KK/P1:C/P2:C/C:J/
+infoset /C:K?/P1:C/P2:C/C:J/P1:C/P2:R nodes /C:KJ/P1:C/P2:C/C:J/P1:C/P2:R /C:KQ/P1:C/P2:C/C:J/P1:C/P2:R /C:KK/P1:C/P2:C/C:J/P1:C/P2:R/
+infoset /C:K?/P1:C/P2:C/C:J/P1:R/P2:R nodes /C:KJ/P1:C/P2:C/C:J/P1:R/P2:R /C:KQ/P1:C/P2:C/C:J/P1:R/P2:R /C:KK/P1:C/P2:C/C:J/P1:R/P2:R/
+infoset /C:K?/P1:C/P2:C/C:K/ nodes /C:KJ/P1:C/P2:C/C:K/ /C:KQ/P1:C/P2:C/C:K/
+infoset /C:K?/P1:C/P2:C/C:K/P1:C/P2:R nodes /C:KJ/P1:C/P2:C/C:K/P1:C/P2:R /C:KQ/P1:C/P2:C/C:K/P1:C/P2:R/
+infoset /C:K?/P1:C/P2:C/C:K/P1:R/P2:R nodes /C:KJ/P1:C/P2:C/C:K/P1:R/P2:R /C:KQ/P1:C/P2:C/C:K/P1:R/P2:R/
+infoset /C:K?/P1:C/P2:C/C:Q/ nodes /C:KJ/P1:C/P2:C/C:Q/ /C:KQ/P1:C/P2:C/C:Q/ /C:KK/P1:C/P2:C/C:Q/
+infoset /C:K?/P1:C/P2:C/C:Q/P1:C/P2:R nodes /C:KJ/P1:C/P2:C/C:Q/P1:C/P2:R /C:KQ/P1:C/P2:C/C:Q/P1:C/P2:R /C:KK/P1:C/P2:C/C:Q/P1:C/P2:R/
+infoset /C:K?/P1:C/P2:C/C:Q/P1:R/P2:R nodes /C:KJ/P1:C/P2:C/C:Q/P1:R/P2:R /C:KQ/P1:C/P2:C/C:Q/P1:R/P2:R /C:KK/P1:C/P2:C/C:Q/P1:R/P2:R/
+infoset /C:K?/P1:C/P2:R nodes /C:KJ/P1:C/P2:R /C:KQ/P1:C/P2:R /C:KK/P1:C/P2:R/
+infoset /C:K?/P1:C/P2:R/P1:C/C:J/ nodes /C:KJ/P1:C/P2:R/P1:C/C:J/ /C:KQ/P1:C/P2:R/P1:C/C:J/ /C:KK/P1:C/P2:R/P1:C/C:J/
+infoset /C:K?/P1:C/P2:R/P1:C/C:J/P1:C/P2:R nodes /C:KJ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R /C:KQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R /C:KK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/
+infoset /C:K?/P1:C/P2:R/P1:C/C:J/P1:R/P2:R nodes /C:KJ/P1:C/P2:R/P1:C/C:J/P1:R/P2:R /C:KQ/P1:C/P2:R/P1:C/C:J/P1:R/P2:R /C:KK/P1:C/P2:R/P1:C/C:J/P1:R/P2:R/
+infoset /C:K?/P1:C/P2:R/P1:C/C:K/ nodes /C:KJ/P1:C/P2:R/P1:C/C:K/ /C:KQ/P1:C/P2:R/P1:C/C:K/
+infoset /C:K?/P1:C/P2:R/P1:C/C:K/P1:C/P2:R nodes /C:KJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R /C:KQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/
+infoset /C:K?/P1:C/P2:R/P1:C/C:K/P1:R/P2:R nodes /C:KJ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R /C:KQ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R/
+infoset /C:K?/P1:C/P2:R/P1:C/C:Q/ nodes /C:KJ/P1:C/P2:R/P1:C/C:Q/ /C:KQ/P1:C/P2:R/P1:C/C:Q/ /C:KK/P1:C/P2:R/P1:C/C:Q/
+infoset /C:K?/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R nodes /C:KJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R /C:KQ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R /C:KK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/
+infoset /C:K?/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R nodes /C:KJ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R /C:KQ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R /C:KK/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R/
+infoset /C:K?/P1:C/P2:R/P1:R/P2:C/C:J/ nodes /C:KJ/P1:C/P2:R/P1:R/P2:C/C:J/ /C:KQ/P1:C/P2:R/P1:R/P2:C/C:J/ /C:KK/P1:C/P2:R/P1:R/P2:C/C:J/
+infoset /C:K?/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R nodes /C:KJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R /C:KQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R /C:KK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/
+infoset /C:K?/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R nodes /C:KJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R /C:KQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R /C:KK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R/
+infoset /C:K?/P1:C/P2:R/P1:R/P2:C/C:K/ nodes /C:KJ/P1:C/P2:R/P1:R/P2:C/C:K/ /C:KQ/P1:C/P2:R/P1:R/P2:C/C:K/
+infoset /C:K?/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R nodes /C:KJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R /C:KQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/
+infoset /C:K?/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R nodes /C:KJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R /C:KQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R/
+infoset /C:K?/P1:C/P2:R/P1:R/P2:C/C:Q/ nodes /C:KJ/P1:C/P2:R/P1:R/P2:C/C:Q/ /C:KQ/P1:C/P2:R/P1:R/P2:C/C:Q/ /C:KK/P1:C/P2:R/P1:R/P2:C/C:Q/
+infoset /C:K?/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R nodes /C:KJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R /C:KQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R /C:KK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/
+infoset /C:K?/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R nodes /C:KJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R /C:KQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R /C:KK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R/
+infoset /C:K?/P1:R/P2:C/C:J/ nodes /C:KJ/P1:R/P2:C/C:J/ /C:KQ/P1:R/P2:C/C:J/ /C:KK/P1:R/P2:C/C:J/
+infoset /C:K?/P1:R/P2:C/C:J/P1:C/P2:R nodes /C:KJ/P1:R/P2:C/C:J/P1:C/P2:R /C:KQ/P1:R/P2:C/C:J/P1:C/P2:R /C:KK/P1:R/P2:C/C:J/P1:C/P2:R/
+infoset /C:K?/P1:R/P2:C/C:J/P1:R/P2:R nodes /C:KJ/P1:R/P2:C/C:J/P1:R/P2:R /C:KQ/P1:R/P2:C/C:J/P1:R/P2:R /C:KK/P1:R/P2:C/C:J/P1:R/P2:R/
+infoset /C:K?/P1:R/P2:C/C:K/ nodes /C:KJ/P1:R/P2:C/C:K/ /C:KQ/P1:R/P2:C/C:K/
+infoset /C:K?/P1:R/P2:C/C:K/P1:C/P2:R nodes /C:KJ/P1:R/P2:C/C:K/P1:C/P2:R /C:KQ/P1:R/P2:C/C:K/P1:C/P2:R/
+infoset /C:K?/P1:R/P2:C/C:K/P1:R/P2:R nodes /C:KJ/P1:R/P2:C/C:K/P1:R/P2:R /C:KQ/P1:R/P2:C/C:K/P1:R/P2:R/
+infoset /C:K?/P1:R/P2:C/C:Q/ nodes /C:KJ/P1:R/P2:C/C:Q/ /C:KQ/P1:R/P2:C/C:Q/ /C:KK/P1:R/P2:C/C:Q/
+infoset /C:K?/P1:R/P2:C/C:Q/P1:C/P2:R nodes /C:KJ/P1:R/P2:C/C:Q/P1:C/P2:R /C:KQ/P1:R/P2:C/C:Q/P1:C/P2:R /C:KK/P1:R/P2:C/C:Q/P1:C/P2:R/
+infoset /C:K?/P1:R/P2:C/C:Q/P1:R/P2:R nodes /C:KJ/P1:R/P2:C/C:Q/P1:R/P2:R /C:KQ/P1:R/P2:C/C:Q/P1:R/P2:R /C:KK/P1:R/P2:C/C:Q/P1:R/P2:R/
+infoset /C:K?/P1:R/P2:R nodes /C:KJ/P1:R/P2:R /C:KQ/P1:R/P2:R /C:KK/P1:R/P2:R/
+infoset /C:K?/P1:R/P2:R/P1:C/C:J/ nodes /C:KJ/P1:R/P2:R/P1:C/C:J/ /C:KQ/P1:R/P2:R/P1:C/C:J/ /C:KK/P1:R/P2:R/P1:C/C:J/
+infoset /C:K?/P1:R/P2:R/P1:C/C:J/P1:C/P2:R nodes /C:KJ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R /C:KQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R /C:KK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/
+infoset /C:K?/P1:R/P2:R/P1:C/C:J/P1:R/P2:R nodes /C:KJ/P1:R/P2:R/P1:C/C:J/P1:R/P2:R /C:KQ/P1:R/P2:R/P1:C/C:J/P1:R/P2:R /C:KK/P1:R/P2:R/P1:C/C:J/P1:R/P2:R/
+infoset /C:K?/P1:R/P2:R/P1:C/C:K/ nodes /C:KJ/P1:R/P2:R/P1:C/C:K/ /C:KQ/P1:R/P2:R/P1:C/C:K/
+infoset /C:K?/P1:R/P2:R/P1:C/C:K/P1:C/P2:R nodes /C:KJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R /C:KQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/
+infoset /C:K?/P1:R/P2:R/P1:C/C:K/P1:R/P2:R nodes /C:KJ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R /C:KQ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R/
+infoset /C:K?/P1:R/P2:R/P1:C/C:Q/ nodes /C:KJ/P1:R/P2:R/P1:C/C:Q/ /C:KQ/P1:R/P2:R/P1:C/C:Q/ /C:KK/P1:R/P2:R/P1:C/C:Q/
+infoset /C:K?/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R nodes /C:KJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R /C:KQ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R /C:KK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/
+infoset /C:K?/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R nodes /C:KJ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R /C:KQ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R /C:KK/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R/
+infoset /C:Q?/ nodes /C:QJ/ /C:QQ/ /C:QK/
+infoset /C:Q?/P1:C/P2:C/C:J/ nodes /C:QJ/P1:C/P2:C/C:J/ /C:QQ/P1:C/P2:C/C:J/ /C:QK/P1:C/P2:C/C:J/
+infoset /C:Q?/P1:C/P2:C/C:J/P1:C/P2:R nodes /C:QJ/P1:C/P2:C/C:J/P1:C/P2:R /C:QQ/P1:C/P2:C/C:J/P1:C/P2:R /C:QK/P1:C/P2:C/C:J/P1:C/P2:R/
+infoset /C:Q?/P1:C/P2:C/C:J/P1:R/P2:R nodes /C:QJ/P1:C/P2:C/C:J/P1:R/P2:R /C:QQ/P1:C/P2:C/C:J/P1:R/P2:R /C:QK/P1:C/P2:C/C:J/P1:R/P2:R/
+infoset /C:Q?/P1:C/P2:C/C:K/ nodes /C:QJ/P1:C/P2:C/C:K/ /C:QQ/P1:C/P2:C/C:K/ /C:QK/P1:C/P2:C/C:K/
+infoset /C:Q?/P1:C/P2:C/C:K/P1:C/P2:R nodes /C:QJ/P1:C/P2:C/C:K/P1:C/P2:R /C:QQ/P1:C/P2:C/C:K/P1:C/P2:R /C:QK/P1:C/P2:C/C:K/P1:C/P2:R/
+infoset /C:Q?/P1:C/P2:C/C:K/P1:R/P2:R nodes /C:QJ/P1:C/P2:C/C:K/P1:R/P2:R /C:QQ/P1:C/P2:C/C:K/P1:R/P2:R /C:QK/P1:C/P2:C/C:K/P1:R/P2:R/
+infoset /C:Q?/P1:C/P2:C/C:Q/ nodes /C:QJ/P1:C/P2:C/C:Q/ /C:QK/P1:C/P2:C/C:Q/
+infoset /C:Q?/P1:C/P2:C/C:Q/P1:C/P2:R nodes /C:QJ/P1:C/P2:C/C:Q/P1:C/P2:R /C:QK/P1:C/P2:C/C:Q/P1:C/P2:R/
+infoset /C:Q?/P1:C/P2:C/C:Q/P1:R/P2:R nodes /C:QJ/P1:C/P2:C/C:Q/P1:R/P2:R /C:QK/P1:C/P2:C/C:Q/P1:R/P2:R/
+infoset /C:Q?/P1:C/P2:R nodes /C:QJ/P1:C/P2:R /C:QQ/P1:C/P2:R /C:QK/P1:C/P2:R/
+infoset /C:Q?/P1:C/P2:R/P1:C/C:J/ nodes /C:QJ/P1:C/P2:R/P1:C/C:J/ /C:QQ/P1:C/P2:R/P1:C/C:J/ /C:QK/P1:C/P2:R/P1:C/C:J/
+infoset /C:Q?/P1:C/P2:R/P1:C/C:J/P1:C/P2:R nodes /C:QJ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R /C:QQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R /C:QK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/
+infoset /C:Q?/P1:C/P2:R/P1:C/C:J/P1:R/P2:R nodes /C:QJ/P1:C/P2:R/P1:C/C:J/P1:R/P2:R /C:QQ/P1:C/P2:R/P1:C/C:J/P1:R/P2:R /C:QK/P1:C/P2:R/P1:C/C:J/P1:R/P2:R/
+infoset /C:Q?/P1:C/P2:R/P1:C/C:K/ nodes /C:QJ/P1:C/P2:R/P1:C/C:K/ /C:QQ/P1:C/P2:R/P1:C/C:K/ /C:QK/P1:C/P2:R/P1:C/C:K/
+infoset /C:Q?/P1:C/P2:R/P1:C/C:K/P1:C/P2:R nodes /C:QJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R /C:QQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R /C:QK/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/
+infoset /C:Q?/P1:C/P2:R/P1:C/C:K/P1:R/P2:R nodes /C:QJ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R /C:QQ/P1:C/P2:R/P1:C/C:K/P1:R/P2:R /C:QK/P1:C/P2:R/P1:C/C:K/P1:R/P2:R/
+infoset /C:Q?/P1:C/P2:R/P1:C/C:Q/ nodes /C:QJ/P1:C/P2:R/P1:C/C:Q/ /C:QK/P1:C/P2:R/P1:C/C:Q/
+infoset /C:Q?/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R nodes /C:QJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R /C:QK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/
+infoset /C:Q?/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R nodes /C:QJ/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R /C:QK/P1:C/P2:R/P1:C/C:Q/P1:R/P2:R/
+infoset /C:Q?/P1:C/P2:R/P1:R/P2:C/C:J/ nodes /C:QJ/P1:C/P2:R/P1:R/P2:C/C:J/ /C:QQ/P1:C/P2:R/P1:R/P2:C/C:J/ /C:QK/P1:C/P2:R/P1:R/P2:C/C:J/
+infoset /C:Q?/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R nodes /C:QJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R /C:QQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R /C:QK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/
+infoset /C:Q?/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R nodes /C:QJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R /C:QQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R /C:QK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/P2:R/
+infoset /C:Q?/P1:C/P2:R/P1:R/P2:C/C:K/ nodes /C:QJ/P1:C/P2:R/P1:R/P2:C/C:K/ /C:QQ/P1:C/P2:R/P1:R/P2:C/C:K/ /C:QK/P1:C/P2:R/P1:R/P2:C/C:K/
+infoset /C:Q?/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R nodes /C:QJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R /C:QQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R /C:QK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/
+infoset /C:Q?/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R nodes /C:QJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R /C:QQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R /C:QK/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/P2:R/
+infoset /C:Q?/P1:C/P2:R/P1:R/P2:C/C:Q/ nodes /C:QJ/P1:C/P2:R/P1:R/P2:C/C:Q/ /C:QK/P1:C/P2:R/P1:R/P2:C/C:Q/
+infoset /C:Q?/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R nodes /C:QJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R /C:QK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/
+infoset /C:Q?/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R nodes /C:QJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R /C:QK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/P2:R/
+infoset /C:Q?/P1:R/P2:C/C:J/ nodes /C:QJ/P1:R/P2:C/C:J/ /C:QQ/P1:R/P2:C/C:J/ /C:QK/P1:R/P2:C/C:J/
+infoset /C:Q?/P1:R/P2:C/C:J/P1:C/P2:R nodes /C:QJ/P1:R/P2:C/C:J/P1:C/P2:R /C:QQ/P1:R/P2:C/C:J/P1:C/P2:R /C:QK/P1:R/P2:C/C:J/P1:C/P2:R/
+infoset /C:Q?/P1:R/P2:C/C:J/P1:R/P2:R nodes /C:QJ/P1:R/P2:C/C:J/P1:R/P2:R /C:QQ/P1:R/P2:C/C:J/P1:R/P2:R /C:QK/P1:R/P2:C/C:J/P1:R/P2:R/
+infoset /C:Q?/P1:R/P2:C/C:K/ nodes /C:QJ/P1:R/P2:C/C:K/ /C:QQ/P1:R/P2:C/C:K/ /C:QK/P1:R/P2:C/C:K/
+infoset /C:Q?/P1:R/P2:C/C:K/P1:C/P2:R nodes /C:QJ/P1:R/P2:C/C:K/P1:C/P2:R /C:QQ/P1:R/P2:C/C:K/P1:C/P2:R /C:QK/P1:R/P2:C/C:K/P1:C/P2:R/
+infoset /C:Q?/P1:R/P2:C/C:K/P1:R/P2:R nodes /C:QJ/P1:R/P2:C/C:K/P1:R/P2:R /C:QQ/P1:R/P2:C/C:K/P1:R/P2:R /C:QK/P1:R/P2:C/C:K/P1:R/P2:R/
+infoset /C:Q?/P1:R/P2:C/C:Q/ nodes /C:QJ/P1:R/P2:C/C:Q/ /C:QK/P1:R/P2:C/C:Q/
+infoset /C:Q?/P1:R/P2:C/C:Q/P1:C/P2:R nodes /C:QJ/P1:R/P2:C/C:Q/P1:C/P2:R /C:QK/P1:R/P2:C/C:Q/P1:C/P2:R/
+infoset /C:Q?/P1:R/P2:C/C:Q/P1:R/P2:R nodes /C:QJ/P1:R/P2:C/C:Q/P1:R/P2:R /C:QK/P1:R/P2:C/C:Q/P1:R/P2:R/
+infoset /C:Q?/P1:R/P2:R nodes /C:QJ/P1:R/P2:R /C:QQ/P1:R/P2:R /C:QK/P1:R/P2:R/
+infoset /C:Q?/P1:R/P2:R/P1:C/C:J/ nodes /C:QJ/P1:R/P2:R/P1:C/C:J/ /C:QQ/P1:R/P2:R/P1:C/C:J/ /C:QK/P1:R/P2:R/P1:C/C:J/
+infoset /C:Q?/P1:R/P2:R/P1:C/C:J/P1:C/P2:R nodes /C:QJ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R /C:QQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R /C:QK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/
+infoset /C:Q?/P1:R/P2:R/P1:C/C:J/P1:R/P2:R nodes /C:QJ/P1:R/P2:R/P1:C/C:J/P1:R/P2:R /C:QQ/P1:R/P2:R/P1:C/C:J/P1:R/P2:R /C:QK/P1:R/P2:R/P1:C/C:J/P1:R/P2:R/
+infoset /C:Q?/P1:R/P2:R/P1:C/C:K/ nodes /C:QJ/P1:R/P2:R/P1:C/C:K/ /C:QQ/P1:R/P2:R/P1:C/C:K/ /C:QK/P1:R/P2:R/P1:C/C:K/
+infoset /C:Q?/P1:R/P2:R/P1:C/C:K/P1:C/P2:R nodes /C:QJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R /C:QQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R /C:QK/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/
+infoset /C:Q?/P1:R/P2:R/P1:C/C:K/P1:R/P2:R nodes /C:QJ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R /C:QQ/P1:R/P2:R/P1:C/C:K/P1:R/P2:R /C:QK/P1:R/P2:R/P1:C/C:K/P1:R/P2:R/
+infoset /C:Q?/P1:R/P2:R/P1:C/C:Q/ nodes /C:QJ/P1:R/P2:R/P1:C/C:Q/ /C:QK/P1:R/P2:R/P1:C/C:Q/
+infoset /C:Q?/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R nodes /C:QJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R /C:QK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/
+infoset /C:Q?/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R nodes /C:QJ/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R /C:QK/P1:R/P2:R/P1:C/C:Q/P1:R/P2:R/
+infoset /C:?J/P1:C nodes /C:JJ/P1:C /C:QJ/P1:C /C:KJ/P1:C/
+infoset /C:?J/P1:C/P2:C/C:J/P1:C nodes /C:QJ/P1:C/P2:C/C:J/P1:C /C:KJ/P1:C/P2:C/C:J/P1:C/
+infoset /C:?J/P1:C/P2:C/C:J/P1:C/P2:R/P1:R nodes /C:QJ/P1:C/P2:C/C:J/P1:C/P2:R/P1:R /C:KJ/P1:C/P2:C/C:J/P1:C/P2:R/P1:R/
+infoset /C:?J/P1:C/P2:C/C:J/P1:R nodes /C:QJ/P1:C/P2:C/C:J/P1:R /C:KJ/P1:C/P2:C/C:J/P1:R/
+infoset /C:?J/P1:C/P2:C/C:K/P1:C nodes /C:JJ/P1:C/P2:C/C:K/P1:C /C:QJ/P1:C/P2:C/C:K/P1:C /C:KJ/P1:C/P2:C/C:K/P1:C/
+infoset /C:?J/P1:C/P2:C/C:K/P1:C/P2:R/P1:R nodes /C:JJ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R /C:QJ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R /C:KJ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R/
+infoset /C:?J/P1:C/P2:C/C:K/P1:R nodes /C:JJ/P1:C/P2:C/C:K/P1:R /C:QJ/P1:C/P2:C/C:K/P1:R /C:KJ/P1:C/P2:C/C:K/P1:R/
+infoset /C:?J/P1:C/P2:C/C:Q/P1:C nodes /C:JJ/P1:C/P2:C/C:Q/P1:C /C:QJ/P1:C/P2:C/C:Q/P1:C /C:KJ/P1:C/P2:C/C:Q/P1:C/
+infoset /C:?J/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R nodes /C:JJ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R /C:QJ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R /C:KJ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R/
+infoset /C:?J/P1:C/P2:C/C:Q/P1:R nodes /C:JJ/P1:C/P2:C/C:Q/P1:R /C:QJ/P1:C/P2:C/C:Q/P1:R /C:KJ/P1:C/P2:C/C:Q/P1:R/
+infoset /C:?J/P1:C/P2:R/P1:C/C:J/P1:C nodes /C:QJ/P1:C/P2:R/P1:C/C:J/P1:C /C:KJ/P1:C/P2:R/P1:C/C:J/P1:C/
+infoset /C:?J/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R nodes /C:QJ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R /C:KJ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/
+infoset /C:?J/P1:C/P2:R/P1:C/C:J/P1:R nodes /C:QJ/P1:C/P2:R/P1:C/C:J/P1:R /C:KJ/P1:C/P2:R/P1:C/C:J/P1:R/
+infoset /C:?J/P1:C/P2:R/P1:C/C:K/P1:C nodes /C:JJ/P1:C/P2:R/P1:C/C:K/P1:C /C:QJ/P1:C/P2:R/P1:C/C:K/P1:C /C:KJ/P1:C/P2:R/P1:C/C:K/P1:C/
+infoset /C:?J/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R nodes /C:JJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R /C:QJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R /C:KJ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/
+infoset /C:?J/P1:C/P2:R/P1:C/C:K/P1:R nodes /C:JJ/P1:C/P2:R/P1:C/C:K/P1:R /C:QJ/P1:C/P2:R/P1:C/C:K/P1:R /C:KJ/P1:C/P2:R/P1:C/C:K/P1:R/
+infoset /C:?J/P1:C/P2:R/P1:C/C:Q/P1:C nodes /C:JJ/P1:C/P2:R/P1:C/C:Q/P1:C /C:QJ/P1:C/P2:R/P1:C/C:Q/P1:C /C:KJ/P1:C/P2:R/P1:C/C:Q/P1:C/
+infoset /C:?J/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R nodes /C:JJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R /C:QJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R /C:KJ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/
+infoset /C:?J/P1:C/P2:R/P1:C/C:Q/P1:R nodes /C:JJ/P1:C/P2:R/P1:C/C:Q/P1:R /C:QJ/P1:C/P2:R/P1:C/C:Q/P1:R /C:KJ/P1:C/P2:R/P1:C/C:Q/P1:R/
+infoset /C:?J/P1:C/P2:R/P1:R nodes /C:JJ/P1:C/P2:R/P1:R /C:QJ/P1:C/P2:R/P1:R /C:KJ/P1:C/P2:R/P1:R/
+infoset /C:?J/P1:C/P2:R/P1:R/P2:C/C:J/P1:C nodes /C:QJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C /C:KJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/
+infoset /C:?J/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R nodes /C:QJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R /C:KJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/
+infoset /C:?J/P1:C/P2:R/P1:R/P2:C/C:J/P1:R nodes /C:QJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R /C:KJ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/
+infoset /C:?J/P1:C/P2:R/P1:R/P2:C/C:K/P1:C nodes /C:JJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C /C:QJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C /C:KJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/
+infoset /C:?J/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R nodes /C:JJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R /C:QJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R /C:KJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/
+infoset /C:?J/P1:C/P2:R/P1:R/P2:C/C:K/P1:R nodes /C:JJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R /C:QJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R /C:KJ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/
+infoset /C:?J/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C nodes /C:JJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C /C:QJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C /C:KJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/
+infoset /C:?J/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R nodes /C:JJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R /C:QJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R /C:KJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/
+infoset /C:?J/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R nodes /C:JJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R /C:QJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R /C:KJ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/
+infoset /C:?J/P1:R nodes /C:JJ/P1:R /C:QJ/P1:R /C:KJ/P1:R/
+infoset /C:?J/P1:R/P2:C/C:J/P1:C nodes /C:QJ/P1:R/P2:C/C:J/P1:C /C:KJ/P1:R/P2:C/C:J/P1:C/
+infoset /C:?J/P1:R/P2:C/C:J/P1:C/P2:R/P1:R nodes /C:QJ/P1:R/P2:C/C:J/P1:C/P2:R/P1:R /C:KJ/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/
+infoset /C:?J/P1:R/P2:C/C:J/P1:R nodes /C:QJ/P1:R/P2:C/C:J/P1:R /C:KJ/P1:R/P2:C/C:J/P1:R/
+infoset /C:?J/P1:R/P2:C/C:K/P1:C nodes /C:JJ/P1:R/P2:C/C:K/P1:C /C:QJ/P1:R/P2:C/C:K/P1:C /C:KJ/P1:R/P2:C/C:K/P1:C/
+infoset /C:?J/P1:R/P2:C/C:K/P1:C/P2:R/P1:R nodes /C:JJ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R /C:QJ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R /C:KJ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/
+infoset /C:?J/P1:R/P2:C/C:K/P1:R nodes /C:JJ/P1:R/P2:C/C:K/P1:R /C:QJ/P1:R/P2:C/C:K/P1:R /C:KJ/P1:R/P2:C/C:K/P1:R/
+infoset /C:?J/P1:R/P2:C/C:Q/P1:C nodes /C:JJ/P1:R/P2:C/C:Q/P1:C /C:QJ/P1:R/P2:C/C:Q/P1:C /C:KJ/P1:R/P2:C/C:Q/P1:C/
+infoset /C:?J/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R nodes /C:JJ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R /C:QJ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R /C:KJ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/
+infoset /C:?J/P1:R/P2:C/C:Q/P1:R nodes /C:JJ/P1:R/P2:C/C:Q/P1:R /C:QJ/P1:R/P2:C/C:Q/P1:R /C:KJ/P1:R/P2:C/C:Q/P1:R/
+infoset /C:?J/P1:R/P2:R/P1:C/C:J/P1:C nodes /C:QJ/P1:R/P2:R/P1:C/C:J/P1:C /C:KJ/P1:R/P2:R/P1:C/C:J/P1:C/
+infoset /C:?J/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R nodes /C:QJ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R /C:KJ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/
+infoset /C:?J/P1:R/P2:R/P1:C/C:J/P1:R nodes /C:QJ/P1:R/P2:R/P1:C/C:J/P1:R /C:KJ/P1:R/P2:R/P1:C/C:J/P1:R/
+infoset /C:?J/P1:R/P2:R/P1:C/C:K/P1:C nodes /C:JJ/P1:R/P2:R/P1:C/C:K/P1:C /C:QJ/P1:R/P2:R/P1:C/C:K/P1:C /C:KJ/P1:R/P2:R/P1:C/C:K/P1:C/
+infoset /C:?J/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R nodes /C:JJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R /C:QJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R /C:KJ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/
+infoset /C:?J/P1:R/P2:R/P1:C/C:K/P1:R nodes /C:JJ/P1:R/P2:R/P1:C/C:K/P1:R /C:QJ/P1:R/P2:R/P1:C/C:K/P1:R /C:KJ/P1:R/P2:R/P1:C/C:K/P1:R/
+infoset /C:?J/P1:R/P2:R/P1:C/C:Q/P1:C nodes /C:JJ/P1:R/P2:R/P1:C/C:Q/P1:C /C:QJ/P1:R/P2:R/P1:C/C:Q/P1:C /C:KJ/P1:R/P2:R/P1:C/C:Q/P1:C/
+infoset /C:?J/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R nodes /C:JJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R /C:QJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R /C:KJ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/
+infoset /C:?J/P1:R/P2:R/P1:C/C:Q/P1:R nodes /C:JJ/P1:R/P2:R/P1:C/C:Q/P1:R /C:QJ/P1:R/P2:R/P1:C/C:Q/P1:R /C:KJ/P1:R/P2:R/P1:C/C:Q/P1:R/
+infoset /C:?K/P1:C nodes /C:JK/P1:C /C:QK/P1:C /C:KK/P1:C/
+infoset /C:?K/P1:C/P2:C/C:J/P1:C nodes /C:JK/P1:C/P2:C/C:J/P1:C /C:QK/P1:C/P2:C/C:J/P1:C /C:KK/P1:C/P2:C/C:J/P1:C/
+infoset /C:?K/P1:C/P2:C/C:J/P1:C/P2:R/P1:R nodes /C:JK/P1:C/P2:C/C:J/P1:C/P2:R/P1:R /C:QK/P1:C/P2:C/C:J/P1:C/P2:R/P1:R /C:KK/P1:C/P2:C/C:J/P1:C/P2:R/P1:R/
+infoset /C:?K/P1:C/P2:C/C:J/P1:R nodes /C:JK/P1:C/P2:C/C:J/P1:R /C:QK/P1:C/P2:C/C:J/P1:R /C:KK/P1:C/P2:C/C:J/P1:R/
+infoset /C:?K/P1:C/P2:C/C:K/P1:C nodes /C:JK/P1:C/P2:C/C:K/P1:C /C:QK/P1:C/P2:C/C:K/P1:C/
+infoset /C:?K/P1:C/P2:C/C:K/P1:C/P2:R/P1:R nodes /C:JK/P1:C/P2:C/C:K/P1:C/P2:R/P1:R /C:QK/P1:C/P2:C/C:K/P1:C/P2:R/P1:R/
+infoset /C:?K/P1:C/P2:C/C:K/P1:R nodes /C:JK/P1:C/P2:C/C:K/P1:R /C:QK/P1:C/P2:C/C:K/P1:R/
+infoset /C:?K/P1:C/P2:C/C:Q/P1:C nodes /C:JK/P1:C/P2:C/C:Q/P1:C /C:QK/P1:C/P2:C/C:Q/P1:C /C:KK/P1:C/P2:C/C:Q/P1:C/
+infoset /C:?K/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R nodes /C:JK/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R /C:QK/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R /C:KK/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R/
+infoset /C:?K/P1:C/P2:C/C:Q/P1:R nodes /C:JK/P1:C/P2:C/C:Q/P1:R /C:QK/P1:C/P2:C/C:Q/P1:R /C:KK/P1:C/P2:C/C:Q/P1:R/
+infoset /C:?K/P1:C/P2:R/P1:C/C:J/P1:C nodes /C:JK/P1:C/P2:R/P1:C/C:J/P1:C /C:QK/P1:C/P2:R/P1:C/C:J/P1:C /C:KK/P1:C/P2:R/P1:C/C:J/P1:C/
+infoset /C:?K/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R nodes /C:JK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R /C:QK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R /C:KK/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/
+infoset /C:?K/P1:C/P2:R/P1:C/C:J/P1:R nodes /C:JK/P1:C/P2:R/P1:C/C:J/P1:R /C:QK/P1:C/P2:R/P1:C/C:J/P1:R /C:KK/P1:C/P2:R/P1:C/C:J/P1:R/
+infoset /C:?K/P1:C/P2:R/P1:C/C:K/P1:C nodes /C:JK/P1:C/P2:R/P1:C/C:K/P1:C /C:QK/P1:C/P2:R/P1:C/C:K/P1:C/
+infoset /C:?K/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R nodes /C:JK/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R /C:QK/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/
+infoset /C:?K/P1:C/P2:R/P1:C/C:K/P1:R nodes /C:JK/P1:C/P2:R/P1:C/C:K/P1:R /C:QK/P1:C/P2:R/P1:C/C:K/P1:R/
+infoset /C:?K/P1:C/P2:R/P1:C/C:Q/P1:C nodes /C:JK/P1:C/P2:R/P1:C/C:Q/P1:C /C:QK/P1:C/P2:R/P1:C/C:Q/P1:C /C:KK/P1:C/P2:R/P1:C/C:Q/P1:C/
+infoset /C:?K/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R nodes /C:JK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R /C:QK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R /C:KK/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/
+infoset /C:?K/P1:C/P2:R/P1:C/C:Q/P1:R nodes /C:JK/P1:C/P2:R/P1:C/C:Q/P1:R /C:QK/P1:C/P2:R/P1:C/C:Q/P1:R /C:KK/P1:C/P2:R/P1:C/C:Q/P1:R/
+infoset /C:?K/P1:C/P2:R/P1:R nodes /C:JK/P1:C/P2:R/P1:R /C:QK/P1:C/P2:R/P1:R /C:KK/P1:C/P2:R/P1:R/
+infoset /C:?K/P1:C/P2:R/P1:R/P2:C/C:J/P1:C nodes /C:JK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C /C:QK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C /C:KK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/
+infoset /C:?K/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R nodes /C:JK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R /C:QK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R /C:KK/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/
+infoset /C:?K/P1:C/P2:R/P1:R/P2:C/C:J/P1:R nodes /C:JK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R /C:QK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R /C:KK/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/
+infoset /C:?K/P1:C/P2:R/P1:R/P2:C/C:K/P1:C nodes /C:JK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C /C:QK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/
+infoset /C:?K/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R nodes /C:JK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R /C:QK/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/
+infoset /C:?K/P1:C/P2:R/P1:R/P2:C/C:K/P1:R nodes /C:JK/P1:C/P2:R/P1:R/P2:C/C:K/P1:R /C:QK/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/
+infoset /C:?K/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C nodes /C:JK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C /C:QK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C /C:KK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/
+infoset /C:?K/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R nodes /C:JK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R /C:QK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R /C:KK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/
+infoset /C:?K/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R nodes /C:JK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R /C:QK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R /C:KK/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/
+infoset /C:?K/P1:R nodes /C:JK/P1:R /C:QK/P1:R /C:KK/P1:R/
+infoset /C:?K/P1:R/P2:C/C:J/P1:C nodes /C:JK/P1:R/P2:C/C:J/P1:C /C:QK/P1:R/P2:C/C:J/P1:C /C:KK/P1:R/P2:C/C:J/P1:C/
+infoset /C:?K/P1:R/P2:C/C:J/P1:C/P2:R/P1:R nodes /C:JK/P1:R/P2:C/C:J/P1:C/P2:R/P1:R /C:QK/P1:R/P2:C/C:J/P1:C/P2:R/P1:R /C:KK/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/
+infoset /C:?K/P1:R/P2:C/C:J/P1:R nodes /C:JK/P1:R/P2:C/C:J/P1:R /C:QK/P1:R/P2:C/C:J/P1:R /C:KK/P1:R/P2:C/C:J/P1:R/
+infoset /C:?K/P1:R/P2:C/C:K/P1:C nodes /C:JK/P1:R/P2:C/C:K/P1:C /C:QK/P1:R/P2:C/C:K/P1:C/
+infoset /C:?K/P1:R/P2:C/C:K/P1:C/P2:R/P1:R nodes /C:JK/P1:R/P2:C/C:K/P1:C/P2:R/P1:R /C:QK/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/
+infoset /C:?K/P1:R/P2:C/C:K/P1:R nodes /C:JK/P1:R/P2:C/C:K/P1:R /C:QK/P1:R/P2:C/C:K/P1:R/
+infoset /C:?K/P1:R/P2:C/C:Q/P1:C nodes /C:JK/P1:R/P2:C/C:Q/P1:C /C:QK/P1:R/P2:C/C:Q/P1:C /C:KK/P1:R/P2:C/C:Q/P1:C/
+infoset /C:?K/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R nodes /C:JK/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R /C:QK/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R /C:KK/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/
+infoset /C:?K/P1:R/P2:C/C:Q/P1:R nodes /C:JK/P1:R/P2:C/C:Q/P1:R /C:QK/P1:R/P2:C/C:Q/P1:R /C:KK/P1:R/P2:C/C:Q/P1:R/
+infoset /C:?K/P1:R/P2:R/P1:C/C:J/P1:C nodes /C:JK/P1:R/P2:R/P1:C/C:J/P1:C /C:QK/P1:R/P2:R/P1:C/C:J/P1:C /C:KK/P1:R/P2:R/P1:C/C:J/P1:C/
+infoset /C:?K/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R nodes /C:JK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R /C:QK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R /C:KK/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/
+infoset /C:?K/P1:R/P2:R/P1:C/C:J/P1:R nodes /C:JK/P1:R/P2:R/P1:C/C:J/P1:R /C:QK/P1:R/P2:R/P1:C/C:J/P1:R /C:KK/P1:R/P2:R/P1:C/C:J/P1:R/
+infoset /C:?K/P1:R/P2:R/P1:C/C:K/P1:C nodes /C:JK/P1:R/P2:R/P1:C/C:K/P1:C /C:QK/P1:R/P2:R/P1:C/C:K/P1:C/
+infoset /C:?K/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R nodes /C:JK/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R /C:QK/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/
+infoset /C:?K/P1:R/P2:R/P1:C/C:K/P1:R nodes /C:JK/P1:R/P2:R/P1:C/C:K/P1:R /C:QK/P1:R/P2:R/P1:C/C:K/P1:R/
+infoset /C:?K/P1:R/P2:R/P1:C/C:Q/P1:C nodes /C:JK/P1:R/P2:R/P1:C/C:Q/P1:C /C:QK/P1:R/P2:R/P1:C/C:Q/P1:C /C:KK/P1:R/P2:R/P1:C/C:Q/P1:C/
+infoset /C:?K/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R nodes /C:JK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R /C:QK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R /C:KK/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/
+infoset /C:?K/P1:R/P2:R/P1:C/C:Q/P1:R nodes /C:JK/P1:R/P2:R/P1:C/C:Q/P1:R /C:QK/P1:R/P2:R/P1:C/C:Q/P1:R /C:KK/P1:R/P2:R/P1:C/C:Q/P1:R/
+infoset /C:?Q/P1:C nodes /C:JQ/P1:C /C:QQ/P1:C /C:KQ/P1:C/
+infoset /C:?Q/P1:C/P2:C/C:J/P1:C nodes /C:JQ/P1:C/P2:C/C:J/P1:C /C:QQ/P1:C/P2:C/C:J/P1:C /C:KQ/P1:C/P2:C/C:J/P1:C/
+infoset /C:?Q/P1:C/P2:C/C:J/P1:C/P2:R/P1:R nodes /C:JQ/P1:C/P2:C/C:J/P1:C/P2:R/P1:R /C:QQ/P1:C/P2:C/C:J/P1:C/P2:R/P1:R /C:KQ/P1:C/P2:C/C:J/P1:C/P2:R/P1:R/
+infoset /C:?Q/P1:C/P2:C/C:J/P1:R nodes /C:JQ/P1:C/P2:C/C:J/P1:R /C:QQ/P1:C/P2:C/C:J/P1:R /C:KQ/P1:C/P2:C/C:J/P1:R/
+infoset /C:?Q/P1:C/P2:C/C:K/P1:C nodes /C:JQ/P1:C/P2:C/C:K/P1:C /C:QQ/P1:C/P2:C/C:K/P1:C /C:KQ/P1:C/P2:C/C:K/P1:C/
+infoset /C:?Q/P1:C/P2:C/C:K/P1:C/P2:R/P1:R nodes /C:JQ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R /C:QQ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R /C:KQ/P1:C/P2:C/C:K/P1:C/P2:R/P1:R/
+infoset /C:?Q/P1:C/P2:C/C:K/P1:R nodes /C:JQ/P1:C/P2:C/C:K/P1:R /C:QQ/P1:C/P2:C/C:K/P1:R /C:KQ/P1:C/P2:C/C:K/P1:R/
+infoset /C:?Q/P1:C/P2:C/C:Q/P1:C nodes /C:JQ/P1:C/P2:C/C:Q/P1:C /C:KQ/P1:C/P2:C/C:Q/P1:C/
+infoset /C:?Q/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R nodes /C:JQ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R /C:KQ/P1:C/P2:C/C:Q/P1:C/P2:R/P1:R/
+infoset /C:?Q/P1:C/P2:C/C:Q/P1:R nodes /C:JQ/P1:C/P2:C/C:Q/P1:R /C:KQ/P1:C/P2:C/C:Q/P1:R/
+infoset /C:?Q/P1:C/P2:R/P1:C/C:J/P1:C nodes /C:JQ/P1:C/P2:R/P1:C/C:J/P1:C /C:QQ/P1:C/P2:R/P1:C/C:J/P1:C /C:KQ/P1:C/P2:R/P1:C/C:J/P1:C/
+infoset /C:?Q/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R nodes /C:JQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R /C:QQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R /C:KQ/P1:C/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/
+infoset /C:?Q/P1:C/P2:R/P1:C/C:J/P1:R nodes /C:JQ/P1:C/P2:R/P1:C/C:J/P1:R /C:QQ/P1:C/P2:R/P1:C/C:J/P1:R /C:KQ/P1:C/P2:R/P1:C/C:J/P1:R/
+infoset /C:?Q/P1:C/P2:R/P1:C/C:K/P1:C nodes /C:JQ/P1:C/P2:R/P1:C/C:K/P1:C /C:QQ/P1:C/P2:R/P1:C/C:K/P1:C /C:KQ/P1:C/P2:R/P1:C/C:K/P1:C/
+infoset /C:?Q/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R nodes /C:JQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R /C:QQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R /C:KQ/P1:C/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/
+infoset /C:?Q/P1:C/P2:R/P1:C/C:K/P1:R nodes /C:JQ/P1:C/P2:R/P1:C/C:K/P1:R /C:QQ/P1:C/P2:R/P1:C/C:K/P1:R /C:KQ/P1:C/P2:R/P1:C/C:K/P1:R/
+infoset /C:?Q/P1:C/P2:R/P1:C/C:Q/P1:C nodes /C:JQ/P1:C/P2:R/P1:C/C:Q/P1:C /C:KQ/P1:C/P2:R/P1:C/C:Q/P1:C/
+infoset /C:?Q/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R nodes /C:JQ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R /C:KQ/P1:C/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/
+infoset /C:?Q/P1:C/P2:R/P1:C/C:Q/P1:R nodes /C:JQ/P1:C/P2:R/P1:C/C:Q/P1:R /C:KQ/P1:C/P2:R/P1:C/C:Q/P1:R/
+infoset /C:?Q/P1:C/P2:R/P1:R nodes /C:JQ/P1:C/P2:R/P1:R /C:QQ/P1:C/P2:R/P1:R /C:KQ/P1:C/P2:R/P1:R/
+infoset /C:?Q/P1:C/P2:R/P1:R/P2:C/C:J/P1:C nodes /C:JQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C /C:QQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C /C:KQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/
+infoset /C:?Q/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R nodes /C:JQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R /C:QQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R /C:KQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/
+infoset /C:?Q/P1:C/P2:R/P1:R/P2:C/C:J/P1:R nodes /C:JQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R /C:QQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R /C:KQ/P1:C/P2:R/P1:R/P2:C/C:J/P1:R/
+infoset /C:?Q/P1:C/P2:R/P1:R/P2:C/C:K/P1:C nodes /C:JQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C /C:QQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C /C:KQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/
+infoset /C:?Q/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R nodes /C:JQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R /C:QQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R /C:KQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/
+infoset /C:?Q/P1:C/P2:R/P1:R/P2:C/C:K/P1:R nodes /C:JQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R /C:QQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R /C:KQ/P1:C/P2:R/P1:R/P2:C/C:K/P1:R/
+infoset /C:?Q/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C nodes /C:JQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C /C:KQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/
+infoset /C:?Q/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R nodes /C:JQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R /C:KQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/
+infoset /C:?Q/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R nodes /C:JQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R /C:KQ/P1:C/P2:R/P1:R/P2:C/C:Q/P1:R/
+infoset /C:?Q/P1:R nodes /C:JQ/P1:R /C:QQ/P1:R /C:KQ/P1:R/
+infoset /C:?Q/P1:R/P2:C/C:J/P1:C nodes /C:JQ/P1:R/P2:C/C:J/P1:C /C:QQ/P1:R/P2:C/C:J/P1:C /C:KQ/P1:R/P2:C/C:J/P1:C/
+infoset /C:?Q/P1:R/P2:C/C:J/P1:C/P2:R/P1:R nodes /C:JQ/P1:R/P2:C/C:J/P1:C/P2:R/P1:R /C:QQ/P1:R/P2:C/C:J/P1:C/P2:R/P1:R /C:KQ/P1:R/P2:C/C:J/P1:C/P2:R/P1:R/
+infoset /C:?Q/P1:R/P2:C/C:J/P1:R nodes /C:JQ/P1:R/P2:C/C:J/P1:R /C:QQ/P1:R/P2:C/C:J/P1:R /C:KQ/P1:R/P2:C/C:J/P1:R/
+infoset /C:?Q/P1:R/P2:C/C:K/P1:C nodes /C:JQ/P1:R/P2:C/C:K/P1:C /C:QQ/P1:R/P2:C/C:K/P1:C /C:KQ/P1:R/P2:C/C:K/P1:C/
+infoset /C:?Q/P1:R/P2:C/C:K/P1:C/P2:R/P1:R nodes /C:JQ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R /C:QQ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R /C:KQ/P1:R/P2:C/C:K/P1:C/P2:R/P1:R/
+infoset /C:?Q/P1:R/P2:C/C:K/P1:R nodes /C:JQ/P1:R/P2:C/C:K/P1:R /C:QQ/P1:R/P2:C/C:K/P1:R /C:KQ/P1:R/P2:C/C:K/P1:R/
+infoset /C:?Q/P1:R/P2:C/C:Q/P1:C nodes /C:JQ/P1:R/P2:C/C:Q/P1:C /C:KQ/P1:R/P2:C/C:Q/P1:C/
+infoset /C:?Q/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R nodes /C:JQ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R /C:KQ/P1:R/P2:C/C:Q/P1:C/P2:R/P1:R/
+infoset /C:?Q/P1:R/P2:C/C:Q/P1:R nodes /C:JQ/P1:R/P2:C/C:Q/P1:R /C:KQ/P1:R/P2:C/C:Q/P1:R/
+infoset /C:?Q/P1:R/P2:R/P1:C/C:J/P1:C nodes /C:JQ/P1:R/P2:R/P1:C/C:J/P1:C /C:QQ/P1:R/P2:R/P1:C/C:J/P1:C /C:KQ/P1:R/P2:R/P1:C/C:J/P1:C/
+infoset /C:?Q/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R nodes /C:JQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R /C:QQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R /C:KQ/P1:R/P2:R/P1:C/C:J/P1:C/P2:R/P1:R/
+infoset /C:?Q/P1:R/P2:R/P1:C/C:J/P1:R nodes /C:JQ/P1:R/P2:R/P1:C/C:J/P1:R /C:QQ/P1:R/P2:R/P1:C/C:J/P1:R /C:KQ/P1:R/P2:R/P1:C/C:J/P1:R/
+infoset /C:?Q/P1:R/P2:R/P1:C/C:K/P1:C nodes /C:JQ/P1:R/P2:R/P1:C/C:K/P1:C /C:QQ/P1:R/P2:R/P1:C/C:K/P1:C /C:KQ/P1:R/P2:R/P1:C/C:K/P1:C/
+infoset /C:?Q/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R nodes /C:JQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R /C:QQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R /C:KQ/P1:R/P2:R/P1:C/C:K/P1:C/P2:R/P1:R/
+infoset /C:?Q/P1:R/P2:R/P1:C/C:K/P1:R nodes /C:JQ/P1:R/P2:R/P1:C/C:K/P1:R /C:QQ/P1:R/P2:R/P1:C/C:K/P1:R /C:KQ/P1:R/P2:R/P1:C/C:K/P1:R/
+infoset /C:?Q/P1:R/P2:R/P1:C/C:Q/P1:C nodes /C:JQ/P1:R/P2:R/P1:C/C:Q/P1:C /C:KQ/P1:R/P2:R/P1:C/C:Q/P1:C/
+infoset /C:?Q/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R nodes /C:JQ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R /C:KQ/P1:R/P2:R/P1:C/C:Q/P1:C/P2:R/P1:R/
+infoset /C:?Q/P1:R/P2:R/P1:C/C:Q/P1:R nodes /C:JQ/P1:R/P2:R/P1:C/C:Q/P1:R /C:KQ/P1:R/P2:R/P1:C/C:Q/P1:R/

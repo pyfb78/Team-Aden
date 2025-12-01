@@ -1,0 +1,23 @@
+node / chance actions A=0.49 B=0.51
+node /C:A player 1 actions C D
+node /C:B player 1 actions C D
+node /C:A/P1:D leaf payoffs 1=1 2=0 3=0 4=0
+node /C:B/P1:D leaf payoffs 1=0 2=1 3=0 4=0
+node /C:A/P1:C player 2 actions C D
+node /C:B/P1:C player 2 actions C D
+node /C:A/P1:C/P2:D leaf payoffs 1=0 2=0 3=1 4=0
+node /C:B/P1:C/P2:D leaf payoffs 1=0 2=0 3=0 4=1
+node /C:A/P1:C/P2:C player 3 actions C D
+node /C:B/P1:C/P2:C player 3 actions C D
+node /C:A/P1:C/P2:C/P3:D leaf payoffs 1=0 2=0 3=-1 4=1
+node /C:B/P1:C/P2:C/P3:D leaf payoffs 1=0 2=0 3=1 4=-1
+node /C:A/P1:C/P2:C/P3:C player 4 actions C D
+node /C:B/P1:C/P2:C/P3:C player 4 actions C D
+node /C:A/P1:C/P2:C/P3:C/P4:C leaf payoffs 1=1 2=1 3=1 4=1
+node /C:A/P1:C/P2:C/P3:C/P4:D leaf payoffs 1=-1 2=1 3=0 4=0
+node /C:B/P1:C/P2:C/P3:C/P4:C leaf payoffs 1=1 2=-1 3=0 4=0
+node /C:B/P1:C/P2:C/P3:C/P4:D leaf payoffs 1=0 2=0 3=1 4=0
+infoset I1_P1 nodes /C:A /C:B
+infoset I2_P2 nodes /C:A/P1:C /C:B/P1:C
+infoset I3_P3 nodes /C:A/P1:C/P2:C /C:B/P1:C/P2:C
+infoset I4_P4 nodes /C:A/P1:C/P2:C/P3:C /C:B/P1:C/P2:C/P3:C
