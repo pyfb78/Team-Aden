@@ -12,6 +12,7 @@ from dataclasses import dataclass
 from typing import Dict, List, Tuple, Set
 import zipfile
 import io
+import os
 
 
 
@@ -1035,6 +1036,57 @@ def team_payoff_at_terminal(efg, terminal_hist: str, team_players: Set[int]) -> 
     return float(sum(pay.get(p, 0.0) for p in team_players))
 
 
+def compute_infoset_action_marginals_from_tmecor(rm) -> Dict[str, Dict[str, float]]:
+    """
+    Approximate p(a | infoset I) from the TMECor learned on the TB-DAG.
+    Returns: marg[I_name][a_char] where a_char in {'C','F','R'}.
+    """
+    xA_bar, _ = rm.average_reach()  # uses average policies at each active node
+
+    counts = defaultdict(float)  # (I_name, action) -> weighted count
+    totals = defaultdict(float)  # I_name -> total weight
+
+    for s in range(rm.nA):
+        node = rm.dag.active_nodes[s]
+        if node.is_terminal or not rm._act_keys[s]:
+            continue
+
+        reach_s = float(xA_bar[s])
+        if reach_s <= 0.0:
+            continue
+
+        pi_bar = rm.average_policy(s)  # probs over prescriptions at node s
+        keys = rm._act_keys[s]
+
+        for idx, pres in enumerate(keys):
+            prob_pres = reach_s * float(pi_bar[idx])
+            if prob_pres <= 0.0:
+                continue
+
+            # pres is a tuple of (infoset_name, action_char) pairs
+            for (I_name, a_char) in pres:
+                counts[(I_name, a_char)] += prob_pres
+                totals[I_name] += prob_pres
+
+    marg: Dict[str, Dict[str, float]] = {}
+    for I_name, tot in totals.items():
+        if tot <= 0.0:
+            continue
+        d: Dict[str, float] = {}
+        for a_char in ("C", "F", "R"):
+            c = counts.get((I_name, a_char), 0.0)
+            if c > 0.0:
+                d[a_char] = c / tot
+        # renormalize if needed
+        s = sum(d.values())
+        if s <= 0.0:
+            continue
+        for k in list(d.keys()):
+            d[k] /= s
+        marg[I_name] = d
+
+    return marg
+
 def run_two_team_dcfr(
     *,
     efg,
@@ -1083,10 +1135,133 @@ def run_two_team_dcfr(
             # u_coeff was your (team1 payoff * chance) diagonal term
             ev_team1_avg = float(np.dot(u_coeff, xbar * ybar))
 
-            print("EV avg13 vs avg24:", ev_team1_avg)
+            print(f"Team 1 EV on Iteration {t}:", ev_team1_avg)
 
 
     return rm1, rm2, terminal_hists, u_coeff
+
+def _read_infoset_file(path: str):
+    infosets = []
+    valids = []
+    with open(path, "r") as f:
+        for lineno, line in enumerate(f):
+            parts = line.strip().split()
+            if len(parts) != 3:
+                raise ValueError(f"{path}: line {lineno} does not have 3 parts: {line!r}")
+            idx_s, I_name, actions_s = parts
+            idx = int(idx_s)
+            if idx != lineno:
+                raise ValueError(f"{path}: expected idx {lineno} but saw {idx} on line {lineno}")
+            infosets.append(I_name)
+            valids.append(actions_s)
+    return infosets, valids
+
+
+def sample_pure_player_tensor(
+    infoset_path: str,
+    marg: Dict[str, Dict[str, float]],
+    rng: np.random.Generator,
+) -> np.ndarray:
+    """
+    For a single player, build an (n_infosets x 3) tensor of one-hot probabilities
+    for (C, F, R), sampling actions from marginals p(a|I).
+    """
+    infosets, valids = _read_infoset_file(infoset_path)
+    n_infosets = len(infosets)
+    tensor = np.zeros((n_infosets, 3), dtype=np.float64)
+
+    for i, (I_name, actions_s) in enumerate(zip(infosets, valids)):
+        dist = marg.get(I_name)
+
+        if not dist:
+            # Unseen / unreachable infoset in TMECor: fallback to uniform over valid actions
+            k = len(actions_s)
+            dist = {a: 1.0 / k for a in actions_s}
+
+        # turn into [p_C, p_F, p_R]
+        probs = np.array([
+            dist.get("C", 0.0),
+            dist.get("F", 0.0),
+            dist.get("R", 0.0),
+        ], dtype=np.float64)
+
+        # zero out invalid moves
+        if "C" not in actions_s:
+            probs[0] = 0.0
+        if "F" not in actions_s:
+            probs[1] = 0.0
+        if "R" not in actions_s:
+            probs[2] = 0.0
+
+        s = probs.sum()
+        if s <= 0.0:
+            # fallback uniform over valid actions
+            k = len(actions_s)
+            probs = np.array([
+                1.0 / k if "C" in actions_s else 0.0,
+                1.0 / k if "F" in actions_s else 0.0,
+                1.0 / k if "R" in actions_s else 0.0,
+            ], dtype=np.float64)
+        else:
+            probs /= s
+
+        # sample a *deterministic* action from probs
+        a_idx = int(rng.choice(3, p=probs))
+        row = np.zeros(3, dtype=np.float64)
+        row[a_idx] = 1.0
+
+        # safety: ensure chosen action is legal
+        if (a_idx == 0 and "C" not in actions_s) or \
+           (a_idx == 1 and "F" not in actions_s) or \
+           (a_idx == 2 and "R" not in actions_s):
+            raise RuntimeError(f"Sampled invalid action at infoset {I_name}, actions={actions_s}")
+
+        tensor[i] = row
+
+    return tensor
+
+def export_team_zip_from_tmecor(
+    team: str,                      # "13" or "24"
+    marg: Dict[str, Dict[str,float]],
+    infoset_dir: str,               # directory containing player_i_infosets.txt
+    L: int,
+    zip_path: str,
+    meta_probs: np.ndarray | None = None,
+    seed: int = 0,
+):
+    """
+    Build team{TEAM}.zip as specified in leduc.pdf from TMECor marginals.
+
+    For each j in 0..L-1, for each player in TEAM, we sample a pure
+    (uncorrelated) behavioral strategy and save it as strategy{j}-player{i}.npy.
+    """
+    assert team in ("13", "24")
+    players = [int(ch) for ch in team]
+
+    if meta_probs is None:
+        meta_probs = np.full(L, 1.0 / L, dtype=np.float64)
+    else:
+        assert len(meta_probs) == L
+        meta_probs = np.asarray(meta_probs, dtype=np.float64)
+        meta_probs = meta_probs / meta_probs.sum()
+
+    rng = np.random.default_rng(seed)
+
+    with zipfile.ZipFile(zip_path, "w") as zf:
+        # meta-strategy.csv
+        with zf.open("meta-strategy.csv", "w") as f:
+            for j in range(L):
+                p_j = float(meta_probs[j])
+                f.write(f"{j},{p_j}\n".encode("utf-8"))
+
+        # strategies strategy{j}-player{i}.npy
+        for j in range(L):
+            for player in players:
+                infoset_path = os.path.join(infoset_dir, f"player_{player}_infosets.txt")
+                tensor = sample_pure_player_tensor(infoset_path, marg, rng)
+                fname = f"strategy{j}-player{player}.npy"
+                with zf.open(fname, "w") as f:
+                    np.save(f, tensor)
 
 efg = LeducEFG()
 efg.parse_game_file("leduc_tree.txt")
@@ -1112,5 +1287,14 @@ rm13, rm24, terminal_hists, u_coeff = run_two_team_dcfr(
     config=cfg,
     log_every=1,
 )
+
+L = 100
+infoset_dir = "/Users/ekeomaosondu/Desktop/Team-Aden/leduc-infosets" 
+marg13 = compute_infoset_action_marginals_from_tmecor(rm13)
+marg24 = compute_infoset_action_marginals_from_tmecor(rm24)
+
+export_team_zip_from_tmecor("13", marg13, infoset_dir, L=L, zip_path="team13.zip")
+export_team_zip_from_tmecor("24", marg24, infoset_dir, L=L, zip_path="team24.zip")
+
 
 
