@@ -2,7 +2,7 @@
 Minimal EFG Parser for Leduc Poker
 Designed for TB-DAG construction with only essential fields
 """
-
+from __future__ import annotations
 from typing import Dict, List, Set, Optional, Tuple, FrozenSet
 from collections import defaultdict
 from dataclasses import dataclass, field
@@ -12,6 +12,14 @@ from dataclasses import dataclass
 from typing import Dict, List, Tuple, Set
 import zipfile
 import io
+
+
+
+from dataclasses import dataclass
+from typing import Dict, List, Tuple, Optional, Set
+from collections import deque
+
+import numpy as np
 
 ACTION_TO_COL = {"C": 0, "R": 2, "F": 1}
 COLS = ["C", "F", "R"]
@@ -697,23 +705,412 @@ def summarize_tbdag(dag: TeamBeliefDAG, max_active: int = 22, max_inactive: int 
 
     print("TB-DAG summary: OK")
 
+
+
+# Matches parser.py
+PrescriptionKey = Tuple[Tuple[str, str], ...]  # ((infoset_name, action), ...)
+
+
+@dataclass
+class TwoTeamDCFRConfig:
+    # Defaults consistent with the DCFR(1.5,0,2) variant referenced in the paper.
+    alpha: float = 1.5
+    beta: float = 0.0
+    gamma: float = 2.0
+    eps: float = 1e-12
+
+
+class DAGDCFRRegretMinimizer:
+    """
+    DCFR regret minimizer for a TB-DAG using Algorithm 2's:
+      - NEXTSTRATEGY: top-down reach computation + regret-matching at active nodes
+      - OBSERVEUTILITY: bottom-up u-backup + regret updates + parent utility propagation
+
+    TB-DAG interface assumptions from parser.py:
+      - dag.active_nodes[s].children: dict[prescription -> inactive_id]
+      - dag.inactive_nodes[o].children: list[active_id]
+      - dag.active_nodes[s].parents: set[inactive_id]
+      - dag.root_active_id: int
+      - dag.active_nodes[s].is_terminal and terminal_hist for singleton belief leaves
+    """
+
+    def __init__(self, dag, *, config: TwoTeamDCFRConfig = TwoTeamDCFRConfig()):
+        self.dag = dag
+        self.cfg = config
+
+        if dag.root_active_id is None:
+            raise ValueError("dag.root_active_id is None; did you call dag.build()?")
+
+        self.root: int = int(dag.root_active_id)
+        self.nA: int = len(dag.active_nodes)
+        self.nI: int = len(dag.inactive_nodes)
+
+        # Per-active-node actions (prescriptions) and child inactive ids in aligned order
+        self._act_keys: List[List[PrescriptionKey]] = []
+        self._act_child_inactive: List[np.ndarray] = []
+        for s in range(self.nA):
+            node = dag.active_nodes[s]
+            keys = list(node.children.keys())
+            self._act_keys.append(keys)
+            if keys:
+                self._act_child_inactive.append(
+                    np.array([node.children[k] for k in keys], dtype=np.int32)
+                )
+            else:
+                self._act_child_inactive.append(np.zeros((0,), dtype=np.int32))
+
+        # Cumulative regrets R[s][i]
+        self.R: List[np.ndarray] = [
+            np.zeros(len(self._act_keys[s]), dtype=np.float64) for s in range(self.nA)
+        ]
+
+        # Latest behavioral policy pi[s] (array over prescriptions at s)
+        self.pi: List[Optional[np.ndarray]] = [None for _ in range(self.nA)]
+
+        # Average strategy tracking (weighted by t^gamma)
+        self.avg_num: List[np.ndarray] = [
+            np.zeros(len(self._act_keys[s]), dtype=np.float64) for s in range(self.nA)
+        ]
+        self.avg_den: np.ndarray = np.zeros(self.nA, dtype=np.float64)
+
+        # Terminal bookkeeping (set via set_terminal_order)
+        self._terminal_hists: Optional[List[str]] = None
+        self._terminal_active_ids: Optional[np.ndarray] = None  # aligned to _terminal_hists
+
+        # Active-node topological orders (forward/backward)
+        self.active_topo: List[int] = self._compute_active_topological_order()
+        self.active_rev_topo: List[int] = list(reversed(self.active_topo))
+
+    def set_terminal_order(self, terminal_hists: List[str]) -> None:
+        """Fix a global leaf ordering so utilities/terminal reach use arrays."""
+        hist_to_active: Dict[str, int] = {}
+        for n in self.dag.active_nodes:
+            if n.is_terminal:
+                hist_to_active[n.terminal_hist] = n.id
+
+        ids = []
+        for h in terminal_hists:
+            if h not in hist_to_active:
+                raise ValueError(f"Terminal history {h} not found among dag terminal active nodes")
+            ids.append(hist_to_active[h])
+
+        self._terminal_hists = list(terminal_hists)
+        self._terminal_active_ids = np.array(ids, dtype=np.int32)
+
+    def _compute_active_topological_order(self) -> List[int]:
+        """
+        Build an active-node DAG where edges are:
+          active s -> active t iff exists inactive o in children(s) with t in children(o)
+        Then Kahn topological order on reachable subgraph from root.
+        """
+        succ: List[Set[int]] = [set() for _ in range(self.nA)]
+        for s, a_node in enumerate(self.dag.active_nodes):
+            for o in a_node.children.values():
+                for t in self.dag.inactive_nodes[o].children:
+                    succ[s].add(t)
+
+        # Reachable
+        reachable: Set[int] = set()
+        q = deque([self.root])
+        reachable.add(self.root)
+        while q:
+            v = q.popleft()
+            for w in succ[v]:
+                if w not in reachable:
+                    reachable.add(w)
+                    q.append(w)
+
+        indeg = {v: 0 for v in reachable}
+        for v in reachable:
+            for w in succ[v]:
+                if w in reachable:
+                    indeg[w] += 1
+
+        dq = deque([v for v, d in indeg.items() if d == 0])
+        order: List[int] = []
+        while dq:
+            v = dq.popleft()
+            order.append(v)
+            for w in succ[v]:
+                if w not in indeg:
+                    continue
+                indeg[w] -= 1
+                if indeg[w] == 0:
+                    dq.append(w)
+
+        if len(order) != len(reachable):
+            # Fallback (shouldn't happen for well-formed TB-DAGs)
+            return [self.root] + [v for v in range(self.nA) if v != self.root]
+
+        if order and order[0] != self.root and self.root in order:
+            order.remove(self.root)
+            order.insert(0, self.root)
+
+        return order
+
+    def _regret_matching(self, r: np.ndarray) -> np.ndarray:
+        pos = np.maximum(r, 0.0)
+        s = float(pos.sum())
+        if s <= self.cfg.eps:
+            return np.full_like(r, 1.0 / len(r), dtype=np.float64)
+        return pos / s
+
+    def next_strategy(self, t: int) -> Tuple[np.ndarray, np.ndarray]:
+        """
+        Algorithm 2: NEXTSTRATEGY top-down.
+        Returns (x_active, x_inactive). Also stores pi[s] and updates avg accumulators.
+        """
+        if t < 1:
+            raise ValueError("t must start at 1")
+
+        xA = np.zeros(self.nA, dtype=np.float64)
+        xO = np.zeros(self.nI, dtype=np.float64)
+        xA[self.root] = 1.0
+
+        w_avg = float(t ** self.cfg.gamma)
+
+        for s in self.active_topo:
+            if s != self.root:
+                parents = self.dag.active_nodes[s].parents
+                xA[s] = sum(xO[o] for o in parents) if parents else 0.0
+
+            node = self.dag.active_nodes[s]
+            if node.is_terminal or not self._act_keys[s]:
+                continue
+
+            pi = self._regret_matching(self.R[s])
+            self.pi[s] = pi
+
+            # x[sa] = x'[sa] * x[s] (Algorithm 2 line 12)
+            child_o = self._act_child_inactive[s]
+            np.add.at(xO, child_o, xA[s] * pi)
+
+            # avg policy accumulation: numerator += w * reach * pi, denom += w * reach
+            self.avg_den[s] += w_avg * xA[s]
+            self.avg_num[s] += w_avg * xA[s] * pi
+
+        return xA, xO
+
+    def average_strategy_profile(self) -> Dict[int, Tuple[List[PrescriptionKey], np.ndarray]]:
+        """
+        Returns {active_node_id: (prescription_keys, probs)} for nonterminal decision nodes.
+        probs aligns with prescription_keys and with dag.active_nodes[s].children iteration order used in __init__.
+        """
+        prof = {}
+        for s in range(self.nA):
+            if not self._act_keys[s]:
+                continue
+            node = self.dag.active_nodes[s]
+            if node.is_terminal:
+                continue
+            prof[s] = (self._act_keys[s], self.average_policy(s))
+        return prof
+
+
+    def average_reach(self) -> Tuple[np.ndarray, np.ndarray]:
+        """
+        Top-down reach computation using the AVERAGE policy at each active node.
+        Returns (x_active, x_inactive).
+        """
+        xA = np.zeros(self.nA, dtype=np.float64)
+        xO = np.zeros(self.nI, dtype=np.float64)
+        xA[self.root] = 1.0
+
+        for s in self.active_topo:
+            if s != self.root:
+                parents = self.dag.active_nodes[s].parents
+                xA[s] = sum(xO[o] for o in parents) if parents else 0.0
+
+            node = self.dag.active_nodes[s]
+            if node.is_terminal or not self._act_keys[s]:
+                continue
+
+            pi_bar = self.average_policy(s)
+            child_o = self._act_child_inactive[s]
+            np.add.at(xO, child_o, xA[s] * pi_bar)
+
+        return xA, xO
+
+
+    def average_terminal_reach(self) -> np.ndarray:
+        if self._terminal_active_ids is None:
+            raise RuntimeError("Call set_terminal_order(...) first")
+        xA, _ = self.average_reach()
+        return xA[self._terminal_active_ids]
+
+    def observe_utility(self, u_terminal: np.ndarray, t: int) -> None:
+        """
+        Algorithm 2: OBSERVEUTILITY bottom-up + DCFR discounting of cumulative regrets.
+        u_terminal aligned to set_terminal_order.
+        """
+        if self._terminal_active_ids is None:
+            raise RuntimeError("Call set_terminal_order(...) before observe_utility")
+        if len(u_terminal) != len(self._terminal_active_ids):
+            raise ValueError("u_terminal length mismatch with terminal order")
+
+        uA = np.zeros(self.nA, dtype=np.float64)
+        uO = np.zeros(self.nI, dtype=np.float64)
+        uA[self._terminal_active_ids] = u_terminal
+
+        # DCFR discount (applied before adding instantaneous regrets)
+        disc_base = float(t / (t + 1.0))
+        disc_pos = disc_base ** self.cfg.alpha
+        disc_neg = disc_base ** self.cfg.beta
+
+        for s in self.active_rev_topo:
+            node = self.dag.active_nodes[s]
+
+            if (not node.is_terminal) and self._act_keys[s]:
+                pi = self.pi[s]
+                if pi is None:
+                    pi = self._regret_matching(self.R[s])
+                    self.pi[s] = pi
+
+                child_o = self._act_child_inactive[s]
+                u_children = uO[child_o]
+
+                # u[s] += sum_{a'} u[sa'] * x'[sa'] (Algorithm 2 line 18)
+                uA[s] += float(np.dot(pi, u_children))
+
+                # R[sa] += u[sa] - u[s] (Algorithm 2 line 20), with DCFR discount first
+                r = self.R[s]
+                pos_mask = r > 0.0
+                r[pos_mask] *= disc_pos
+                r[~pos_mask] *= disc_neg
+                r += (u_children - uA[s])
+
+            # u[parent] += u[s] (Algorithm 2 lines 21-22)
+            for o in node.parents:
+                uO[o] += uA[s]
+
+    def terminal_reach(self, xA: np.ndarray) -> np.ndarray:
+        if self._terminal_active_ids is None:
+            raise RuntimeError("Call set_terminal_order(...) first")
+        return xA[self._terminal_active_ids]
+
+    def average_policy(self, s: int) -> np.ndarray:
+        if not self._act_keys[s]:
+            return np.zeros((0,), dtype=np.float64)
+        denom = float(self.avg_den[s])
+        if denom <= self.cfg.eps:
+            return np.full((len(self._act_keys[s]),), 1.0 / len(self._act_keys[s]), dtype=np.float64)
+        return self.avg_num[s] / denom
+
+
+def build_terminal_order_from_efg(efg) -> List[str]:
+    """Deterministic leaf ordering: sorted leaf paths."""
+    leaves = [p for p, n in efg.nodes.items() if getattr(n, "node_type", None) == "leaf"]
+    leaves.sort()
+    return leaves
+
+
+def chance_reach_prob(efg, terminal_hist: str) -> float:
+    """
+    Multiply chance probabilities along the path to terminal_hist.
+    Assumes parser.py path encoding where chance edges are '/C:<action>'.
+    """
+    if terminal_hist == "/":
+        return 1.0
+
+    segs = terminal_hist.strip("/").split("/")
+    cur = "/"
+    p = 1.0
+
+    for seg in segs:
+        node = efg.nodes[cur]
+        if getattr(node, "node_type", None) == "chance":
+            if not seg.startswith("C:"):
+                raise ValueError(f"Expected chance segment at {cur}, got {seg} in terminal {terminal_hist}")
+            a = seg[2:]
+            p *= float(node.chance_probs[a])
+
+        cur = ("/" + seg) if cur == "/" else (cur + "/" + seg)
+
+    return p
+
+
+def team_payoff_at_terminal(efg, terminal_hist: str, team_players: Set[int]) -> float:
+    node = efg.nodes[terminal_hist]
+    pay = getattr(node, "payoffs", {}) or {}
+    return float(sum(pay.get(p, 0.0) for p in team_players))
+
+
+def run_two_team_dcfr(
+    *,
+    efg,
+    dag_team1,
+    dag_team2,
+    team1_players: Set[int],
+    iterations: int,
+    config: TwoTeamDCFRConfig = TwoTeamDCFRConfig(),
+    log_every: int = 50,
+):
+    """
+    Two coupled DCFR minimizers:
+      x_{t+1} = NEXTSTRATEGY(R1),  y_{t+1} = NEXTSTRATEGY(R2)
+      Team1 observes u1[z] = (payoff_team1(z) * chance(z)) * y[z]
+      Team2 observes u2[z] = -(payoff_team1(z) * chance(z)) * x[z]
+
+    (This is the diagonal bilinear form x^T diag(u_coeff) y.)
+    """
+    terminal_hists = build_terminal_order_from_efg(efg)
+    Z = len(terminal_hists)
+
+    # Diagonal coefficients: payoff_team1(z) * chance(z)
+    u_coeff = np.zeros(Z, dtype=np.float64)
+    for i, h in enumerate(terminal_hists):
+        u_coeff[i] = team_payoff_at_terminal(efg, h, team1_players) * chance_reach_prob(efg, h)
+
+    rm1 = DAGDCFRRegretMinimizer(dag_team1, config=config)
+    rm2 = DAGDCFRRegretMinimizer(dag_team2, config=config)
+    rm1.set_terminal_order(terminal_hists)
+    rm2.set_terminal_order(terminal_hists)
+
+    for t in range(1, iterations + 1):
+        xA1, _ = rm1.next_strategy(t)
+        xA2, _ = rm2.next_strategy(t)
+
+        x_term = rm1.terminal_reach(xA1)
+        y_term = rm2.terminal_reach(xA2)
+
+        rm1.observe_utility(u_coeff * y_term, t)
+        rm2.observe_utility(-u_coeff * x_term, t)
+
+        if log_every and (t % log_every == 0 or t == 1 or t == iterations):
+            xbar = rm1.average_terminal_reach()
+            ybar = rm2.average_terminal_reach()
+
+            # u_coeff was your (team1 payoff * chance) diagonal term
+            ev_team1_avg = float(np.dot(u_coeff, xbar * ybar))
+
+            print("EV avg13 vs avg24:", ev_team1_avg)
+
+
+    return rm1, rm2, terminal_hists, u_coeff
+
 efg = LeducEFG()
 efg.parse_game_file("leduc_tree.txt")
 validate_efg(efg)
 
 conn13 = ConnectivityGraph(efg, {1, 3})
 print('Graph 1 Built')
-#conn24 = ConnectivityGraph(efg, {2, 4})
+conn24 = ConnectivityGraph(efg, {2, 4})
 print('Graph 2 Built')
 
 dag13 = TeamBeliefDAG(efg, conn13, {1, 3})
 print('DAG 1 Built')
-#dag24 = TeamBeliefDAG(efg, conn24, {2, 4})
+dag24 = TeamBeliefDAG(efg, conn24, {2, 4})
 print('DAG 2 Built')
 
-for i in range(10):
-    print(dag13.active_nodes[i])
-    print(dag13.inactive_nodes[i])
-
+cfg = TwoTeamDCFRConfig(alpha=1.5, beta=0.0, gamma=2.0)
+rm13, rm24, terminal_hists, u_coeff = run_two_team_dcfr(
+    efg=efg,
+    dag_team1=dag13,
+    dag_team2=dag24,
+    team1_players={1, 3},
+    iterations=2000,
+    config=cfg,
+    log_every=1,
+)
 
 
