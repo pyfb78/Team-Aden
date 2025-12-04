@@ -1140,6 +1140,355 @@ def run_two_team_dcfr(
 
     return rm1, rm2, terminal_hists, u_coeff
 
+
+# ============================================================
+# PSRO (Policy Space Response Oracles) on the TB-DAG bilinear game
+# ============================================================
+
+@dataclass(frozen=True)
+class DeterministicTeamPolicy:
+    """
+    A deterministic policy on the TB-DAG: for each active decision node s,
+    pick one prescription index into rm._act_keys[s].
+    """
+    picks: Dict[int, int]  # active_node_id -> idx in rm._act_keys[s]
+
+    def pick(self, s: int) -> Optional[int]:
+        return self.picks.get(s)
+
+
+def _rm_strategy_from_regrets(r: np.ndarray, eps: float = 1e-12) -> np.ndarray:
+    pos = np.maximum(r, 0.0)
+    s = float(pos.sum())
+    if s <= eps:
+        return np.full_like(r, 1.0 / len(r), dtype=np.float64)
+    return pos / s
+
+
+def solve_zero_sum_meta_game_regret_matching(
+    M: np.ndarray,
+    iters: int = 3000,
+    seed: int = 0,
+) -> Tuple[np.ndarray, np.ndarray]:
+    """
+    Approximate Nash equilibrium for a 2-player zero-sum matrix game with payoff M to player 1.
+    Returns (x, y) as average strategies over regret-matching iterations.
+    """
+    rng = np.random.default_rng(seed)
+    n1, n2 = M.shape
+    r1 = np.zeros(n1, dtype=np.float64)
+    r2 = np.zeros(n2, dtype=np.float64)
+
+    x = np.full(n1, 1.0 / n1, dtype=np.float64)
+    y = np.full(n2, 1.0 / n2, dtype=np.float64)
+
+    x_avg = np.zeros(n1, dtype=np.float64)
+    y_avg = np.zeros(n2, dtype=np.float64)
+
+    for t in range(1, iters + 1):
+        # current strategies from regrets
+        x = _rm_strategy_from_regrets(r1)
+        y = _rm_strategy_from_regrets(r2)
+
+        # payoffs of pure actions
+        u1_actions = M @ y                      # shape (n1,)
+        u1 = float(x @ u1_actions)
+
+        u2_actions = -(x @ M)                   # player2 payoff for each column action
+        u2 = float(y @ u2_actions)
+
+        # instantaneous regrets
+        r1 += (u1_actions - u1)
+        r2 += (u2_actions - u2)
+
+        # uniform averaging (could weight by t if desired)
+        x_avg += x
+        y_avg += y
+
+    x_avg /= float(iters)
+    y_avg /= float(iters)
+    x_avg /= x_avg.sum()
+    y_avg /= y_avg.sum()
+    return x_avg, y_avg
+
+
+def compute_reach_from_policy(
+    rm: "DAGDCFRRegretMinimizer",
+    pol: DeterministicTeamPolicy,
+) -> Tuple[np.ndarray, np.ndarray]:
+    """
+    Compute top-down reach (xA, xO) on the TB-DAG for a deterministic team policy.
+    This mirrors rm.next_strategy(), but uses `pol` instead of regret-matching.
+    """
+    xA = np.zeros(rm.nA, dtype=np.float64)
+    xO = np.zeros(rm.nI, dtype=np.float64)
+    xA[rm.root] = 1.0
+
+    for s in rm.active_topo:
+        if s != rm.root:
+            parents = rm.dag.active_nodes[s].parents
+            xA[s] = sum(xO[o] for o in parents) if parents else 0.0
+
+        node = rm.dag.active_nodes[s]
+        if node.is_terminal or not rm._act_keys[s]:
+            continue
+
+        idx = pol.picks.get(s)
+        if idx is None:
+            # fallback: choose first prescription
+            idx = 0
+
+        child_o = rm._act_child_inactive[s]
+        o = int(child_o[idx])
+        xO[o] += xA[s]
+
+    return xA, xO
+
+
+def terminal_reach_from_policy(rm: "DAGDCFRRegretMinimizer", pol: DeterministicTeamPolicy) -> np.ndarray:
+    if rm._terminal_active_ids is None:
+        raise RuntimeError("Call set_terminal_order(...) first")
+    xA, _ = compute_reach_from_policy(rm, pol)
+    return xA[rm._terminal_active_ids]
+
+
+def random_deterministic_policy(rm: "DAGDCFRRegretMinimizer", seed: int = 0) -> DeterministicTeamPolicy:
+    rng = np.random.default_rng(seed)
+    picks: Dict[int, int] = {}
+    for s in range(rm.nA):
+        if not rm._act_keys[s]:
+            continue
+        if rm.dag.active_nodes[s].is_terminal:
+            continue
+        picks[s] = int(rng.integers(0, len(rm._act_keys[s])))
+    return DeterministicTeamPolicy(picks=picks)
+
+
+def best_response_policy(
+    rm: "DAGDCFRRegretMinimizer",
+    u_terminal: np.ndarray,
+) -> DeterministicTeamPolicy:
+    """
+    Pure (deterministic) best response on the TB-DAG to a fixed terminal utility vector `u_terminal`.
+    This is the same bottom-up backup used in observe_utility(), but replacing expectation with max.
+    """
+    if rm._terminal_active_ids is None:
+        raise RuntimeError("Call set_terminal_order(...) first")
+    if len(u_terminal) != len(rm._terminal_active_ids):
+        raise ValueError("u_terminal length mismatch with terminal order")
+
+    uA = np.zeros(rm.nA, dtype=np.float64)
+    uO = np.zeros(rm.nI, dtype=np.float64)
+    uA[rm._terminal_active_ids] = u_terminal
+
+    picks: Dict[int, int] = {}
+
+    for s in reversed(rm.active_topo):
+        node = rm.dag.active_nodes[s]
+
+        if (not node.is_terminal) and rm._act_keys[s]:
+            child_o = rm._act_child_inactive[s]
+            u_children = uO[child_o]  # shape (num_prescriptions,)
+
+            # tie-break deterministically by argmax
+            idx = int(np.argmax(u_children))
+            picks[s] = idx
+            uA[s] += float(u_children[idx])
+
+        for o in node.parents:
+            uO[o] += uA[s]
+
+    return DeterministicTeamPolicy(picks=picks)
+
+
+def run_two_team_psro(
+    *,
+    efg,
+    dag_team1,
+    dag_team2,
+    team1_players: Set[int],
+    psro_iters: int = 10,
+    meta_iters: int = 3000,
+    seed: int = 0,
+    log_every: int = 1,
+    config: TwoTeamDCFRConfig = TwoTeamDCFRConfig(),  # only used to build rm objects
+) -> Tuple[
+    "DAGDCFRRegretMinimizer", "DAGDCFRRegretMinimizer",
+    List[DeterministicTeamPolicy], List[DeterministicTeamPolicy],
+    np.ndarray, np.ndarray,
+    List[str], np.ndarray, np.ndarray
+]:
+    """
+    PSRO loop using:
+      - policies as deterministic TB-DAG prescriptions,
+      - meta-solver = regret-matching on the empirical payoff matrix,
+      - oracle = deterministic best response by DP on the TB-DAG.
+
+    Returns:
+      rm1, rm2,
+      pop1, pop2,
+      meta_x, meta_y,
+      terminal_hists, u_coeff, M
+    """
+    terminal_hists = build_terminal_order_from_efg(efg)
+    Z = len(terminal_hists)
+
+    # Diagonal coefficients: payoff_team1(z) * chance(z)
+    u_coeff = np.zeros(Z, dtype=np.float64)
+    for i, h in enumerate(terminal_hists):
+        u_coeff[i] = team_payoff_at_terminal(efg, h, team1_players) * chance_reach_prob(efg, h)
+
+    rm1 = DAGDCFRRegretMinimizer(dag_team1, config=config)
+    rm2 = DAGDCFRRegretMinimizer(dag_team2, config=config)
+    rm1.set_terminal_order(terminal_hists)
+    rm2.set_terminal_order(terminal_hists)
+
+    # initial policies
+    pop1: List[DeterministicTeamPolicy] = [random_deterministic_policy(rm1, seed=seed)]
+    pop2: List[DeterministicTeamPolicy] = [random_deterministic_policy(rm2, seed=seed + 1)]
+
+    x_terms = [terminal_reach_from_policy(rm1, pop1[0])]
+    y_terms = [terminal_reach_from_policy(rm2, pop2[0])]
+
+    # payoff matrix M[i,j] = u_coeff · (x_i * y_j)
+    M = np.array([[float(np.dot(u_coeff, x_terms[0] * y_terms[0]))]], dtype=np.float64)
+
+    meta_x = np.array([1.0], dtype=np.float64)
+    meta_y = np.array([1.0], dtype=np.float64)
+
+    for it in range(1, psro_iters + 1):
+        meta_x, meta_y = solve_zero_sum_meta_game_regret_matching(M, iters=meta_iters, seed=seed + 103 * it)
+
+        x_mix = np.sum(np.stack(x_terms, axis=0) * meta_x[:, None], axis=0)
+        y_mix = np.sum(np.stack(y_terms, axis=0) * meta_y[:, None], axis=0)
+
+        meta_value = float(np.dot(u_coeff, x_mix * y_mix))
+
+        # Oracles: best response to the opponent mixture
+        br1 = best_response_policy(rm1, u_coeff * y_mix)
+        br2 = best_response_policy(rm2, (-u_coeff) * x_mix)
+
+        x_br = terminal_reach_from_policy(rm1, br1)
+        y_br = terminal_reach_from_policy(rm2, br2)
+
+        # Expand payoff matrix correctly: old M is (n1 x n2) before adding BRs
+        n1_old = len(pop1)
+        n2_old = len(pop2)
+
+        row = np.array([float(np.dot(u_coeff, x_br * y_terms[j])) for j in range(n2_old)], dtype=np.float64)
+        col = np.array([float(np.dot(u_coeff, x_terms[i] * y_br)) for i in range(n1_old)], dtype=np.float64)
+        corner = float(np.dot(u_coeff, x_br * y_br))
+
+        M_new = np.zeros((n1_old + 1, n2_old + 1), dtype=np.float64)
+        M_new[:n1_old, :n2_old] = M
+        M_new[n1_old, :n2_old] = row
+        M_new[:n1_old, n2_old] = col
+        M_new[n1_old, n2_old] = corner
+        M = M_new
+
+        pop1.append(br1)
+        pop2.append(br2)
+        x_terms.append(x_br)
+        y_terms.append(y_br)
+
+        if log_every and (it % log_every == 0 or it == 1 or it == psro_iters):
+            print(f"[psro] iter={it:03d}  meta_value≈{meta_value:.6f}  pop={len(pop1)}x{len(pop2)}")
+
+    # recompute final meta on final matrix
+    meta_x, meta_y = solve_zero_sum_meta_game_regret_matching(M, iters=meta_iters, seed=seed + 9999)
+    return rm1, rm2, pop1, pop2, meta_x, meta_y, terminal_hists, u_coeff, M
+
+
+def compute_infoset_action_marginals_from_policy(
+    rm: "DAGDCFRRegretMinimizer",
+    pol: DeterministicTeamPolicy,
+) -> Dict[str, Dict[str, float]]:
+    """
+    Project a deterministic TB-DAG team policy into per-infoset action marginals by
+    averaging over active-node reach (like compute_infoset_action_marginals_from_tmecor).
+    """
+    xA, _ = compute_reach_from_policy(rm, pol)
+
+    counts = defaultdict(float)  # (I_name, action) -> weighted count
+    totals = defaultdict(float)  # I_name -> total weight
+
+    for s in range(rm.nA):
+        node = rm.dag.active_nodes[s]
+        if node.is_terminal or not rm._act_keys[s]:
+            continue
+
+        reach_s = float(xA[s])
+        if reach_s <= 0.0:
+            continue
+
+        idx = pol.picks.get(s, 0)
+        pres_key = rm._act_keys[s][idx]
+        for (I_name, a_char) in pres_key:
+            counts[(I_name, a_char)] += reach_s
+            totals[I_name] += reach_s
+
+    marg: Dict[str, Dict[str, float]] = {}
+    for I_name, tot in totals.items():
+        if tot <= 0.0:
+            continue
+        d: Dict[str, float] = {}
+        for a_char in ("C", "F", "R"):
+            c = counts.get((I_name, a_char), 0.0)
+            if c > 0.0:
+                d[a_char] = c / tot
+        s = sum(d.values())
+        if s <= 0.0:
+            continue
+        for k in list(d.keys()):
+            d[k] /= s
+        marg[I_name] = d
+
+    return marg
+
+
+def export_team_zip_from_policies(
+    team: str,                      # "13" or "24"
+    rm: "DAGDCFRRegretMinimizer",
+    policies: List[DeterministicTeamPolicy],
+    meta_probs: np.ndarray,
+    infoset_dir: str,
+    zip_path: str,
+    seed: int = 0,
+):
+    """
+    Export a team zip where each strategy j is derived from the j-th TB-DAG team policy
+    by projecting to per-infoset marginals and sampling per-player pure strategies.
+
+    This preserves PSRO's meta distribution over the population size L=len(policies).
+    """
+    assert team in ("13", "24")
+    players = [int(ch) for ch in team]
+
+    L = len(policies)
+    meta_probs = np.asarray(meta_probs, dtype=np.float64)
+    if len(meta_probs) != L:
+        raise ValueError(f"meta_probs length {len(meta_probs)} must equal number of policies {L}")
+    meta_probs = meta_probs / meta_probs.sum()
+
+    rng = np.random.default_rng(seed)
+
+    with zipfile.ZipFile(zip_path, "w") as zf:
+        # meta-strategy.csv
+        with zf.open("meta-strategy.csv", "w") as f:
+            f.write(b"strategy,prob\n")
+            for j in range(L):
+                f.write(f"{j},{float(meta_probs[j])}\n".encode("utf-8"))
+
+        for j, pol in enumerate(policies):
+            marg = compute_infoset_action_marginals_from_policy(rm, pol)
+            for player in players:
+                infoset_path = os.path.join(infoset_dir, f"player_{player}_infosets.txt")
+                tensor = sample_pure_player_tensor(infoset_path, marg, rng)
+                fname = f"strategy{j}-player{player}.npy"
+                with zf.open(fname, "w") as f:
+                    np.save(f, tensor)
+
+
 def _read_infoset_file(path: str):
     infosets = []
     valids = []
@@ -1263,38 +1612,82 @@ def export_team_zip_from_tmecor(
                 with zf.open(fname, "w") as f:
                     np.save(f, tensor)
 
-efg = LeducEFG()
-efg.parse_game_file("leduc_tree.txt")
-validate_efg(efg)
-
-conn13 = ConnectivityGraph(efg, {1, 3})
-print('Graph 1 Built')
-conn24 = ConnectivityGraph(efg, {2, 4})
-print('Graph 2 Built')
-
-dag13 = TeamBeliefDAG(efg, conn13, {1, 3})
-print('DAG 1 Built')
-dag24 = TeamBeliefDAG(efg, conn24, {2, 4})
-print('DAG 2 Built')
-
-cfg = TwoTeamDCFRConfig(alpha=1.5, beta=0.0, gamma=2.0)
-rm13, rm24, terminal_hists, u_coeff = run_two_team_dcfr(
-    efg=efg,
-    dag_team1=dag13,
-    dag_team2=dag24,
-    team1_players={1, 3},
-    iterations=2000,
-    config=cfg,
-    log_every=1,
-)
-
-L = 100
-infoset_dir = "/Users/ekeomaosondu/Desktop/Team-Aden/leduc-infosets" 
-marg13 = compute_infoset_action_marginals_from_tmecor(rm13)
-marg24 = compute_infoset_action_marginals_from_tmecor(rm24)
-
-export_team_zip_from_tmecor("13", marg13, infoset_dir, L=L, zip_path="team13.zip")
-export_team_zip_from_tmecor("24", marg24, infoset_dir, L=L, zip_path="team24.zip")
 
 
+def main():
+    import argparse
 
+    ap = argparse.ArgumentParser(description="TB-DAG solvers (DCFR or PSRO) for 2-team games (e.g., team 13 vs 24).")
+    ap.add_argument("--game-file", type=str, default="leduc_tree.txt",
+                    help="Path to the EFG game file (e.g., leduc_tree.txt).")
+    ap.add_argument("--infoset-dir", type=str, default="leduc-infosets",
+                    help="Directory containing player_i_infosets.txt files.")
+    ap.add_argument("--algo", choices=["dcfr", "psro"], default="psro",
+                    help="Which solver to run. 'dcfr' replicates your current code; 'psro' runs policy-space response oracles.")
+    ap.add_argument("--dcfr-iters", type=int, default=2000)
+    ap.add_argument("--psro-iters", type=int, default=10)
+    ap.add_argument("--meta-iters", type=int, default=3000,
+                    help="Meta-solver iterations (regret matching) per PSRO step.")
+    ap.add_argument("--alpha", type=float, default=1.5)
+    ap.add_argument("--beta", type=float, default=0.0)
+    ap.add_argument("--gamma", type=float, default=2.0)
+    ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--out13", type=str, default="team13.zip")
+    ap.add_argument("--out24", type=str, default="team24.zip")
+    ap.add_argument("--log-every", type=int, default=1)
+
+    args = ap.parse_args()
+
+    efg = LeducEFG()
+    efg.parse_game_file(args.game_file)
+    validate_efg(efg)
+
+    conn13 = ConnectivityGraph(efg, {1, 3})
+    conn24 = ConnectivityGraph(efg, {2, 4})
+
+    dag13 = TeamBeliefDAG(efg, conn13, {1, 3})
+    dag24 = TeamBeliefDAG(efg, conn24, {2, 4})
+
+    cfg = TwoTeamDCFRConfig(alpha=args.alpha, beta=args.beta, gamma=args.gamma)
+
+    if args.algo == "dcfr":
+        rm13, rm24, terminal_hists, u_coeff = run_two_team_dcfr(
+            efg=efg,
+            dag_team1=dag13,
+            dag_team2=dag24,
+            team1_players={1, 3},
+            iterations=args.dcfr_iters,
+            config=cfg,
+            log_every=args.log_every,
+        )
+        marg13 = compute_infoset_action_marginals_from_tmecor(rm13)
+        marg24 = compute_infoset_action_marginals_from_tmecor(rm24)
+
+        # keep previous behavior: sample L strategies from marginals with uniform meta
+        L = 100
+        export_team_zip_from_tmecor("13", marg13, args.infoset_dir, L=L, zip_path=args.out13, seed=args.seed)
+        export_team_zip_from_tmecor("24", marg24, args.infoset_dir, L=L, zip_path=args.out24, seed=args.seed + 1)
+        print(f"[dcfr] wrote {args.out13} and {args.out24}")
+
+    else:
+        rm13, rm24, pop13, pop24, meta13, meta24, terminal_hists, u_coeff, M = run_two_team_psro(
+            efg=efg,
+            dag_team1=dag13,
+            dag_team2=dag24,
+            team1_players={1, 3},
+            psro_iters=args.psro_iters,
+            meta_iters=args.meta_iters,
+            seed=args.seed,
+            log_every=args.log_every,
+            config=cfg,
+        )
+
+        # Export each PSRO population policy as a separate strategy.
+        export_team_zip_from_policies("13", rm13, pop13, meta13, args.infoset_dir, args.out13, seed=args.seed)
+        export_team_zip_from_policies("24", rm24, pop24, meta24, args.infoset_dir, args.out24, seed=args.seed + 1)
+
+        print(f"[psro] wrote {args.out13} (L={len(pop13)}) and {args.out24} (L={len(pop24)})")
+
+
+if __name__ == "__main__":
+    main()
